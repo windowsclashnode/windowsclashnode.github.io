@@ -6,3 +6,5 @@
 .list {height: 350px;overflow-y: hidden;}
 .list .slogan {}
 .list .slogan h1 {font-size: 2rem;}
+
+#scrollspyAbout .item {margin-bottom: 2rem;}
