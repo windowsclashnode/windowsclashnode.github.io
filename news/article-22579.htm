@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-22579.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>字符串替换 — C语言【由特殊到一般，找规律，定公式】</title>
+        <meta name="description" content="题目： 本题要求编写程序，将给定字符串中的大写英文字母按以下对应规则替换：    原字母 对应字母     A Z   B Y   C X   D W   … …   X C   Y B   Z A " />
+        <link rel="icon" href="__ADDON__/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">字符串替换 — C语言【由特殊到一般，找规律，定公式】 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p><strong>题目：</strong></p> <p>本题要求编写程序，将给定字符串中的大写英文字母按以下对应规则替换：</p> <table> <thead> <tr> <th>原字母</th> <th>对应字母</th> </tr> </thead> <tbody> <tr> <td>A</td> <td>Z</td> </tr> <tr> <td>B</td> <td>Y</td> </tr> <tr> <td>C</td> <td>X</td> </tr> <tr> <td>D</td> <td>W</td> </tr> <tr> <td>…</td> <td>…</td> </tr> <tr> <td>X</td> <td>C</td> </tr> <tr> <td>Y</td> <td>B</td> </tr> <tr> <td>Z</td> <td>A</td> </tr> </tbody> </table> <p><strong>输入格式：</strong></p> <p>输入在一行中给出一个不超过80个字符、并以回车结束的字符串。</p> <p><strong>输出格式：</strong></p> <p>输出在一行中给出替换完成后的字符串。</p> <hr/> <p><strong>思路：</strong></p> <p>由题意可知，26个大写字母中，可以分为前13个（A-M）和后13个(N-Z)两组，第一组的字母由小到大，第二组的字母由大到小；通过举例，可以发现其中转化规律，如下图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="217" src="http://img.555519.xyz/uploads/20230202/5f057d2141ee1928cfc11853b046e678.jpg"></p> <p>可得，由小变大公式：rev='Z'-(ch-'A'); &nbsp; 由大变小公式：rev='A'+('Z'-ch);</p> <p>之后再研究发现，这两个公式是等价的，故选择其中一个公式即可满足题目要求，此时不需要再分为两组进行操作。</p> <hr/> <p><strong>代码：</strong></p> <pre><code>#include&lt;stdio.h&gt; int main(){     char ch;     while((ch=getchar())!='\n'){         if(ch&gt;='A'&amp;&amp;ch&lt;='Z'){             char rev;              rev='A'+('Z'-ch);             printf("%c",rev);                      }         else{                //非大写字母，原样输出             printf("%c",ch);         }             }     return 0; }</code></pre> <p><strong>结果：</strong></p> <p><img decoding="async" alt="" height="476" src="http://img.555519.xyz/uploads/20230202/5811aef742ec334b3bdf3269a375637d.jpg"></p> <p><img decoding="async" alt="" height="154" src="http://img.555519.xyz/uploads/20230202/8b60a5b845d9c99f8a4aee0bd4871b58.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="167" src="http://img.555519.xyz/uploads/20230202/906fc320e19c93d40f10a8d847cc3c65.jpg"></p> <hr/> <p>★觉得还不错的话，就点个赞吧☛</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22125.htm">SpringCloud Sleuth分布式链路跟踪</a></p>
+                                        <p>下一个：<a href="/news/article-22580.htm">国内知名宠物品牌（国内知名宠物品牌排行榜）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-free-v2ray.htm" title="「8月3日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「8月3日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-clash.htm" title="「10月23日」最高速度18M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「10月23日」最高速度18M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-23-free-v2ray-subscribe.htm" title="「6月23日」最高速度19.7M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「6月23日」最高速度19.7M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-clash-v2ray-ss-ssr.htm" title="「11月28日」最高速度22.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「11月28日」最高速度22.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-5-free-clash.htm" title="「8月5日」最高速度18.6M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接">「8月5日」最高速度18.6M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21208.htm" title="宠物领养证图片真实（宠物领养范本）">宠物领养证图片真实（宠物领养范本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-linux-clash-github.htm" title="「10月17日」最高速度21.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「10月17日」最高速度21.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-v2ray-subscribe.htm" title="「9月24日」最高速度20.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接">「9月24日」最高速度20.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-clash-subscribe.htm" title="「11月10日」最高速度19M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「11月10日」最高速度19M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-29-free-subscribe-node.htm" title="「6月29日」最高速度19.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「6月29日」最高速度19.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
