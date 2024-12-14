@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-24886.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Go 语言入门之net/url 包_Golang</title>
+        <meta name="description" content="目录  引言 URL 格式 Go url 包函数使用格式 如何使用 URL 包 在 Golang 中对查询字符串进行 URL 编码 在 Golang 中对多个查询参数进行 URL 编码 在 Golan" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Go 语言入门之net/url 包_Golang </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">引言</a></li> <li><a href="#_label1" rel="nofollow">URL 格式</a></li> <li><a href="#_label2" rel="nofollow">Go url 包函数使用格式</a></li> <li><a href="#_label3" rel="nofollow">如何使用 URL 包</a></li> <li><a href="#_label4" rel="nofollow">在 Golang 中对查询字符串进行 URL 编码</a></li> <li><a href="#_label5" rel="nofollow">在 Golang 中对多个查询参数进行 URL 编码</a></li> <li><a href="#_label6" rel="nofollow">在 Golang 中对路径段进行 URL 编码</a></li> <li><a href="#_label7" rel="nofollow">通过对各个部分进行编码来构建完整的 URL</a></li> <li><a href="#_label8" rel="nofollow">在 Golang 中解析 URL</a></li> <li><a href="#_label9" rel="nofollow">处理相对路径</a></li> <li><a href="#_label10" rel="nofollow">解析空格</a></li> <li><a href="#_label11" rel="nofollow">判断绝对地址</a></li> <li><a href="#_label12" rel="nofollow">解析端口</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>引言</h2> <p>在 Golang 中，将 URL 打包用于从服务器获取数据非常重要。只需了解您是否正在处理任何应用程序并且您想从任何外部位置或服务器获取此应用程序的数据，都需要我们可以使用 URL。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>URL 格式</h2> <p>URL 包含各种参数：例如 端口、URL 中的搜索字符串等。 URL 可以包含各种方法，允许它处理 URL 属性和进行修改，例如，如果我们有一个类似的 URL <code>www.exmple.com:3000</code> ，3000 是 URL 的端口，借助 <code>net/url</code> 中的封装函数我们可以访问端口号，同理，还可以检查 URL 格式是否有效。</p> <p><strong>先来看一下常见 URL 的格式：</strong></p> <blockquote> <p>&lt;schema&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;:&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</p> </blockquote> <ul> <li> <code>scheme</code> : 方案是如何访问指定资源的主要标识符，他会告诉负责解析 <code>URL</code> 应用程序应该使用什么协议；</li> <li> <code>user</code> ：用户名；</li> <li> <code>password</code> ：密码；</li> <li> <code>host</code> : 主机组件标识了因特网上能够访问资源的宿主机器，可以有主机名或者是 <code>IP</code> 地址来表示；</li> <li> <code>port</code> : 端口标识了服务器正在监听的网络端口。默认端口号是 80；</li> <li> <code>path</code> : <code>URL</code> 的路径组件说明了资源位于服务器的什么地方；</li> <li> <code>params</code> : <code>URL</code> 中通过协议参数来访问资源，比名值对列表，分号分割来进行访问；</li> <li> <code>query</code> : 字符串是通过提问问题或进行查询来缩小请求资源类的范围；</li> <li> <code>frag</code> : 为了引用部分资源或资源的一个片段，比如 <code>URL</code> 指定 <code>HTML</code> 文档中一个图片或一个小节；</li> </ul> <p><code>HTTP</code> 通常只处理整个对象，而不是对象的片段，客户端不能将片段传送给服务器。浏览器从服务器获取整个资源之后，会根据片段来显示你感兴趣的片段部分。</p> <p><strong>对应 Go 中 URL 的结构体：</strong></p> <div class="ay1code"> <pre class="brush:go;">type URL struct {      Scheme      string      Opaque      string    // encoded opaque data      User        *Userinfo // username and password information      Host        string    // host or host:port      Path        string    // path (relative paths may omit leading slash)      RawPath     string    // encoded path hint (see EscapedPath method)      ForceQuery  bool      // append a query ('?') even if RawQuery is empty      RawQuery    string    // encoded query values, without '?'      Fragment    string    // fragment for references, without '#'      RawFragment string    // encoded fragment hint (see EscapedFragment method)  }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>Go url 包函数使用格式</h2> <p>Go 的 <code>net/url</code> 提供了众多处理 URL 的内置函数，<strong>这些函数的使用格式如下：</strong></p> <blockquote> <p>URL, error := url.inbuilt-function-name("url")</p> </blockquote> <ul> <li> <strong>URL：</strong>这包含 URL 名称和 URL 的一些基本细节。我们可以给它起任何名字。它就像任何变量一样。</li> <li> <strong>error: </strong>这是 error 部分，以防 URL 错误或出现任何异常，在这种情况下 URL 将返回错误，并且该 error 将在 error 部分中捕获。</li> <li> <strong>inbuilt-function-name：</strong>正如我们所讨论的，URL 包中有许多函数可以处理 URL，例如 <code>Parse</code>、<code>Path</code>、<code>Rawpath</code>、<code>string()</code> 所有这些函数我们可以用于不同的目的。</li> </ul> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>如何使用 URL 包</h2> <p>在了解 <code>url</code> 包的工作原理之前我们需要了解基本的使用。当我们点击任何 <code>url</code> 时，它可以包含许多属性，比如它可以有一些端口、它可以有一些搜索、它可以有一些路径等，所以我们使用 URL 来操作和处理所有这些东西。让我们了解一下 go 语言中 <code>URL</code> 包 的工作原理。</p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "log"  "net/url"  )  func TestURL() {  URL, err := url.Parse("https://www.baidu.com/s?wd=golang")  fmt.Println("Url before modification is", URL)  if err != nil {  log.Fatal("An error occurs while handling url", err)  }  URL.Scheme = "https"  URL.Host = "bing.com"  query := URL.Query()  query.Set("q", "go")  URL.RawQuery = query.Encode()  fmt.Println("The url after modification is", URL)  }  func main() {  TestURL()  }</pre> </div> <p><strong>运行结果：</strong></p> <blockquote> <p>$ go run main.go<br />Url before modification is https://www.baidu.com/s?wd=golang<br />The url after modification is https://bing.com/s?q=go&amp;wd=golang</p> </blockquote> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>在 Golang 中对查询字符串进行 URL 编码</h2> <p>Go 的 <code>net/url</code> 包包含一个名为 <code>QueryEscape</code> 的内置方法，用于对字符串进行转义/编码，以便可以安全地将其放置在 URL 查询中。以下示例演示了如何在 Golang 中对查询字符串进行编码:</p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "net/url"  )  func main() {  query := "Hello World"  fmt.Println(url.QueryEscape(query))  }</pre> </div> <p><strong>运行结果：</strong></p> <blockquote> <p>$ go run main.go<br />Hello+World</p> </blockquote> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>在 Golang 中对多个查询参数进行 URL 编码</h2> <p>如果您想一次编码多个查询参数，那么您可以创建一个 <code>url.Values</code> 结构，其中包含查询参数到值的映射，并使用 <code>url.Values.Encode()</code> 方法对所有查询参数进行编码。</p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "net/url"  )  func main() {  params := url.Values{}  params.Add("name", "@Wade")  params.Add("phone", "+111111111111")  fmt.Println(params.Encode())  }</pre> </div> <p><strong>运行代码：</strong></p> <blockquote> <p>$ go run main.go<br />name=%40Wade&amp;phone=%2B111111111111</p> </blockquote> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>在 Golang 中对路径段进行 URL 编码</h2> <p>就像 <code>QueryEscape</code> 一样，Go 中的 <code>net/url</code> 包有另一个名为 <code>PathEscape()</code> 的函数来对字符串进行编码，以便它可以安全地放置在 URL 的路径段中:</p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "net/url"  )  func main() {  path := "path with?reserved+characters"  fmt.Println(url.PathEscape(path))  }</pre> </div> <p><strong>运行结果：</strong></p> <blockquote> <p>$ go run main.go<br />path%20with%3Freserved+characters</p> </blockquote> <p class="maodian"><a name="_label7" rel="nofollow"></a></p> <h2>通过对各个部分进行编码来构建完整的 URL</h2> <p>最后，我们来看一个完整的 Golang 中 URL 解析和 URL 编码的例子：</p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "net/url"  )  func main() {  // Let's start with a base url  baseUrl, err := url.Parse("http://www.bing.com")  if err != nil {  fmt.Println("Malformed URL: ", err.Error())  return  }  // Add a Path Segment (Path segment is automatically escaped)  baseUrl.Path += "path with?reserved characters"  // Prepare Query Parameters  params := url.Values{}  params.Add("q", "Hello World")  params.Add("u", "@wade")  // Add Query Parameters to the URL  baseUrl.RawQuery = params.Encode() // Escape Query Parameters  fmt.Printf("Encoded URL is %q\n", baseUrl.String())  }</pre> </div> <p><strong>运行代码：</strong></p> <blockquote> <p>$ go run main.go<br />Encoded URL is "http://www.bing.com/path%20with%3Freserved%20characters?q=Hello+World&amp;u=%40wade"</p> </blockquote> <p class="maodian"><a name="_label8" rel="nofollow"></a></p> <h2>在 Golang 中解析 URL</h2> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "log"  "net/url"  )  func TestURL() {  URL, err := url.Parse("http://bing.com/good%2bad")  fmt.Println("Url before modification is", URL)  if err != nil {  log.Fatal("An error occurs while handling url", err)  }  fmt.Println("The URL path is", URL.Path)  fmt.Println("The URL raw path is", URL.RawPath)  fmt.Println("The URL is ", URL.String())  }  func main() {  TestURL()  }</pre> </div> <p><strong>运行代码：</strong></p> <blockquote> <p>$ go run main.go<br />Url before modification is http://bing.com/good%2bad<br />The URL path is /good+ad<br />The URL raw path is /good%2bad<br />The URL is http://bing.com/good%2bad</p> </blockquote> <p class="maodian"><a name="_label9" rel="nofollow"></a></p> <h2>处理相对路径</h2> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "log"  "net/url"  )  func ExampleURL() {  URL, error := url.Parse("../../..//search?q=php")  fmt.Println("Url before modification is", URL)  if error != nil {  log.Fatal("An error occurs while handling url", error)  }  baseURL, err := url.Parse("http://example.com/directory/")  if err != nil {  log.Fatal("An error occurs while handling url", err)  }  fmt.Println(baseURL.ResolveReference(URL))  }  func main() {  ExampleURL()  }</pre> </div> <blockquote> <p>$ go run main.go<br />Url before modification is ../../..//search?q=php<br />http://example.com/search?q=php</p> </blockquote> <p class="maodian"><a name="_label10" rel="nofollow"></a></p> <h2>解析空格</h2> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "log"  "net/url"  )  func ExampleURL() {  URL, error := url.Parse("http://example.com/Here path with space")  if error != nil {  log.Fatal("An error occurs while handling url", error)  }  fmt.Println("The Url is", URL)  }  func main() {  ExampleURL()  }</pre> </div> <p><strong>运行结果：</strong></p> <blockquote> <p>$ go run main.go<br />The Url is http://example.com/Here%20path%20with%20space</p> </blockquote> <p class="maodian"><a name="_label11" rel="nofollow"></a></p> <h2>判断绝对地址</h2> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "net/url"  )  func main() {  u := url.URL{Host: "example.com", Path: "foo"}  fmt.Println("The Url is", u.IsAbs())  u.Scheme = "http"  fmt.Println("The Url is", u.IsAbs())  }</pre> </div> <blockquote> <p>$ go run main.go<br />The Url is false<br />The Url is true</p> </blockquote> <p class="maodian"><a name="_label12" rel="nofollow"></a></p> <h2>解析端口</h2> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "log"  "net/url"  )  func ExampleURL() {  URL1, error := url.Parse("https://example.org")  fmt.Println("URL1 before modification is", URL1)  if error != nil {  log.Fatal("An error occurs while handling url", error)  }  URL2, err := url.Parse("https://example.org:8080")  if err != nil {  log.Fatal("An error occurs while handling url", URL2)  }  fmt.Println("URL2 before modification is", URL2)  fmt.Println("URL2 Port number is", URL2.Port())  }  func main() {  ExampleURL()  }</pre> </div> <blockquote> <p>$ go run main.go<br />URL1 before modification is https://example.org<br />URL2 before modification is https://example.org:8080<br />URL2 Port number is 8080</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24181.htm">宠物粮食生产厂家电话地址查询（生产宠物粮的工厂有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-24887.htm">动物疫苗使用注意事项有哪些呢 动物疫苗使用注意事项有哪些呢图片</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24180.htm" title="深圳宠物领养中心免费领养猫咪（深圳市猫咪领养）">深圳宠物领养中心免费领养猫咪（深圳市猫咪领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share.htm" title="「10月30日」最高速度19.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「10月30日」最高速度19.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-clash.htm" title="「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-clash-node-github.htm" title="「11月18日」最高速度19.2M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「11月18日」最高速度19.2M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-node-subscribe-links.htm" title="「6月21日」最高速度19.4M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「6月21日」最高速度19.4M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-clash.htm" title="「9月21日」最高速度18.3M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月21日」最高速度18.3M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-clash-v2ray-ss-ssr.htm" title="「11月21日」最高速度20.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接">「11月21日」最高速度20.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22123.htm" title="哪种HTML5标签更适合表示金额">哪种HTML5标签更适合表示金额</a></li>
+                        <li class="py-2"><a href="/news/article-20292.htm" title="动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）">动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-clash-subscribe.htm" title="「8月10日」最高速度23M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「8月10日」最高速度23M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
