@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-27219.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>mysql UNION ALL查询分页</title>
+        <meta name="description" content="1.  UNION&nbsp;ALL和  UNION 的区别          UNION&nbsp;ALL理论上要比   UNION的查询效率更高一些，因为   UNION会将结果集中的数据进行过滤" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">mysql UNION ALL查询分页 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  1.<br />  <span style="background-color:inherit; line-height:1.5">UNION&nbsp;ALL和</span><br />  <span style="background-color:inherit; line-height:1.5">UNION 的区别</span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5"><br style="background-color:inherit"/></span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"> <div style="background-color:inherit">   UNION&nbsp;ALL理论上要比<br />   <span style="background-color:inherit; line-height:1.5">UNION的查询效率更高一些，因为</span><br />   <span style="background-color:inherit; line-height:1.5">UNION会将结果集中的数据进行过滤，将相同的数据进行剔除后返回，而</span><br />   <span style="background-color:inherit; line-height:1.5">UNION&nbsp;ALL不进行此操作，它会将结果集全部返回</span>  </div> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5"><br style="background-color:inherit"/></span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5">2.UNION&nbsp;ALL分页要点</span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5"><br style="background-color:inherit"/></span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5">如果需要分页的时候只需要将他们联合查询的结果集当做一个表来查询就好了。</span> </div> <div style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">  <span style="background-color:inherit; line-height:1.5"><br style="background-color:inherit"/></span> </div> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"><span style="background-color:inherit; line-height:1.5">3.</span><span style="background-color:inherit; line-height:1.5">UNION&nbsp;ALL查询结果统计</span></p> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"><span style="background-color:inherit; line-height:1.5"></span></p> <pre><code class="language-sql">SELECT COUNT(*) FROM((SELECT id,money,createtime,status FROM pre_pay_log WHERE memb_id = 51225) UNION ALL (SELECT id,money,createtime,status FROM pre_cash_log WHERE memb_id = 51225))</code></pre> <p><span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">此句查询会报错：</span><br /> <span style="font-family:微软雅黑; font-size:14px; line-height:1.5; widows:auto">Every&nbsp;derived&nbsp;table&nbsp;must&nbsp;have&nbsp;its&nbsp;own&nbsp;alias//每个派生出来的表都必须要有自己的别名</span><br />  </p> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"><span style="background-color:inherit; line-height:1.5"><span style="font-family:微软雅黑; font-size:14px; line-height:1.5; widows:auto"><br /></span></span></p> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"><span style="background-color:inherit; line-height:1.5"><span style="font-family:微软雅黑; font-size:14px; line-height:1.5; widows:auto"><span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">我们将sql语句改成下面，即可正常取值</span><br /></span></span></p> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"> <pre><code class="language-sql">SELECT COUNT(*) FROM((SELECT id,money,createtime,status FROM pre_pay_log WHERE memb_id = 51225) UNION ALL (SELECT id,money,createtime,status FROM pre_cash_log WHERE memb_id = 51225)) as a</code></pre> <p><span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">4.</span><br /> <span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">UNION&nbsp;ALL查询分页</span><br />  </p> <p style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"><span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto"></span></p> <pre><code class="language-sql">SELECT * FROM((SELECT id,money,createtime,status,error AS form_account,payment_no AS type_name FROM pre_pay_log WHERE 1 AND memb_id =51225) UNION ALL (SELECT id,money,createtime,status,form_account,type_name FROM pre_cash_log WHERE 1 AND memb_id =51225)) as a ORDER BY a.id DESC LIMIT 0,20</code></pre> <p><span style="font-family:微软雅黑; font-size:14px; line-height:21px; widows:auto">将合并查询后的语句派生出一个新的表后，我们就可以使用平常的分页操作进行分页了。</span><br />                  </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-26758.htm">小动物去打预防针（动物打防疫针）</a></p>
+                                        <p>下一个：<a href="/news/article-27220.htm">JVM程序计数器与虚拟机栈</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22123.htm" title="哪种HTML5标签更适合表示金额">哪种HTML5标签更适合表示金额</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-free-clash-subscribe.htm" title="「8月22日」最高速度20M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「8月22日」最高速度20M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-clash-subscribe.htm" title="「8月14日」最高速度22.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「8月14日」最高速度22.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-linux-clash-github.htm" title="「9月3日」最高速度19.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「9月3日」最高速度19.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-ssr-subscribe.htm" title="「11月12日」最高速度22.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「11月12日」最高速度22.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-node-share-links.htm" title="「10月21日」最高速度19.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「10月21日」最高速度19.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21205.htm" title="柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）">柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-22-free-ssr-subscribe.htm" title="「7月22日」最高速度19.7M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「7月22日」最高速度19.7M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-v2ray.htm" title="「10月13日」最高速度22.8M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「10月13日」最高速度22.8M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-6-free-v2ray.htm" title="「8月6日」最高速度21M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「8月6日」最高速度21M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

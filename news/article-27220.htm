@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-27220.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>JVM程序计数器与虚拟机栈</title>
+        <meta name="description" content="jvm内存结构,如下图： 、 java虚拟机(jvm)在java程序运行的时候,会将它所管理的内存划分为若干个不同的数据区域,这些数据区域有的随着jvm的启动而创建,有的随着用户线程的启动和结束而建立" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">JVM程序计数器与虚拟机栈 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p>jvm内存结构,如下图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="369" src="http://img.555519.xyz/uploads3/20220819/b3ceec92a88ce08706fa081863fc7fee.jpg">、</p> <p>java虚拟机(jvm)在java程序运行的时候,会将它所管理的内存划分为若干个不同的数据区域,这些数据区域有的随着jvm的启动而创建,有的随着用户线程的启动和结束而建立和销毁。</p> <h3>一、程序计数器(Program counter register)</h3> <p>根据上面的内存结构图,我们来了解以下什么是程序计数器</p> <p><strong>1、什么是程序计数器(program counter register) ？</strong></p> <p>程序计数器是用来记住下一条jvm指令的执行地址和行号的。</p> <p>当执行一条指令时,首先需要根据PC中存放的指令地址,将指令由内存中读取到指令寄存器中,此过程称之为"取指令"。</p> <p>同时,PC中的地址给出下一条指令的地址。此后,经过分析指令,执行指令,完成第一条指令的执行,而后根据PC取出第二条指令的地址,如此循环,执行每一条指令。</p> <p><strong>2、程序计数器的特点</strong></p> <p>1）、线程私有,即每个线程都有自己的程序计数器</p> <p>cpu会为每个线程分配时间片,当当前线程的时间片使用完后,cpu就会去执行另一个线程中的代码。</p> <p>程序计数器是每个线程所私有的,当另一个线程的时间片用完,又返回来执行当前线程的代码时,通过程序计数器可以知道应该执行哪一句指令。</p> <p>2）、不会存在内存溢出,它是唯一的一个在java虚拟机规范中没有任何OutOfMemoryError的区域。</p> <p>3）、线程隔离性,每个线程工作时都有属于自己的独立计数器</p> <p>4）、程序计数器占用内存很小,在进行JVM内存计算时,可以忽略不计。</p> <p>5）、执行native本地方法时,程序计数器的值为空(Undefined)</p> <p>因为native方法是java通过JNI直接调用本地C/C++库,可以近似的认为native方法相当于C/C++暴露给java的一个接口,java通过调用这个接口从而调用到C/C++方法,由于该方法是通过C/C++而不是java进行实现的,那么自然无法产生相应的字节码,并且C/C++执行时的内存分配是由自己语言决定的,而不是由JVM决定的。</p> <p><img decoding="async" alt="" height="328" src="http://img.555519.xyz/uploads3/20220819/0155da8ff189c337c10305a0b02992e8.jpg"></p> <p><strong>3、jvm的指令也称之为二进制字节码指令</strong></p> <p>java虚拟机的指令由一个字节长度的,代表某种特定操作含义的操作码(opcode)以及跟随其后的零至多个代表此操作所需参数的操作数(operand)所构成。</p> <p>虚拟机中许多指令并不包含操作数,只有一个操作码。格式如下：</p> <pre><code>opcode (1 byte)  operand1 (optional)  operand2 (optional)</code></pre> <p>在当前执行方法的栈帧里,一条指令可以将值在操作栈中入栈或出栈,可以在本地变量数组中悄悄的加载或者存储值。</p> <p>下面我们来看一段java代码,如下：</p> <pre><code>import java.io.PrintStream;  public class ProcessCounter {     public static void main(String[] args) {         PrintStream out=System.out;         out.println(1);         out.println(2);         out.println(3);         out.println(4);         out.println(5);     } }</code></pre> <p>比如,该java类在F盘test文件夹下,我们通过javac ProcessCounter.java编译生成ProcessCounter.class二进制文件</p> <p><img decoding="async" alt="" height="302" src="http://img.555519.xyz/uploads3/20220819/fca40b29b16c891b52cc319aa05e732d.jpg"></p> <p>cmd窗口操作,进入F盘下的test文件夹,进入ProcessCounter.class类所在文件目录</p> <p>执行如下命令：</p> <pre><code>javap -c ProcessCounter.class</code></pre> <p>得到如下结果</p> <p><img loading="lazy" decoding="async" alt="" height="622" src="http://img.555519.xyz/uploads3/20220819/fcd495f195a1203170d636e924eb0bab.jpg"></p> <p>上面是二进制字节码,二进制字节码主要先交给解释器来进行解释成机器码,这样CPU才能看懂。</p> <p>那么问题来了,解释器一次解释一句二进制字节码指令,那么解释器如何知道下一条二进制字节码指令是什么呢？</p> <p>这时就需要程序计数器了,程序计数器记录着下一条指令的地址,例如此时解释器执行第一条字节码指令,那么解释器中的地址码是0,而程序计数器中记录下一条指令的地址就是3,紧接着就是4,5,6.....</p> <p>注：说白了,程序计数器就是记录下一条JVM指令的地址。</p> <p>例如：现有线程1和线程2,假设线程1需要执行的代码量比较大,我们不可能让线程1全部执行完,再执行线程2中的代码,每个线程的执行都会有一个时间片,线程1的时间片用完,就会执行线程2,线程2执行完,接着反过来执行线程1,那么如何知道线程1上1次执行到哪里了,就需要通过程序计数器的记录告知下一条JVM指令的地址,然后根据该地址继续执行后续代码。</p> <p><strong>二、虚拟机栈(java virtual machine stacks)</strong></p> <p><strong>1、相关概念</strong></p> <p>栈：就是线程运行所需要的内存空间</p> <p>栈帧：每个栈由多个栈帧组成,每个栈帧对应每次调用方法时所占用的内存。</p> <p>每个线程只能有一个活动栈帧,对应着当前正在执行的方法。</p> <p>如下：</p> <p><img loading="lazy" decoding="async" alt="" height="309" src="http://img.555519.xyz/uploads3/20220819/570c56663806be1a4238113f760dcb6b.jpg"></p> <p>栈就好比是子弹夹,栈帧就好比是子弹,我们可以将子弹一颗一颗放进子弹夹,遵循：先进后出,后进先出。</p> <p>如上面：我们依次将栈帧1、栈帧2、栈帧3放入到栈中,出的时候顺序是栈帧3、栈帧2、栈帧1.</p> <p>一个栈帧对应一次方法的调用,线程是由一个一个方法组成,每个方法运行时需要的内存就是栈帧。</p> <p>方法运行时需要内存做什么？方法里面的参数、局部变量、返回地址都是需要占用内存存储的。</p> <p><strong>2、栈和栈帧的示例演练</strong></p> <pre><code>package com.wzy.test; /**  * 栈和栈帧演练  * */ public class StackTest {     public static void main(String[] args) {         method1();     }      public static void method1(){         method2(1,2);     }      public static int method2(int a,int b){         int c=a+b;         return c;     } }</code></pre> <p>我们在打上三个断点,进入debug调试一下,如下图：</p> <p><img loading="lazy" decoding="async" alt="" height="399" src="http://img.555519.xyz/uploads3/20220819/32c77de096039cbcfa07098647ad3ac0.jpg"></p> <p>逐步调试如下：</p> <p><img loading="lazy" decoding="async" alt="" height="323" src="http://img.555519.xyz/uploads3/20220819/887adb508136d824d84556eaae96cbad.jpg"></p> <p>Frames下显示三个栈帧,分别为main、method1、method2。这三个方法的执行符合栈的特点,先执行的先入栈。</p> <p><strong>3、栈问题引入分析？</strong></p> <p><strong>问题1、垃圾回收是否需要栈内存？</strong></p> <p>不需要,因为虚拟机栈是由一个个栈帧组成的, 在方法执行完毕后，对应的栈帧就会被弹出栈。所以不需要垃圾回收机制去回收栈内存。</p> <p><strong>问题2、栈内存分配得越大越好吗？</strong></p> <p>不是,因为物理内存都是固定的,如果栈内存设置得越大,可以支持更多的递归调用,但是可执行的线程数就会越少。</p> <p>如物理内存为500M,栈内存为1M,那么就可以执行500个线程,如果栈内存为2M，那么就只能执行250个线程。</p> <p><strong>问题3、方法内的局部变量是否是线程安全的？</strong></p> <p>1）、如果方法内的局部变量没有逃离方法的作用范围,则线程是安全的。</p> <p>2）、如果局部变量引用了对象,并逃离了方法的作用范围,则需要考虑线程安全的问题。</p> <p><strong>4、栈内存溢出</strong></p> <p>java.lang.stackOverflowError就是栈内存溢出</p> <p>导致栈内存溢出的原因：</p> <p>1）、虚拟机栈中,栈帧过多(无限递归)</p> <p>2）、每个栈帧所占用的内存过大</p> <p>栈帧过多测试,如下：</p> <pre><code>package com.wzy.test; /**  * 栈内存溢出测试  * */ public class StackTest {     public static void main(String[] args) {         method1();     }      public static void method1(){         method1();     } }</code></pre> <p>上面声明一个方法method1，递归调用method1方法。改造上面的代码,我们声明一个count计数器,在程序执行捕获异常时,看看递归调用多少次method1方法才会导致栈内存溢出</p> <pre><code>package com.wzy.test; /**  * 栈内存溢出测试  * */ public class StackTest {     private static int count;     public static void main(String[] args) {         try{             method1();         }catch(Throwable e){             e.printStackTrace();             System.out.println(count);         }      }      public static void method1(){         count++;         method1();     } }</code></pre> <p>执行结果,如下：</p> <p><img loading="lazy" decoding="async" alt="" height="492" src="http://img.555519.xyz/uploads3/20220819/c6ce31d2ddbff579ae140d7c62a131ec.jpg"></p> <p>即递归调用method1方法17380次,导致栈内存溢出。</p> <p>我们可以修改栈内存,设置VM options中参数为-Xss256k,再次测试</p> <p><img loading="lazy" decoding="async" alt="" height="470" src="http://img.555519.xyz/uploads3/20220819/5a24c47cb6c0ee1177d4113ec8da3bb4.jpg"></p> <p>再次执行</p> <p><img loading="lazy" decoding="async" alt="" height="409" src="http://img.555519.xyz/uploads3/20220819/a76855c8e4d4968e54a337e2fa382e14.jpg"></p> <p>递归调用3555次方法,才出现栈内存溢出</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27219.htm">mysql UNION ALL查询分页</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-v2ray-subscribe.htm" title="「10月3日」最高速度21.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「10月3日」最高速度21.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe-links.htm" title="「10月6日」最高速度21.1M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「10月6日」最高速度21.1M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21650.htm" title="动物打了疫苗有什么用 动物打的疫苗">动物打了疫苗有什么用 动物打的疫苗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-24-clash-windows.htm" title="「6月24日」最高速度20M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「6月24日」最高速度20M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-17-free-shadowrocket-node.htm" title="「7月17日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「7月17日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-shadowrocket-node.htm" title="「11月2日」最高速度18.3M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接">「11月2日」最高速度18.3M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22579.htm" title="字符串替换 — C语言【由特殊到一般，找规律，定公式】">字符串替换 — C语言【由特殊到一般，找规律，定公式】</a></li>
+                        <li class="py-2"><a href="/news/article-20292.htm" title="动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）">动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-6-free-shadowrocket-node.htm" title="「7月6日」最高速度20.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「7月6日」最高速度20.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-10-clash-node-daily-updates.htm" title="「7月10日」最高速度22.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接">「7月10日」最高速度22.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
