@@ -9,7 +9,7 @@
     <!-- Document Title, Description, and Author -->
     <title>字符串替换 — C语言【由特殊到一般，找规律，定公式】</title>
         <meta name="description" content="题目： 本题要求编写程序，将给定字符串中的大写英文字母按以下对应规则替换：    原字母 对应字母     A Z   B Y   C X   D W   … …   X C   Y B   Z A " />
-        <link rel="icon" href="__ADDON__/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
     <!-- Google Fonts Files -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +103,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <p><strong>题目：</strong></p> <p>本题要求编写程序，将给定字符串中的大写英文字母按以下对应规则替换：</p> <table> <thead> <tr> <th>原字母</th> <th>对应字母</th> </tr> </thead> <tbody> <tr> <td>A</td> <td>Z</td> </tr> <tr> <td>B</td> <td>Y</td> </tr> <tr> <td>C</td> <td>X</td> </tr> <tr> <td>D</td> <td>W</td> </tr> <tr> <td>…</td> <td>…</td> </tr> <tr> <td>X</td> <td>C</td> </tr> <tr> <td>Y</td> <td>B</td> </tr> <tr> <td>Z</td> <td>A</td> </tr> </tbody> </table> <p><strong>输入格式：</strong></p> <p>输入在一行中给出一个不超过80个字符、并以回车结束的字符串。</p> <p><strong>输出格式：</strong></p> <p>输出在一行中给出替换完成后的字符串。</p> <hr/> <p><strong>思路：</strong></p> <p>由题意可知，26个大写字母中，可以分为前13个（A-M）和后13个(N-Z)两组，第一组的字母由小到大，第二组的字母由大到小；通过举例，可以发现其中转化规律，如下图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="217" src="http://img.555519.xyz/uploads/20230202/5f057d2141ee1928cfc11853b046e678.jpg"></p> <p>可得，由小变大公式：rev='Z'-(ch-'A'); &nbsp; 由大变小公式：rev='A'+('Z'-ch);</p> <p>之后再研究发现，这两个公式是等价的，故选择其中一个公式即可满足题目要求，此时不需要再分为两组进行操作。</p> <hr/> <p><strong>代码：</strong></p> <pre><code>#include&lt;stdio.h&gt; int main(){     char ch;     while((ch=getchar())!='\n'){         if(ch&gt;='A'&amp;&amp;ch&lt;='Z'){             char rev;              rev='A'+('Z'-ch);             printf("%c",rev);                      }         else{                //非大写字母，原样输出             printf("%c",ch);         }             }     return 0; }</code></pre> <p><strong>结果：</strong></p> <p><img decoding="async" alt="" height="476" src="http://img.555519.xyz/uploads/20230202/5811aef742ec334b3bdf3269a375637d.jpg"></p> <p><img decoding="async" alt="" height="154" src="http://img.555519.xyz/uploads/20230202/8b60a5b845d9c99f8a4aee0bd4871b58.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="167" src="http://img.555519.xyz/uploads/20230202/906fc320e19c93d40f10a8d847cc3c65.jpg"></p> <hr/> <p>★觉得还不错的话，就点个赞吧☛</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>题目：</strong></p> <p>本题要求编写程序，将给定字符串中的大写英文字母按以下对应规则替换：</p> <table> <thead> <tr> <th>原字母</th> <th>对应字母</th> </tr> </thead> <tbody> <tr> <td>A</td> <td>Z</td> </tr> <tr> <td>B</td> <td>Y</td> </tr> <tr> <td>C</td> <td>X</td> </tr> <tr> <td>D</td> <td>W</td> </tr> <tr> <td>…</td> <td>…</td> </tr> <tr> <td>X</td> <td>C</td> </tr> <tr> <td>Y</td> <td>B</td> </tr> <tr> <td>Z</td> <td>A</td> </tr> </tbody> </table> <p><strong>输入格式：</strong></p> <p>输入在一行中给出一个不超过80个字符、并以回车结束的字符串。</p> <p><strong>输出格式：</strong></p> <p>输出在一行中给出替换完成后的字符串。</p> <hr/> <p><strong>思路：</strong></p> <p>由题意可知，26个大写字母中，可以分为前13个（A-M）和后13个(N-Z)两组，第一组的字母由小到大，第二组的字母由大到小；通过举例，可以发现其中转化规律，如下图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="217" src="http://img.555519.xyz/uploads/20230202/5f057d2141ee1928cfc11853b046e678.jpg"></p> <p>可得，由小变大公式：rev='Z'-(ch-'A'); &nbsp; 由大变小公式：rev='A'+('Z'-ch);</p> <p>之后再研究发现，这两个公式是等价的，故选择其中一个公式即可满足题目要求，此时不需要再分为两组进行操作。</p> <hr/> <p><strong>代码：</strong></p> <pre><code>#include&lt;stdio.h&gt; int main(){     char ch;     while((ch=getchar())!='\n'){         if(ch&gt;='A'&amp;&amp;ch&lt;='Z'){             char rev;              rev='A'+('Z'-ch);             printf("%c",rev);                      }         else{                //非大写字母，原样输出             printf("%c",ch);         }             }     return 0; }</code></pre> <p><strong>结果：</strong></p> <p><img decoding="async" alt="" height="476" src="http://img.555519.xyz/uploads/20230202/5811aef742ec334b3bdf3269a375637d.jpg"></p> <p><img decoding="async" alt="" height="154" src="http://img.555519.xyz/uploads/20230202/8b60a5b845d9c99f8a4aee0bd4871b58.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="167" src="http://img.555519.xyz/uploads/20230202/906fc320e19c93d40f10a8d847cc3c65.jpg"></p> <hr/> <p>★觉得还不错的话，就点个赞吧☛</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-22125.htm">SpringCloud Sleuth分布式链路跟踪</a></p>
                                         <p>下一个：<a href="/news/article-22580.htm">国内知名宠物品牌（国内知名宠物品牌排行榜）</a></p>
@@ -116,16 +117,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-node-subscribe-links.htm" title="「8月17日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「8月17日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-node.htm" title="「11月16日」最高速度22.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「11月16日」最高速度22.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-17-free-node-subscribe-links.htm" title="「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="「11月11日」最高速度22.6M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「11月11日」最高速度22.6M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe.htm" title="「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-v2ray.htm" title="「9月2日」最高速度22M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月2日」最高速度22M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-18699.htm" title="免费领养宠物送到家门口违法吗（免费领养宠物怎么赚钱）">免费领养宠物送到家门口违法吗（免费领养宠物怎么赚钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-26-clash-windows.htm" title="「6月26日」最高速度18.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「6月26日」最高速度18.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-clash-subscribe.htm" title="「8月10日」最高速度23M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「8月10日」最高速度23M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-22125.htm" title="SpringCloud Sleuth分布式链路跟踪">SpringCloud Sleuth分布式链路跟踪</a></li>
+                        <li class="py-2"><a href="/news/article-22580.htm" title="国内知名宠物品牌（国内知名宠物品牌排行榜）">国内知名宠物品牌（国内知名宠物品牌排行榜）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-clash-subscribe.htm" title="「11月10日」最高速度19M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「11月10日」最高速度19M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25357.htm" title="Feign远程调用以及Feign的最优使用">Feign远程调用以及Feign的最优使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-free-v2ray.htm" title="「9月28日」最高速度21.9M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接">「9月28日」最高速度21.9M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-clash-node-github.htm" title="「9月20日」最高速度18.4M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接">「9月20日」最高速度18.4M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-node-subscribe-links.htm" title="「6月21日」最高速度19.4M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「6月21日」最高速度19.4M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-ssr-subscribe.htm" title="「12月3日」最高速度18.9M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「12月3日」最高速度18.9M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-node-share.htm" title="「9月27日」最高速度18.6M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「9月27日」最高速度18.6M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-clash.htm" title="「9月23日」最高速度21.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「9月23日」最高速度21.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-26758.htm" title="小动物去打预防针（动物打防疫针）">小动物去打预防针（动物打防疫针）</a></li>
                     </ul>
     </div>
 </div>
@@ -137,7 +138,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -173,6 +174,15 @@
                 <div class="row gy-4 gy-md-0">
                     <div class="col-xs-12 col-md-12 order-2 order-md-1">
                         <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             WindowsClashNode节点订阅站 版权所有 Powered by WordPress
                         </div>
                     </div>

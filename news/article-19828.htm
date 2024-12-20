@@ -9,7 +9,7 @@
     <!-- Document Title, Description, and Author -->
     <title>Java 18为什么要指定UTF-8为默认字符集_在线工具</title>
         <meta name="description" content="在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。 做这一更改的主要目标：  当Java程" />
-        <link rel="icon" href="__ADDON__/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
     <!-- Google Fonts Files -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +103,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<p>在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。</p> <p>做这一更改的主要目标：</p> <ul> <li>当Java程序的代码依赖于默认字符集时，使其更具可预测性和可移植性。</li> <li>阐明标准Java API在哪里使用默认字符集。</li> <li>在整个标准Java API中对UTF-8进行标准化，但控制台I/O除外。</li> </ul> <p>需要注意的是，这一更改的目标并不是定义新的标准Java API或受支持的JDK API，尽管这项工作可能会发现新的便利方法可能会使现有的API更易于使用，这一更改并不是要弃用或删除依赖默认字符集的标准Java API。</p> <p>用于读写文件和处理文本的标准Java API允许将字符集作为参数传递。字符集控制Java编程语言的原始字节和16位字符值之间的转换。例如，支持的字符集包括US-ASCII、UTF-8和ISO-8859-1。</p> <p>如果没有传递字符集参数，则标准的Java API通常使用默认的字符集。JDK在启动时根据运行时环境选择默认的字符集：操作系统、用户的区域设置和其他因素。</p> <p>因为默认字符集在每个地方都不一样，所以使用默认字符集的API会带来许多不明显的危险，甚至对经验丰富的开发人员也是如此。</p> <p>考虑这样一个应用程序，它在不传递字符集的情况下创建一个<code>java.io.FileWriter</code>，然后使用它将一些文本写入文件。结果文件将包含一个使用运行应用程序的JDK的默认字符集编码的字节序列。第二个应用程序在不同的机器上运行，或者由同一台机器上的不同用户运行，在不传递字符集的情况下创建一个<code>java.io.FileReader</code>，并使用它来读取该文件中的字节。生成的文本包含使用运行第二个应用程序的JDK的默认字符集解码的字符序列。如果第一个应用程序的JDK和第二个应用程序的JDK之间的默认字符集不同，则生成的文本可能会被损坏或不完整，因为<code>FileReader</code>无法判断它使用了相对于<code>FileWriter</code>的错误字符集来解码文本。</p> <p>比如这就是一个典型的例子，在MacOS上以UTF-8编码的日语文本文件在Windows上以美英或日语区域设置读取时被损坏：</p> <pre><code class="language-java">java.io.FileReader(“hello.txt”) -&gt; “こんにちは” (macOS) java.io.FileReader(“hello.txt”) -&gt; “ã?“ã‚“ã?«ã?¡ã? ” (Windows (en-US)) java.io.FileReader(“hello.txt”) -&gt; “縺ォ縺。縺ッ” (Windows (ja-JP)</code></pre> <p>在JDK 17及更早版本中，默认字符集是在Java运行时才确定的。在MacOS上，除POSIX C语言环境外，它是UTF-8。在其他操作系统上，取决于用户的区域设置，比如：Windows上，它是基于代码页的字符集，如Windows-1252或Windows-31j。如果不清楚Java应用运行环境的默认编码，可以使用这个命令查看当前JDK的默认字符集：</p> <pre><code class="language-text">java -XshowSettings:properties -version 2&gt;&amp;1 | grep file.encoding</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://didispace.com/"  target="_blank" rel="nofollow">程序猿DD Tips</a>：在过去的版本中，当读写文件时，没有指明字符集的话，所选择的字符集与操作系统、用户区域等因素相关，而不同的操作系统的默认编码不同，所以很可能会出现读写编码不一致的情况，从而导致程序在不同系统下运行出现乱码问题。所以这一更改可以让Java开发的应用具备更好的移植性。同时，从这一点的改进，也提醒我们，在读写文件的时候，为了你的应用有更好的可移植性，在涉及读写操作的时候，一定要加上编码参数。这样即使在Java 18之前的版本，也能拥有更好的可移植性，同时为将来升级Java 21提供更好的兼容前提。</p> <p>本文配套视频：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1YY4y1a7vG"  target="_blank" rel="nofollow">https://www.bilibili.com/video/BV1YY4y1a7vGopen in new window</a></p> <p>如果您学习过程中如遇困难？可以加入我们超高质量的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.didispace.com/join-group-spring/index.html"  target="_blank" rel="nofollow">技术交流群</a>，参与交流与讨论，更好的学习与进步！另外，不要走开，关注我！持续更新<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.didispace.com/java-features/"  target="_blank" rel="nofollow">Java新特性教程</a>！</p> <blockquote> <p>欢迎关注我的公众号：程序猿DD。第一时间了解前沿行业消息、分享深度技术干货、获取优质学习资源</p> </blockquote> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。</p> <p>做这一更改的主要目标：</p> <ul> <li>当Java程序的代码依赖于默认字符集时，使其更具可预测性和可移植性。</li> <li>阐明标准Java API在哪里使用默认字符集。</li> <li>在整个标准Java API中对UTF-8进行标准化，但控制台I/O除外。</li> </ul> <p>需要注意的是，这一更改的目标并不是定义新的标准Java API或受支持的JDK API，尽管这项工作可能会发现新的便利方法可能会使现有的API更易于使用，这一更改并不是要弃用或删除依赖默认字符集的标准Java API。</p> <p>用于读写文件和处理文本的标准Java API允许将字符集作为参数传递。字符集控制Java编程语言的原始字节和16位字符值之间的转换。例如，支持的字符集包括US-ASCII、UTF-8和ISO-8859-1。</p> <p>如果没有传递字符集参数，则标准的Java API通常使用默认的字符集。JDK在启动时根据运行时环境选择默认的字符集：操作系统、用户的区域设置和其他因素。</p> <p>因为默认字符集在每个地方都不一样，所以使用默认字符集的API会带来许多不明显的危险，甚至对经验丰富的开发人员也是如此。</p> <p>考虑这样一个应用程序，它在不传递字符集的情况下创建一个<code>java.io.FileWriter</code>，然后使用它将一些文本写入文件。结果文件将包含一个使用运行应用程序的JDK的默认字符集编码的字节序列。第二个应用程序在不同的机器上运行，或者由同一台机器上的不同用户运行，在不传递字符集的情况下创建一个<code>java.io.FileReader</code>，并使用它来读取该文件中的字节。生成的文本包含使用运行第二个应用程序的JDK的默认字符集解码的字符序列。如果第一个应用程序的JDK和第二个应用程序的JDK之间的默认字符集不同，则生成的文本可能会被损坏或不完整，因为<code>FileReader</code>无法判断它使用了相对于<code>FileWriter</code>的错误字符集来解码文本。</p> <p>比如这就是一个典型的例子，在MacOS上以UTF-8编码的日语文本文件在Windows上以美英或日语区域设置读取时被损坏：</p> <pre><code class="language-java">java.io.FileReader(“hello.txt”) -&gt; “こんにちは” (macOS) java.io.FileReader(“hello.txt”) -&gt; “ã?“ã‚“ã?«ã?¡ã? ” (Windows (en-US)) java.io.FileReader(“hello.txt”) -&gt; “縺ォ縺。縺ッ” (Windows (ja-JP)</code></pre> <p>在JDK 17及更早版本中，默认字符集是在Java运行时才确定的。在MacOS上，除POSIX C语言环境外，它是UTF-8。在其他操作系统上，取决于用户的区域设置，比如：Windows上，它是基于代码页的字符集，如Windows-1252或Windows-31j。如果不清楚Java应用运行环境的默认编码，可以使用这个命令查看当前JDK的默认字符集：</p> <pre><code class="language-text">java -XshowSettings:properties -version 2&gt;&amp;1 | grep file.encoding</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://didispace.com/"  target="_blank" rel="nofollow">程序猿DD Tips</a>：在过去的版本中，当读写文件时，没有指明字符集的话，所选择的字符集与操作系统、用户区域等因素相关，而不同的操作系统的默认编码不同，所以很可能会出现读写编码不一致的情况，从而导致程序在不同系统下运行出现乱码问题。所以这一更改可以让Java开发的应用具备更好的移植性。同时，从这一点的改进，也提醒我们，在读写文件的时候，为了你的应用有更好的可移植性，在涉及读写操作的时候，一定要加上编码参数。这样即使在Java 18之前的版本，也能拥有更好的可移植性，同时为将来升级Java 21提供更好的兼容前提。</p> <p>本文配套视频：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1YY4y1a7vG"  target="_blank" rel="nofollow">https://www.bilibili.com/video/BV1YY4y1a7vGopen in new window</a></p> <p>如果您学习过程中如遇困难？可以加入我们超高质量的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.didispace.com/join-group-spring/index.html"  target="_blank" rel="nofollow">技术交流群</a>，参与交流与讨论，更好的学习与进步！另外，不要走开，关注我！持续更新<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.didispace.com/java-features/"  target="_blank" rel="nofollow">Java新特性教程</a>！</p> <blockquote> <p>欢迎关注我的公众号：程序猿DD。第一时间了解前沿行业消息、分享深度技术干货、获取优质学习资源</p> </blockquote> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19377.htm">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></p>
                                         <p>下一个：<a href="/news/article-19829.htm">三国杀武将限定技特效（三国杀中武将限定技是什么）</a></p>
@@ -116,16 +117,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-clash-windows.htm" title="「8月24日」最高速度20.9M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接">「8月24日」最高速度20.9M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe.htm" title="「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-13-clash-windows.htm" title="「8月13日」最高速度20M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「8月13日」最高速度20M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-v2ray.htm" title="「10月4日」最高速度19.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「10月4日」最高速度19.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-30-clash-v2ray-ss-ssr.htm" title="「7月30日」最高速度20.1M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「7月30日」最高速度20.1M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-shadowrocket-node.htm" title="「11月25日」最高速度19.2M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「11月25日」最高速度19.2M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-node-subscribe.htm" title="「9月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「9月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-19-clash-windows.htm" title="「6月19日」最高速度21.6M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接">「6月19日」最高速度21.6M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-v2ray.htm" title="「10月15日」最高速度18.3M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「10月15日」最高速度18.3M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-shadowrocket-node.htm" title="「11月2日」最高速度18.3M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接">「11月2日」最高速度18.3M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-node-share.htm" title="「9月30日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「9月30日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-clash-node.htm" title="「8月27日」最高速度18.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「8月27日」最高速度18.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21205.htm" title="柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）">柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-20-linux-clash-github.htm" title="「8月20日」最高速度21.8M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「8月20日」最高速度21.8M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe.htm" title="「12月11日」最高速度19.9M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「12月11日」最高速度19.9M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-26-clash-node-github.htm" title="「7月26日」最高速度19.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「7月26日」最高速度19.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-25-clash-windows.htm" title="「6月25日」最高速度22.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「6月25日」最高速度22.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20292.htm" title="动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）">动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-clash-v2ray-ss-ssr.htm" title="「8月26日」最高速度20.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「8月26日」最高速度20.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-18-free-clash.htm" title="「6月18日」最高速度22.3M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「6月18日」最高速度22.3M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -137,7 +138,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -173,6 +174,15 @@
                 <div class="row gy-4 gy-md-0">
                     <div class="col-xs-12 col-md-12 order-2 order-md-1">
                         <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             WindowsClashNode节点订阅站 版权所有 Powered by WordPress
                         </div>
                     </div>
