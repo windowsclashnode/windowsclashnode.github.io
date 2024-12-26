@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-31327.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>python的os模块以及time</title>
+        <meta name="description" content="os的基本操作 1、查看操作系统类型 import osprint(os.name)print('Linux'if os.name=='posix'else'Windows')  2、查看操作系统的详" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">python的os模块以及time </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="os_0" rel="nofollow"></a>os的基本操作</h3> <p>1、查看操作系统类型</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Linux'</span><span class="token keyword">if</span> os<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token string">'posix'</span><span class="token keyword">else</span><span class="token string">'Windows'</span><span class="token punctuation">)</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/69275533cafd2bc355995acf5e9c241f.jpg" alt="python的os模块以及time"><br /> 2、查看操作系统的详细信息</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os info<span class="token operator">=</span>os<span class="token punctuation">.</span>uname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>sysname<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>nodename<span class="token punctuation">)</span></code></pre> <p>3、查看系统环境变量<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/97eb25645af5590c9eefd682719425e9.jpg" alt="python的os模块以及time"><br /> 4、查看是不是绝对路径<br /> import os<br /> print(os.path.isabs(’/tmp/fff’))<br /> print(os.path.isabs(‘data.txt’))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/efd956a4271e0aefaf33f5367bb96643.jpg" alt="python的os模块以及time"><br /> 5、如何生成绝对路径<br /> import os<br /> print(os.path.abspath(‘hello.png’))<br /> print(os.path.join(’/home/kiosk/’,‘aa’))<br /> print(os.path.join(os.path.abspath(’.’),‘bb’))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/a320e2e53b5ef497b9eb4e363617adec.jpg" alt="python的os模块以及time"><br /> 6、如何获取目录名和文件名<br /> import os<br /> filename=’/home/kiosk/PycharmProjects/20191126/day05/data.txt’<br /> print(os.path.basename(filename))<br /> print(os.path.dirname(filename))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/5bbfce07b681e7377a9891f9d83362e6.jpg" alt="python的os模块以及time"><br /> 7、创建目录<br /> import os<br /> os.mkdir(‘img’) #单级目录用os.mkdir()<br /> os.makedirs(‘img/img1/img2’) #多级目录用os.makedirs()<br /> #不能递归删除目录<br /> os.rmdir(‘img’)<br /> #os.rmdir(‘img’)#递归目录不能一下删除<br /> os.rmdir(‘img/img1/img2’) #只能逐级删除<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/40e5ba62a55df58436f7a17bd7934ca1.jpg" alt="python的os模块以及time"><br /> 8.创建文件<br /> import os<br /> #os.mknod(‘okk.txt’)<br /> os.remove(‘okk.txt’)</p> <p>9.文件的重命名<br /> import os<br /> os.rename(‘data.txt’,‘dddddd.txt’)</p> <p>10.判断文件或目录是否存在<br /> import os<br /> print(os.path.exists(‘fhhgkjs’))<br /> 11.分离文件名和后缀名<br /> import os<br /> print(os.path.splitext(‘hello.jpg’) )<br /> 12、将目录名和文件名分开<br /> import os<br /> print(os.path.split(’/opt/hello.jpg’))</p> <h3><a id="_66" rel="nofollow"></a>表示时间的类型</h3> <p>分类;<br /> 1.时间戳<br /> 2.字符串时间<br /> 3.元组类型的时间<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/d635a35fd18b8ea17fe743a8853f5c50.jpg" alt="python的os模块以及time"></p> <h4><a id="_72" rel="nofollow"></a>常用的时间转换</h4> <p>元组时间转换为时间戳</p> <pre><code class="prism language-python"><span class="token keyword">import</span> time tuple_time<span class="token operator">=</span>time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>tuple_time<span class="token punctuation">)</span><span class="token comment">#转换为时间戳</span><span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>tuple_time<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre> <p>2\元组时间转换为字符串时间<br /> import time<br /> tuple_time=time.localtime()<br /> print(tuple_time)<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/1a47aeef859e0c204c2e7b5441b19814.jpg" alt="python的os模块以及time"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/2a006e137629e7c8186f123bc3a5009f.jpg" alt="python的os模块以及time"><br /> 3\时间戳类型的时间转换为字符串时间<br /> import os<br /> import time<br /> pwd_time=os.path.getatime(’/etc/passwd’)<br /> print(pwd_time)<br /> print(time.ctime(pwd_time))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/6e0ae9ed63281c76d032851958f3b87b.jpg" alt="python的os模块以及time"><br /> 4\时间戳转换为元组<br /> import os<br /> import time<br /> pwd_time=os.path.getatime(’/etc/passwd’)<br /> print(pwd_time)<br /> print(time.localtime(pwd_time))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/fc7a8e54244bdbeb408aa7d3615d38a3.jpg" alt="python的os模块以及time"></p> <p>练习1：</p> <p>在当前目录新建目录img, 里面包含多个文件,<br /> 文件名各不相同(X4G5.png)<br /> 将当前img目录所有以.png结尾的后缀名改为.jpg</p> <pre><code class="prism language-python">生成文件：<span class="token keyword">def</span><span class="token function">gen_code</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment"># 随机生成4位验证码</span>     li<span class="token operator">=</span> random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters<span class="token operator">+</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">create_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment"># 随机生成100个文件名</span>     li<span class="token operator">=</span><span class="token punctuation">{<!-- --></span> gen_code<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">for</span> i<span class="token keyword">in</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">}</span>     os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token keyword">for</span> name<span class="token keyword">in</span> li<span class="token punctuation">:</span>         os<span class="token punctuation">.</span>mknod<span class="token punctuation">(</span><span class="token string">'img/'</span><span class="token operator">+</span> name<span class="token operator">+</span><span class="token string">'.png'</span><span class="token punctuation">)</span> create_file<span class="token punctuation">(</span><span class="token punctuation">)</span>  改后缀名：</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/8f2a3cd634d2323378c81caba639dcb7.jpg" alt="python的os模块以及time"><br /> 应用案例-----系统监控<br /> 需求：<br /> 1.获取当前主机信息 包含操作系统名 主机名 内核版本 硬件架构<br /> 2.获取开机时间和开机时长<br /> 3.获取当前登陆的用户</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os<span class="token keyword">from</span> datetime<span class="token keyword">import</span> datetime<span class="token keyword">import</span> psutil<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'主机信息'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> info<span class="token operator">=</span> os<span class="token punctuation">.</span>uname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">"""    操作系统:%s,    主机名称:%s,    内核版本:%s,    硬件架构:%s     """</span><span class="token operator">%</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>sysname<span class="token punctuation">,</span>info<span class="token punctuation">.</span>nodename<span class="token punctuation">,</span>info<span class="token punctuation">.</span>release<span class="token punctuation">,</span>info<span class="token punctuation">.</span>machine<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机信息'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> boot_time<span class="token operator">=</span> psutil<span class="token punctuation">.</span>boot_time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># 返回一个时间戳</span><span class="token comment"># 将时间戳转换为datetime类型的时间</span> boot_time_obj<span class="token operator">=</span> datetime<span class="token punctuation">.</span>fromtimestamp<span class="token punctuation">(</span>boot_time<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>boot_time_obj<span class="token punctuation">)</span> now_time<span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>now_time<span class="token punctuation">)</span> delta_time<span class="token operator">=</span> now_time<span class="token operator">-</span> boot_time_obj<span class="token keyword">print</span><span class="token punctuation">(</span>delta_time<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机时间:'</span><span class="token punctuation">,</span>boot_time_obj<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前时间:'</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>now_time<span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机时长:'</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>delta_time<span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前登陆用户'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> login_user<span class="token operator">=</span> psutil<span class="token punctuation">.</span>users<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>login_user<span class="token punctuation">)</span> info<span class="token operator">=</span> psutil<span class="token punctuation">.</span>users<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>name<span class="token punctuation">)</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/878a786f0b3e49ee70f507779ddd9edf.jpg" alt="python的os模块以及time"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30963.htm">动物疫苗种类有几种名称和作用（动物疫苗的使用方法及注意事项）</a></p>
+                                        <p>下一个：<a href="/news/article-31328.htm">动物医院的号码是多少（动物医院在哪）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23952.htm" title="pytorch: 计算ConvTranspose1d输出特征大小">pytorch: 计算ConvTranspose1d输出特征大小</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-14-node-share.htm" title="「7月14日」最高速度19.9M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「7月14日」最高速度19.9M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-17-free-node-subscribe-links.htm" title="「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-linux-clash-github.htm" title="「10月17日」最高速度21.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「10月17日」最高速度21.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-clash-windows.htm" title="「9月11日」最高速度22.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「9月11日」最高速度22.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-ssr-subscribe.htm" title="「11月12日」最高速度22.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「11月12日」最高速度22.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22580.htm" title="国内知名宠物品牌（国内知名宠物品牌排行榜）">国内知名宠物品牌（国内知名宠物品牌排行榜）</a></li>
+                        <li class="py-2"><a href="/news/article-18698.htm" title="猫挠出血不打针有事吗（猫挠出血不打针有事吗科普）">猫挠出血不打针有事吗（猫挠出血不打针有事吗科普）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-28-free-clash.htm" title="「7月28日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「7月28日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-clash-v2ray-ss-ssr.htm" title="「8月26日」最高速度20.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「8月26日」最高速度20.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

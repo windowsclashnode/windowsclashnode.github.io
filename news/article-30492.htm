@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-30492.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>OpenCV+QT5在Window下的环境配置记录</title>
+        <meta name="description" content="在安装OpenCV时最需要注意的是，OpenCV库，也就是我们需要的dll和动态库需要我们使用CMake来生成。 虽然在官网上下载得到的文件中已经包含了库文件和.h等头文件，但是在具体开发中编译器编译" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                                <h1>
+                    <a class="navbar-brand" href="/">
+                        Windows Clash Node
+                    </a>
+                </h1>
+                                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">OpenCV+QT5在Window下的环境配置记录 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>在安装OpenCV时最需要注意的是，OpenCV库，也就是我们需要的dll和动态库需要我们使用CMake来生成。</p> <p>虽然在官网上下载得到的文件中已经包含了库文件和.h等头文件，但是在具体开发中编译器编译后的源文件都会和库文件去进行链接。</p> <p>这就导致不同的编译器可能需要不同的库。所以，下载得到源文件之后，要用指定的编译器重新编译。</p> <h2 id="0-需要的工具">0. 需要的工具</h2> <ul> <li>Qt Creator</li> <li>OpenCV</li> <li>CMake</li> <li>cmd</li> </ul> <h2 id="1-qt-creator安装">1. Qt Creator安装</h2> <p>这里Qt Creator的安装不在赘述，由于Qt提供的在线下载器太慢，可以直接去<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://download.qt.io/"  title="qt的离线下载界面" target="_blank" rel="nofollow">qt的离线下载界面</a>下载，使用迅雷会比较快。详细操作可以参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://c.biancheng.net/view/3851.html"  title="这里" target="_blank" rel="nofollow">这里</a>。笔者使用的是5.9.0版本。</p> <blockquote> <p>注意，这里需要在环境变量中的Path变量下添加Qt\Qt5.9.0\Tools\mingwxx_xx\bin路径。例如我在这里添加了F:\Qt\Qt5.9.0\Tools\mingw530_32\bin，否则后面的CMake可能在Configure过后没有对应的选项！</p> </blockquote> <h2 id="2-opencv的下载安装">2. OpenCV的下载安装</h2> <p>OpenCV也可以直接在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://opencv.org/"  title="官网" target="_blank" rel="nofollow">官网</a>下载，这里选择对应的Windows版本，下载后安装。我这里一开始使用4.5.5在cmd界面编译时候报错，后面使用的是3.2.0。</p> <p>安装完成后，在环境变量中添加Path变量，我添加的地址为F:\environment\opencv\build\bin。</p> <h2 id="3-cmake的下载使用">3. CMake的下载使用</h2> <p>CMake可以直接在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.cmake.org/cmake/resources/software.html"  title="官网" target="_blank" rel="nofollow">官网</a>下载，注意安装的是带有界面的cmake-3.6.1-win64-x64.msi。</p> <p>安装后打开cmake-gui.exe，<strong>Browse Source</strong>下选择安装的opencv下的sources文件夹，<strong>Browse Build</strong>可在opencv下新建一个release目录并选择，完整后点击左下角的<strong>Configure，选择MinGW Makefiles。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a3b997df377a825423ae0b9d7c3ad20a.jpg" alt="OpenCV+QT5在Window下的环境配置记录"></p> <p>点击后CMake开始运行，过一段时间，中间会出现许多红色的选项，<strong>勾选WITH_OPENGL和WITH_QT</strong>，再次点击Configure。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f9084efa06bb53b45e697d0d09042fc3.jpg" alt="OpenCV+QT5在Window下的环境配置记录"></p> <p>运行完毕后可能还会出现部分红色选项，分别以下表选择对应项目。（有可能只有部分）</p> <table> <thead> <tr> <th>Name</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>QT_QMAKE_EXECUTABLE</td> <td>.../Qt/Qt5.3.1/5.3/mingw482_32/bin/qmake.exe</td> </tr> <tr> <td>QT_MKSPECS_DIR</td> <td>.../Qt/Qt5.3.1/5.3/mingw482_32/mkspecs</td> </tr> <tr> <td>QT_QTCORE_LIBRARY_DEBUG</td> <td>.../Qt/Qt5.3.1/5.3/mingw482_32/bin/Qt5Cored.dll</td> </tr> <tr> <td>QT_QTCORE_LIBRARY_RELEAS</td> <td>.../Qt/Qt5.3.1/5.3/mingw482_32/bin/Qt5Core.dll</td> </tr> <tr> <td>QT_QTCORE_INCLUDE_DIR</td> <td>.../Qt/Qt5.3.1/5.3/mingw482_32/include/QtCore/5.3.1/QtCore</td> </tr> <tr> <td>Qt5_DIR</td> <td>.../Qt/Qt5.3.1</td> </tr> </tbody> </table> <blockquote> <p>注意：如果你在安装Qt5后，没有给Qt5添加环境变量的话，那么在这一步，CMake软件是不会找到这些和Qt5相关的项的。</p> </blockquote> <p>配置完成后再次Configure，没有红色选项，<strong>CMAKE_BUILD_TYPE选择Release类型</strong>，再次点击Configure后没有报错，<strong>点击Generate</strong>。</p> <p>在Generate结束后需要使用cmd来最后编译生成我们需要的动态dll库。</p> <h2 id="4-在cmd中使用mingw32-make命令构建dll库">4. 在cmd中使用mingw32-make命令构建dll库</h2> <p>打开cmd，使用cd命令进入我们刚才在CMake里Browse Build选项中选择的目录，笔者的为F:\environment\opencv\release。（这里可能cd不进去，Windows下切换磁盘直接输入磁盘符＋冒号就可以切换到其他盘了）。</p> <blockquote> <p>f:<br /> cd F:\environment\opencv\release<br /> mingw32-make</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9d131add69e9b4c70ff4319e560ecacb.jpg" alt="OpenCV+QT5在Window下的环境配置记录"></p> <p>等待构建成功后，该目录下的include目录和lib目录下就生成了我们需要的库了。</p> <h2 id="5-在qt-creator的pro文件中添加配置">5. 在Qt Creator的.pro文件中添加配置</h2> <p>在你需要使用OpenCV的项目的.pro文件中添加配置</p> <blockquote> <p>INCLUDEPATH += E:\opencv-4.0.1-Sources\opencv-build\install\include<br /> LIBS += E:\opencv-4.0.1-Sources\opencv-build\lib\libopencv_*.a</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29816.htm">2021动物疫苗行业前景（动物疫苗发展前景）</a></p>
+                                        <p>下一个：<a href="/news/article-30493.htm">最通人性的5种狗（狗狗配人怎么配）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-clash-v2ray-ss-ssr.htm" title="「12月17日」最高速度20.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「12月17日」最高速度20.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-free-ssr-subscribe.htm" title="「7月31日」最高速度22.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接">「7月31日」最高速度22.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-subscribe-node.htm" title="「10月26日」最高速度21.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接">「10月26日」最高速度21.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-18699.htm" title="免费领养宠物送到家门口违法吗（免费领养宠物怎么赚钱）">免费领养宠物送到家门口违法吗（免费领养宠物怎么赚钱）</a></li>
+                        <li class="py-2"><a href="/news/article-20292.htm" title="动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）">动物防疫疫苗管理工作总结报告怎么写（动物防疫站年终总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="「11月11日」最高速度22.6M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「11月11日」最高速度22.6M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-free-ssr-node.htm" title="「10月24日」最高速度20.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「10月24日」最高速度20.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-23-free-node-subscribe.htm" title="「7月23日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「7月23日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share.htm" title="「10月30日」最高速度19.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「10月30日」最高速度19.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-clash.htm" title="「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
