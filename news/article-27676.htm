@@ -10,6 +10,33 @@
     <title>redis专题：redis键值设计、性能优化以及redis连接池配置</title>
         <meta name="description" content="文章目录  1.redis键值设计   ①：key设计规范 ②：value设计规范   2. 命令使用优化 3. redis连接池配置参数设计 4. redis连接池预热 5. redis的key过期" />
         <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-27676.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="redis专题：redis键值设计、性能优化以及redis连接池配置" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/352dd3ac1f40b652ecede8734f64374a.webp" />
+        <meta property="og:release_date" content="2024-12-18T09:53:58" />
+    <meta property="og:updated_time" content="2024-12-18T09:53:58" />
+        <meta property="og:description" content="文章目录  1.redis键值设计   ①：key设计规范 ②：value设计规范   2. 命令使用优化 3. redis连接池配置参数设计 4. redis连接池预热 5. redis的key过期" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="redis专题：redis键值设计、性能优化以及redis连接池配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Google Fonts Files -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe.htm" title="「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「11月3日」最高速度18.6M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-node-subscribe-links.htm" title="「11月4日」最高速度22.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「11月4日」最高速度22.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-clash.htm" title="「12月31日」最高速度18.2M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接">「12月31日」最高速度18.2M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-node-share-links.htm" title="「11月17日」最高速度22.7M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「11月17日」最高速度22.7M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-clash-node.htm" title="「8月12日」最高速度19.9M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「8月12日」最高速度19.9M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-19-free-v2ray-subscribe.htm" title="「8月19日」最高速度22.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「8月19日」最高速度22.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-26-clash-node-github.htm" title="「7月26日」最高速度19.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「7月26日」最高速度19.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-24181.htm" title="宠物粮食生产厂家电话地址查询（生产宠物粮的工厂有哪些）">宠物粮食生产厂家电话地址查询（生产宠物粮的工厂有哪些）</a></li>
                         <li class="py-2"><a href="/news/article-21205.htm" title="柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）">柯基幼犬狗粮排行榜性价比高（柯基性价比高的狗粮）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-node-subscribe.htm" title="「12月30日」最高速度21.1M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接">「12月30日」最高速度21.1M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39648.htm" title="开一个宠物医院需要几个兽医证（开一个宠物医院要多少钱）">开一个宠物医院需要几个兽医证（开一个宠物医院要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-45599.htm" title="宠物领养协议免费下载（宠物领养协议 百度网盘）">宠物领养协议免费下载（宠物领养协议 百度网盘）</a></li>
+                        <li class="py-2"><a href="/news/article-42621.htm" title="动物医院优质好评评语 动物医院优质好评评语怎么写">动物医院优质好评评语 动物医院优质好评评语怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-32391.htm" title="动物接种视频教程完整版（动物接种是什么意思）">动物接种视频教程完整版（动物接种是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-node-share.htm" title="「11月9日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接">「11月9日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-36696.htm" title="长沙宠物狗领养中心电话 长沙宠物狗领养中心电话号码">长沙宠物狗领养中心电话 长沙宠物狗领养中心电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-28615.htm" title="长沙宠物领养救助站电话 长沙宠物领养救助站电话号码">长沙宠物领养救助站电话 长沙宠物领养救助站电话号码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-clash-node-github.htm" title="「12月22日」最高速度19.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「12月22日」最高速度19.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20746.htm" title="上海市青浦区二中分数线是多少分（上海市青浦区二中分数线是多少分啊）">上海市青浦区二中分数线是多少分（上海市青浦区二中分数线是多少分啊）</a></li>
                     </ul>
     </div>
 </div>
@@ -138,28 +165,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
