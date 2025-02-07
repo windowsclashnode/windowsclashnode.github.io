@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-51653.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Spring Security实现基于RBAC的权限表达式动态访问控制</title>
+        <meta name="description" content="昨天有个粉丝加了我，问我如何实现类似shiro的资源权限表达式的访问控制。我以前有一个小框架用的就是shiro，权限控制就用了资源权限表达式，所以这个东西对我不陌生，但是在Spring Securit" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-51653.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="Spring Security实现基于RBAC的权限表达式动态访问控制" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/174f65e7a46144db9930fea0079b3df6.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:20:59" />
+    <meta property="og:updated_time" content="2025-02-05T08:20:59" />
+        <meta property="og:description" content="昨天有个粉丝加了我，问我如何实现类似shiro的资源权限表达式的访问控制。我以前有一个小框架用的就是shiro，权限控制就用了资源权限表达式，所以这个东西对我不陌生，但是在Spring Securit" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Security实现基于RBAC的权限表达式动态访问控制">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Spring Security实现基于RBAC的权限表达式动态访问控制 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>昨天有个粉丝加了我，问我如何实现类似shiro的资源权限表达式的访问控制。我以前有一个小框架用的就是shiro，权限控制就用了资源权限表达式，所以这个东西对我不陌生，但是在Spring Security中我并没有使用过它，不过我认为Spring Security可以实现这一点。是的，我找到了实现它的方法。</p> <h3 id="资源权限表达式">资源权限表达式</h3> <p>说了这么多，我觉得应该解释一下什么叫资源权限表达式。权限控制的核心就是清晰地表达出特定资源的某种操作，一个格式良好好的权限声明可以清晰表达出用户对该资源拥有的操作权限。</p> <p>通常一个资源在系统中的标识是唯一的，比如<strong>User</strong>用来标识用户，<strong>ORDER</strong>标识订单。不管什么资源大都可以归纳出以下这几种操作</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1cc8c293aa89190e1ee0e7cc62d550d2.jpg" alt="Spring Security实现基于RBAC的权限表达式动态访问控制"></p> <p>在 shiro权限声明通常对上面的这种资源操作关系用冒号分隔的方式进行表示。例如读取用户信息的操作表示为<code>USER:READ</code>，甚至还可以更加细一些，用<code>USER:READ:123</code>表示读取<strong>ID</strong>为<code>123</code>的用户权限。</p> <p>资源操作定义好了，再把它和角色关联起来不就是基于RBAC的权限资源控制了吗？就像下面这样：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2af86d5f5db3c9aa8722995ad3afd257.jpg" alt="Spring Security实现基于RBAC的权限表达式动态访问控制"></p> <p>这样资源和角色的关系可以进行CRUD操作进行动态绑定。</p> <h3 id="spring-security中的实现">Spring Security中的实现</h3> <p>资源权限表达式动态权限控制在Spring Security也是可以实现的。首先开启方法级别的注解安全控制。</p> <pre><code class="language-java">/**  * 开启方法安全注解  *  * @author felord.cn  */ @EnableGlobalMethodSecurity(prePostEnabled = true,         securedEnabled = true,         jsr250Enabled = true) public class MethodSecurityConfig {      }</code></pre> <h4 id="methodsecurityexpressionhandler">MethodSecurityExpressionHandler</h4> <p><code>MethodSecurityExpressionHandler</code> 提供了一个对方法进行安全访问的门面扩展。它的实现类<code>DefaultMethodSecurityExpressionHandler</code>更是提供了针对方法的一系列扩展接口，这里我总结了一下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/69fd01e989f655213d98dc3a54c4a116.jpg" alt="Spring Security实现基于RBAC的权限表达式动态访问控制"></p> <p>这里的<code>PermissionEvaluator</code>正好可以满足需要。</p> <h5 id="permissionevaluator">PermissionEvaluator</h5> <p><code>PermissionEvaluator</code> 接口抽象了对一个用户是否有权限访问一个特定的领域对象的评估过程。</p> <pre><code class="language-java">public interface PermissionEvaluator extends AopInfrastructureBean {    	boolean hasPermission(Authentication authentication,                            Object targetDomainObject, Object permission);    	boolean hasPermission(Authentication authentication,                            Serializable targetId, String targetType, Object permission);  }</code></pre> <p>这两个方法仅仅参数列表不同，这些参数的含义为：</p> <ul> <li><code>authentication</code> 当前用户的认证信息，持有当前用户的角色权限。</li> <li><code>targetDomainObject</code> 用户想要访问的目标领域对象，例如上面的<code>USER</code>。</li> <li><code>permission</code> 这个当前方法设定的目标领域对象的权限，例如上面的<code>READ</code>。</li> <li><code>targetId</code> 这种是对上面<code>targetDomainObject</code> 的具体化，比如ID为<code>123</code>的<code>USER</code>，我觉得还可以搞成租户什么的。</li> <li><code>targetType</code> 是为了配合<code>targetId</code> 。</li> </ul> <blockquote> <p>第一个方法是用来实现<code>USER:READ</code>的；第二个方法是用来实现<code>USER:READ:123</code>的。</p> </blockquote> <h4 id="思路以及实现">思路以及实现</h4> <p><code>targetDomainObject:permission</code>不就是<code>USER:READ</code>的抽象吗？只要找出<code>USER:READ</code>对应的角色集合，和当前用户持有的角色进行比对，它们存在交集就证明用户有权限访问。借着这个思路胖哥实现了一个<code>PermissionEvaluator</code>:</p> <pre><code class="language-java">/**  * 资源权限评估  *   * @author felord.cn  */ public class ResourcePermissionEvaluator implements PermissionEvaluator {     private final BiFunction&lt;String, String, Collection&lt;? extends GrantedAuthority&gt;&gt; permissionFunction;      public ResourcePermissionEvaluator(BiFunction&lt;String, String, Collection&lt;? extends GrantedAuthority&gt;&gt; permissionFunction) {         this.permissionFunction = permissionFunction;     }      @Override     public boolean hasPermission(Authentication authentication, Object targetDomainObject, Object permission) {         //查询方法标注对应的角色         Collection&lt;? extends GrantedAuthority&gt; resourceAuthorities = permissionFunction.apply((String) targetDomainObject, (String) permission);         // 用户对应的角色         Collection&lt;? extends GrantedAuthority&gt; userAuthorities = authentication.getAuthorities();          // 对比 true 就能访问  false 就不能访问         return userAuthorities.stream().anyMatch(resourceAuthorities::contains);     }      @Override     public boolean hasPermission(Authentication authentication, Serializable targetId, String targetType, Object permission) {         //todo         System.out.println("targetId = " + targetId);         return true;     } }</code></pre> <blockquote> <p>第二个方法没有实现，因为两个差不多，第二个你可以想想具体的使用场景。</p> </blockquote> <h4 id="配置和使用">配置和使用</h4> <p><code>PermissionEvaluator</code> 需要注入到<strong>Spring IoC</strong>，并且<strong>Spring IoC</strong>只能有一个该类型的<strong>Bean</strong>：</p> <pre><code class="language-java">    @Bean     PermissionEvaluator resourcePermissionEvaluator() {         return new ResourcePermissionEvaluator((targetDomainObject, permission) -&gt; {             //TODO 这里形式其实可以不固定             String key = targetDomainObject + ":" + permission;             //TODO  查询 key 和  authority 的关联关系             //  模拟 permission 关联角色   根据key 去查 grantedAuthorities             Set&lt;SimpleGrantedAuthority&gt; grantedAuthorities = new HashSet&lt;&gt;();             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));             return "USER:READ".equals(key) ? grantedAuthorities : new HashSet&lt;&gt;();         });     }</code></pre> <p>接下来写个接口，用<code>@PreAuthorize</code>注解标记，然后直接用<code>hasPermission('USER','READ')</code>来静态绑定该接口的访问权限表达式：</p> <pre><code class="language-java">    @GetMapping("/postfilter")     @PreAuthorize("hasPermission('USER','READ')")     public Collection&lt;String&gt; postfilter(){         List&lt;String&gt; list = new ArrayList&lt;&gt;();         list.add("felord.cn");         list.add("码农小胖哥");         list.add("请关注一下");         return list;     }</code></pre> <p>然后定义一个用户：</p> <pre><code class="language-java">    @Bean     UserDetailsService users() {         UserDetails user = User.builder()                 .username("felord")                 .password("123456")       .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder()::encode)                 .roles("USER")                 .authorities("ROLE_ADMIN","ROLE_USER")                 .build();         return new InMemoryUserDetailsManager(user);     }</code></pre> <p>接下来肯定是正常能够访问接口的。当你改变了<code>@PreAuthorize</code>中表达式的值或者移除了用户的<code>ROLE_ADMIN</code>权限，再或者<code>USER:READ</code>关联到了其它角色等等，都会返回<code>403</code>。</p> <h5 id="留给你去测试的">留给你去测试的</h5> <p>你可以看看注解改成这样会是什么效果：</p> <pre><code>  @PreAuthorize("hasPermission('1234','USER','READ')")</code></pre> <p>还有这个：</p> <pre><code class="language-java">  @PreAuthorize("hasPermission('USER','READ') or hasRole('ADMIN')")</code></pre> <p>或者让<code>targetId</code>动态化：</p> <pre><code class="language-java">    @PreAuthorize("hasPermission(#id,'USER','READ')")     public Collection&lt;String&gt; postfilter(String id){              }</code></pre> <p></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51101.htm">动物医院取什么名字好听一点（动物医院牌子）</a></p>
+                                        <p>下一个：<a href="/news/article-51654.htm">跳蚤怕花露水还是风油精（跳蚤最怕的三种药）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-clash.htm" title="「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「11月8日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39168.htm" title="动物疫苗证明怎么开电子版（小动物疫苗注射证明怎么开）">动物疫苗证明怎么开电子版（小动物疫苗注射证明怎么开）</a></li>
+                        <li class="py-2"><a href="/news/article-19377.htm" title="买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-v2ray.htm" title="「12月2日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「12月2日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-34780.htm" title="上海宠物领养地址查询（上海地区宠物领养）">上海宠物领养地址查询（上海地区宠物领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-clash-node.htm" title="「11月23日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接">「11月23日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-ssr-subscribe.htm" title="「11月15日」最高速度19.7M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「11月15日」最高速度19.7M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-node-daily-updates.htm" title="「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-high-speed-nodes.htm" title="「1月20日」最高速度20.9M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「1月20日」最高速度20.9M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-v2ray-subscribe.htm" title="「12月14日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接">「12月14日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
