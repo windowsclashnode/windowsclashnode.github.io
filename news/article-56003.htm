@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-56003.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</title>
+        <meta name="description" content="前几篇文章中，我们讨论了如何通过流水线实现项目的编译、上传、打包、部署等操作，今天我们来实现一套完整的流程，把之前碎片化的知识点给串起来。 本次我们使用一个ASP.NET Core的WebApi项目来" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-56003.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/6e658404d5deefe572f0c5e3a59aa77f.webp" />
+        <meta property="og:release_date" content="2025-02-13T03:11:04" />
+    <meta property="og:updated_time" content="2025-02-13T03:11:04" />
+        <meta property="og:description" content="前几篇文章中，我们讨论了如何通过流水线实现项目的编译、上传、打包、部署等操作，今天我们来实现一套完整的流程，把之前碎片化的知识点给串起来。 本次我们使用一个ASP.NET Core的WebApi项目来" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>前几篇文章中，我们讨论了如何通过流水线实现项目的编译、上传、打包、部署等操作，今天我们来实现一套完整的流程，把之前碎片化的知识点给串起来。</p> <p>本次我们使用一个ASP.NET Core的WebApi项目来进行项目的演示，后面也会写java和golang的。</p> <p>首先我们先创建一个ASP.NET Core WebAPI的模板项目，使用IDE创建就可以，我用的是jb全家桶的rider.</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/50562ef220c905f1355e4d491a724961.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>创建完成之后，我们稍微对项目做一点点修改，主要修改的内容为：关闭HTTP重定向，关闭鉴权，更改启动端口为5001.</p> <p>在Program.cs中删除&nbsp;HTTP重定向，鉴权的代码，在luanchsetting.json中更改启动端口为5000，注意这里改的只是你本地debug时候的端口和编译后部署时的不是一个配置。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6a4962c0af3a8023ca29474ca6bc9c03.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;这些搞好之后，启动项目，会自动弹开swagger的页面，我们访问一下里面的模板接口，可以看到返回了一个标准的json数据结构。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/26cf822ecd37e69c38d4be8218596106.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>这些都准备好之后，我们把我们的代码推送到仓库里去，创建仓库的步骤不在赘述，我在系列文章的第一篇里已经做了介绍：《<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/Tassdar/p/15981395.html"  rel="nofollow">Azure DevOps (一) 托管自己的Git仓库</a>》</p> <p>代码推送好之后，我们开始创建编译流水线来编译我们的webapi代码。</p> <p>点击流水线，创建流水线之后右侧第一个选项就是.NET Core。毕竟是微软的亲儿子，地位都不一样，点击添加之后，我们可以看到有很多的选项</p> <p>来执行不同的阶段，我们本次的目标是部署项目，所以我们使用publish来执行。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7838c25899968eb741761906cd1e9c3a.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;添加的时候这里要注意下把web project的勾给取消掉，打这个勾是默认编译mvc项目的他会去找你的wwwroot文件和webconfig</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/83bf7b5f405655dabd90d6875e6209ff.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>勾选完之后我们执行一下编译，然后就发现了一个天大的雷，身为微软的亲儿子，这个.NET Core的编译插件居然TM的不支持.NET 6，是的，你没听错，我都怀疑这爹不是亲的。(╯‵□′)╯︵┻━┻</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0469b722e4a82fce37dd45a94be71b99.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;既然出了这档子事儿，我们也只能自己想办法了，我选择的是自己下载.NET6的SDK，自己编译。</p> <p>我们打开.net core的官网，选择linux安装.net core sdk&nbsp; 网站地址：https://docs.microsoft.com/zh-cn/dotnet/core/install/linux-ubuntu#2110-</p> <p>因为我们流水线的运行环境是乌班图，所以我装的是乌班图的。</p> <p>安装命令如下：</p> <div class="cnblogs_code"> <pre>wget https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span> sudo dpkg -i packages-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb rm packages</span>-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span><span style="color: rgba(0, 0, 0, 1)"> update; \ sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y apt-transport-https &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \ sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> update &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \ sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y dotnet-sdk-<span style="color: rgba(128, 0, 128, 1)">6.0</span></pre> </div> <p>然后我们在执行一下编译命令 dotnet publish</p> <p>最后我们整理一下azure的流水线脚本，因为没有插件可用，所以这次的脚本需要我们自己纯手打，我们在script节点中加入sdk安装命令，然后创建第二个scprit节点用来进行项目的编译</p> <p>当然全部写在一个里面也没有什么问题，但是还是建议分开，看着清爽。</p> <p>脚本如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)"># Starter pipeline # Start with a minimal pipeline that you can customize to build and deploy your code. # Add steps that build, run tests, deploy, and more: # https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">aka.ms/yaml</span><span style="color: rgba(0, 0, 0, 1)"> trigger:</span>-<span style="color: rgba(0, 0, 0, 1)"> main  pool:   vmImage: ubuntu</span>-<span style="color: rgba(0, 0, 0, 1)">latest  steps:</span>- script: echo Hello, world!<span style="color: rgba(0, 0, 0, 1)">   displayName:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Run a one-line script</span><span style="color: rgba(128, 0, 0, 1)">'</span>  - script: |<span style="color: rgba(0, 0, 0, 1)">     echo Add other tasks to build, test, and deploy your project.     echo See https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">aka.ms/yaml</span>     wget https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span>     sudo dpkg -i packages-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb     rm packages</span>-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span><span style="color: rgba(0, 0, 0, 1)"> update; \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y apt-transport-https &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> update &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y dotnet-sdk-<span style="color: rgba(128, 0, 128, 1)">6.0</span><span style="color: rgba(0, 0, 0, 1)">   displayName:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Run a multi-line script</span><span style="color: rgba(128, 0, 0, 1)">'</span> -<span style="color: rgba(0, 0, 0, 1)"> script:    cd</span>/home/vsts/work/<span style="color: rgba(128, 0, 128, 1)">1</span>/<span style="color: rgba(0, 0, 0, 1)">s;    dotnet publish;    cd</span>/home/vsts/work/<span style="color: rgba(128, 0, 128, 1)">1</span>/s/azure_dotnet_app/bin/Debug/net6.<span style="color: rgba(128, 0, 128, 1)">0</span>/publish/<span style="color: rgba(0, 0, 0, 1)">;    ls   displayName:</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">publish dotnet</span><span style="color: rgba(128, 0, 0, 1)">"</span></pre> </div> <p>然后我们运行一下看看效果，可以看到成功的安装了SDK6</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/02d1e662513a2e37078b1e0615970762.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>然后执行dotnet publish,这次成功完成了编译</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/27b25719be9743382d1a58c6fcb1a304.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;编译完之后，我们需要添加一下制品上传步骤，和我们之前的文章中一样，我们需要把制品上传到流水线的仓库上去方便后面使用。</p> <p>编辑流水线，添加制品上传，目录选择我们的publish的目标目录，最后完成的流水线脚本如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)"># Starter pipeline # Start with a minimal pipeline that you can customize to build and deploy your code. # Add steps that build, run tests, deploy, and more: # https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">aka.ms/yaml</span><span style="color: rgba(0, 0, 0, 1)"> trigger:</span>-<span style="color: rgba(0, 0, 0, 1)"> main  pool:   vmImage: ubuntu</span>-<span style="color: rgba(0, 0, 0, 1)">latest  steps:</span>- script: echo Hello, world!<span style="color: rgba(0, 0, 0, 1)">   displayName:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Run a one-line script</span><span style="color: rgba(128, 0, 0, 1)">'</span>  - script: |<span style="color: rgba(0, 0, 0, 1)">     echo Add other tasks to build, test, and deploy your project.     echo See https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">aka.ms/yaml</span>     wget https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span>     sudo dpkg -i packages-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb     rm packages</span>-microsoft-<span style="color: rgba(0, 0, 0, 1)">prod.deb     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span><span style="color: rgba(0, 0, 0, 1)"> update; \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y apt-transport-https &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> update &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> \     sudo apt</span>-<span style="color: rgba(0, 0, 255, 1)">get</span> install -y dotnet-sdk-<span style="color: rgba(128, 0, 128, 1)">6.0</span><span style="color: rgba(0, 0, 0, 1)">   displayName:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Run a multi-line script</span><span style="color: rgba(128, 0, 0, 1)">'</span> -<span style="color: rgba(0, 0, 0, 1)"> script:    cd</span>/home/vsts/work/<span style="color: rgba(128, 0, 128, 1)">1</span>/<span style="color: rgba(0, 0, 0, 1)">s;    dotnet publish;    cd</span>/home/vsts/work/<span style="color: rgba(128, 0, 128, 1)">1</span>/s/azure_dotnet_app/bin/Debug/net6.<span style="color: rgba(128, 0, 128, 1)">0</span>/publish/<span style="color: rgba(0, 0, 0, 1)">;    ls   displayName:</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">publish dotnet</span><span style="color: rgba(128, 0, 0, 1)">"</span>   - task: PublishBuildArtifacts@<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">   inputs:     PathtoPublish:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">/home/vsts/work/1/s/azure_dotnet_app/bin/Debug/net6.0/publish/</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">     ArtifactName:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">dotnet_app</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">     publishLocation:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Container</span><span style="color: rgba(128, 0, 0, 1)">'</span></pre> </div> <p>完成之后运行流水线，我们就可以在流水线的运行脚本结果中看到我们的流水线制品</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/83d165f37edab8c3d84f62fc89fbc4f0.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a4a73aefe6c1866a88719db31570b524.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;然后接下来，我们去创建发布流水线，发布流水线的内容非常简单，前几篇的文章中我们使用的是FTP，后来我发现SFTP更好用，所以这里我们用SFTP</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ceee1b6074ce9ae93fc15dab632e518d.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;然后我们去准备一下服务器的环境，在服务器上安装一下sdk和nginx，顺道配置一下守护进程，代码如下：</p> <p>centos安装sdk:</p> <div class="cnblogs_code"> <pre>sudo rpm -Uvh https:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm</span> sudo yum install dotnet-sdk-<span style="color: rgba(128, 0, 128, 1)">6.0</span></pre> </div> <p>安装nginx</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">yum install nginx systemctl restart nginx</span></pre> </div> <p>配置守护进程</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">[Unit] Description</span>=<span style="color: rgba(0, 0, 0, 1)">Example .NET Web API App running on Ubuntu  [Service] WorkingDirectory</span>=/home/<span style="color: rgba(0, 0, 0, 1)">dotnet_app ExecStart</span>=/usr/bin/dotnet /home/dotnet_app/<span style="color: rgba(0, 0, 0, 1)">azure_dotnet_app.dll Restart</span>=<span style="color: rgba(0, 0, 0, 1)">always # Restart service after</span><span style="color: rgba(128, 0, 128, 1)">10</span> seconds<span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)"> the dotnet service crashes: RestartSec</span>=<span style="color: rgba(128, 0, 128, 1)">10</span><span style="color: rgba(0, 0, 0, 1)"> KillSignal</span>=<span style="color: rgba(0, 0, 0, 1)">SIGINT SyslogIdentifier</span>=dotnet-<span style="color: rgba(0, 0, 0, 1)">example User</span>=<span style="color: rgba(0, 0, 0, 1)">root Environment</span>=ASPNETCORE_ENVIRONMENT=<span style="color: rgba(0, 0, 0, 1)">Production Environment</span>=DOTNET_PRINT_TELEMETRY_MESSAGE=<span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  [Install] WantedBy</span>=multi-user.target</pre> </div> <p>配置反向代理：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">server {         listen</span><span style="color: rgba(128, 0, 128, 1)">80</span><span style="color: rgba(0, 0, 0, 1)">;         listen       [::]:</span><span style="color: rgba(128, 0, 128, 1)">80</span><span style="color: rgba(0, 0, 0, 1)">;         server_name  _;         root</span>/usr/share/nginx/<span style="color: rgba(0, 0, 0, 1)">html;   location</span>/<span style="color: rgba(0, 0, 0, 1)"> {         proxy_pass         http:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">localhost:5000;</span>         proxy_http_version<span style="color: rgba(128, 0, 128, 1)">1.1</span><span style="color: rgba(0, 0, 0, 1)">;         proxy_set_header   Upgrade $http_upgrade;         proxy_set_header   Connection keep</span>-<span style="color: rgba(0, 0, 0, 1)">alive;         proxy_set_header   Host $host;         proxy_cache_bypass $http_upgrade;         proxy_set_header   X</span>-Forwarded-<span style="color: rgba(0, 0, 0, 1)">For $proxy_add_x_forwarded_for;         proxy_set_header   X</span>-Forwarded-<span style="color: rgba(0, 0, 0, 1)">Proto $scheme;     }         # Load configuration files</span><span style="color: rgba(0, 0, 255, 1)">for</span> the<span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> server block.         include</span>/etc/nginx/<span style="color: rgba(0, 0, 255, 1)">default</span>.d<span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">.conf;</span></pre> </div> <p>启动守护进程：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">systemctl enable app systemctl start app systemctl status app</span></pre> </div> <p>查看服务状态，服务正常运行。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e8666bcb0d8f1a8bca3d4137886323d0.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;然后，我们更改一下项目的源代码，返回一句祖传问候</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/be07968c2ad003b2046d74fb330e556b.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;然后在流水线中添加脚本命令：systemctl restart app</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4d6377cd4f44c1a87262ad4d6df7807b.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>&nbsp;最后我们重新运行一下流水线，等待流水线运行完后，我们访问一下接口地址</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2763981d04821cd2e9003329978467e1.jpg" alt="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI"></p> <p>成功输出祖传问候，第一个ASP.NET Core的流水线创建成功，完结撒花。</p> <p>文章虽短，但是写这篇文章用了三个小时才完成，踩了一堆的坑，大家在调试过程中需要多多注意。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-55449.htm">成都市宠物托运公司哪家比较好点（成都宠物物流）</a></p>
+                                        <p>下一个：<a href="/news/article-56004.htm">新手养猫基础知识电子书下载（新手养猫宝典）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26756.htm" title="win11系统新硬盘不显示怎么办">win11系统新硬盘不显示怎么办</a></li>
+                        <li class="py-2"><a href="/news/article-47569.htm" title="动物疫苗对人体有害吗知乎 动物疫苗对人体有害吗知乎">动物疫苗对人体有害吗知乎 动物疫苗对人体有害吗知乎</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-high-speed-nodes.htm" title="「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-46599.htm" title="实战代码（十）：Springboot RestTemplate连接池">实战代码（十）：Springboot RestTemplate连接池</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-clash-windows.htm" title="「1月5日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「1月5日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-v2ray-subscribe.htm" title="「12月14日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接">「12月14日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-ssr-subscribe.htm" title="「11月29日」最高速度21.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「11月29日」最高速度21.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-44099.htm" title="动物医院诊疗管理系统官网登录（动物医院诊疗范围）">动物医院诊疗管理系统官网登录（动物医院诊疗范围）</a></li>
+                        <li class="py-2"><a href="/news/article-24887.htm" title="动物疫苗使用注意事项有哪些呢 动物疫苗使用注意事项有哪些呢图片">动物疫苗使用注意事项有哪些呢 动物疫苗使用注意事项有哪些呢图片</a></li>
+                        <li class="py-2"><a href="/news/article-44612.htm" title="动物打防疫针运输（动物打防疫针运输安全吗）">动物打防疫针运输（动物打防疫针运输安全吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
