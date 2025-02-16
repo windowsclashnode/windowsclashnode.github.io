@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-57122.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>nginx.conf配置文件结构小结_nginx</title>
+        <meta name="description" content="目录  核心配置文件的结构 nginx进程模型    核心配置文件的结构 nginx.conf主要由events、http、server、location、upstream等块配置项和一些行配置项组成" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-57122.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="nginx.conf配置文件结构小结_nginx" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/a659ebbe99cc7c249d4a9fd5c4f59683.webp" />
+        <meta property="og:release_date" content="2025-02-15T05:23:30" />
+    <meta property="og:updated_time" content="2025-02-15T05:23:30" />
+        <meta property="og:description" content="目录  核心配置文件的结构 nginx进程模型    核心配置文件的结构 nginx.conf主要由events、http、server、location、upstream等块配置项和一些行配置项组成" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="nginx.conf配置文件结构小结_nginx">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">nginx.conf配置文件结构小结_nginx </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">核心配置文件的结构</a></li> <li><a href="#_label1" rel="nofollow">nginx进程模型</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>核心配置文件的结构</h2> <p>nginx.conf主要由<code>events、http、server、location、upstream</code>等块配置项和一些行配置项组成。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220423/6d8580d3dc1782a0f814b13ef720a435.jpg"></p> <div class="ay1code"> <pre class="brush:bash;">##代码块中的events、http、server、location、upstream等都是块配置项##        #规定哪些用户使用，nobody的话就是所有人  #user  nobody;        ##Nginx worker进程个数：其数量直接影响性能。  #每个worker进程都是单线程的进程，他们会调用各个模块以实现多种多样的功能。如果这些模块不会出现阻塞式的调用，那么，有多少CPU内核就应该配置多少个进程，反之，有可能出现阻塞式调用，那么，需要配置稍多一些的worker进程。  worker_processes  1;        ##error日志的设置，日志默认位置是我们在linux上安装nginx时配置的，也可以在下面修改。  #语法： error_log /path/file level;  #默认： error_log / log/error.log error;  #当path/file 的值为 /dev/null时，这样就不会输出任何日志了，这也是关闭error日志的唯一手段；  #leve的取值范围是debug、info、notice、warn、error、crit、alert、emerg从左至右级别依次增大。  #当level的级别为error时，error、crit、alert、emerg级别的日志就都会输出。大于等于该级别会输出，小于该级别的不会输出。  #如果设定的日志级别是debug，则会输出所有的日志，这一数据量会很大，需要预先确保/path/file所在的磁盘有足够的磁盘空间。级别设定到debug，必须在configure时加入 --with-debug配置项。  #error_log  logs/error.log;  #error_log  logs/error.log  notice;  #error_log  logs/error.log  info;        events {  	worker_connections  1024;  }        http {      //引入mime.types文件的设置，这样引入的方式主要是增加可读性      include       mime.types;      default_type  application/octet-stream;            sendfile        on;         //设置一个tcp连接最多保持多长时间存活      keepalive_timeout  65;         server {          //这里是配置nginx首页以及出错跳转页面的，我们这里配置的是localhost:80端口，也可以根据需要定义          listen       80;          server_name  localhost;             //access.log 记录所有用户请求的一种日志          #access_log  logs/host.access.log  main;                //跳转的nginx首页，首页文件在根目录的html文件夹下的index.html          location / {              root   html;              index  index.html;          }  		          //出错页面，出错的话就会跳转。在根目录的html文件夹下的/50x.html          error_page   500 502 503 504  /50x.html;          location = /50x.html {              root   html;          }         }      //负载均衡的策略在upstream块这里配置，如下是轮询的一个范例      upstream bakend {          server 192.168.1.10 weight=1;          server 192.168.1.11 weight=2;      }         #引入其他的conf      include       imooc.conf;  }</pre> </div> <div class="ay1code"> <pre class="brush:bash;">#imooc.conf     server {          listen       81;          server_name  localhost;             //跳转的nginx首页，首页文件在根目录的html文件夹下的index.html          location / {              root   html;              index  imooc123.html;          }      }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>nginx进程模型</h2> <p>包含master进程（用来监听命令和请求）和worker进程（用来处理，是异步非阻塞模式：如果当前client阻塞，就会继续处理其他client的请求），可以通过配置开启多个worker，每个 worker可以处理几十万甚至几百万的并发（根据机器性能），不过默认每个worker的连接数是1024。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220423/cc8bc5db12354a06af0f4c78f0c7fb79.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220423/8fa8e28b49aa551abcbe7a37a589fb2b.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220423/0e36331e228d36338d24934887d93eab.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57121.htm">Pytorch单GPU、多GPU训练的几个细节对比</a></p>
+                                        <p>下一个：<a href="/news/article-57683.htm">北京排名第一的宠物医院（北京最厉害的宠物医院）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-42621.htm" title="动物医院优质好评评语 动物医院优质好评评语怎么写">动物医院优质好评评语 动物医院优质好评评语怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度22M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「12月12日」最高速度22M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-clash.htm" title="「12月31日」最高速度18.2M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接">「12月31日」最高速度18.2M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-47086.htm" title="宠物领养协议电子版下载 宠物领养协议电子版下载">宠物领养协议电子版下载 宠物领养协议电子版下载</a></li>
+                        <li class="py-2"><a href="/news/article-35605.htm" title="动物疫苗公司招聘 动物疫苗公司招聘信息最新">动物疫苗公司招聘 动物疫苗公司招聘信息最新</a></li>
+                        <li class="py-2"><a href="/news/article-43611.htm" title="动物疫病防控工作总结（动物疫病防疫工作）">动物疫病防控工作总结（动物疫病防疫工作）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-node-daily-updates.htm" title="「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-high-speed-nodes.htm" title="「11月27日」最高速度22.2M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「11月27日」最高速度22.2M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22125.htm" title="SpringCloud Sleuth分布式链路跟踪">SpringCloud Sleuth分布式链路跟踪</a></li>
+                        <li class="py-2"><a href="/news/article-29524.htm" title="动物医院手术室设备介绍 动物医院手术室设备介绍图片">动物医院手术室设备介绍 动物医院手术室设备介绍图片</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
