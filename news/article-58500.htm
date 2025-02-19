@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-58500.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Git基础Commit对象</title>
+        <meta name="description" content="目录  1、Commit对象介绍 2、Commit对象说明 3、本地库中对象之间的关系 4、总结 5、练习 6、本文用到的命令总结   1、Commit对象介绍 现在来介绍最后一种Git对象commi" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-58500.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="Git基础Commit对象" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/3b3e7ca9e945ccf09bbdae2620d7a4ad.webp" />
+        <meta property="og:release_date" content="2025-02-18T00:39:01" />
+    <meta property="og:updated_time" content="2025-02-18T00:39:01" />
+        <meta property="og:description" content="目录  1、Commit对象介绍 2、Commit对象说明 3、本地库中对象之间的关系 4、总结 5、练习 6、本文用到的命令总结   1、Commit对象介绍 现在来介绍最后一种Git对象commi" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Git基础Commit对象">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Git基础Commit对象 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1commit%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D" rel="nofollow">1、Commit对象介绍</a></li> <li><a href="#2commit%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E" rel="nofollow">2、Commit对象说明</a></li> <li><a href="#3%E6%9C%AC%E5%9C%B0%E5%BA%93%E4%B8%AD%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" rel="nofollow">3、本地库中对象之间的关系</a></li> <li><a href="#4%E6%80%BB%E7%BB%93" rel="nofollow">4、总结</a></li> <li><a href="#5%E7%BB%83%E4%B9%A0" rel="nofollow">5、练习</a></li> <li><a href="#6%E6%9C%AC%E6%96%87%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93" rel="nofollow">6、本文用到的命令总结</a></li> </ul> </div> <h2 id="1commit对象介绍">1、Commit对象介绍</h2> <p>现在来介绍最后一种Git对象<code>commit</code>对象，也叫提交对象。</p> <p>提交对象可以理解为是对树对象的一层封装，提交信息包括基于当前暂存区中索引文件生成的<code>tree</code>对象，还有包含了提交时间，提交者信息，作者信息，以及提交备注等内容，更重要的是里面还包含了父提交的ID，由此就可以形成Git提交的有向无环图。（是链式的关系，把所有<code>commit</code>对象关联起来）</p> <p>即：<code>commit</code>对象通常指向一个<code>tree</code> 对象，并且封装了文件的提交时间，提交者信息，作者信息，提交备注，以及父提交引用等数据。</p> <p>下面是<code>commit</code>对象的存储结构：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fc6cead3c6a12af6716c89a03a9186d6.jpg" alt="Git基础Commit对象"></p> <h2 id="2commit对象说明">2、Commit对象说明</h2> <p>我们通过练习来说明<code>commit</code>对象，接着用前面<code>Tree</code>对象的本地版本库。</p> <p><strong>（1）创建一个<code>commit</code>对象</strong></p> <p>我们可以通过调用<code>commit-tree</code>命令创建一个提交对象，为此需要指定一个树对象的<code>SHA-1</code>值，以及该提交的父提交对象。</p> <blockquote> <p>说明：使用<code>commit-tree</code>命令来创建提交对象，一般都需要和父提交进行关联，如果是第一次将暂存区的文件索引数据提交到本地版本库，那么该提交操作就不需要指定父提交对象。</p> </blockquote> <p><strong>1）我们可以先查看一下此时Git本地库中的对象，如下</strong>：</p> <pre><code class="language-bash">.git/objects/01/ab2a43b1eb150bcf00f375800727df240cf653 # 第三个tree树对象 .git/objects/0c/1e7391ca4e59584f8b773ecdbbb9467eba1547 # test.txt第二个版本（blob对象） .git/objects/16/3b45f0a0925b0655da232ea8a4188ccec615f5 # 第二个tree树对象 .git/objects/83/baae61804e65cc73a7201a7252750c76066a30 # test.txt第一个版本（blob对象） .git/objects/d8/329fc1cc938780ffdd9f94e0d364e0ea74f579 # 第一个tree树对象 .git/objects/fa/49b077972391ad58037050f2a75f74e3671e92 # new.txt第一个版本（blob对象）</code></pre> <p><strong>2）我们通过第一个树对象，创建一个<code>commit</code>对象</strong></p> <pre><code class="language-bash"># 1.做提交操作，创建一个commit对象 L@DESKTOP-T2AI2SU MINGW64 /j/git-repository/git_learning (master) $ echo 'first commit' | git commit-tree d8329f 3ceba95d3cd9cce982d31e41e3b995ece72f755d  # 2.确定该对象类型 L@DESKTOP-T2AI2SU MINGW64 /j/git-repository/git_learning (master) $ git cat-file -t 3ceba95d3c commit  # 3.查看该对象内容 L@DESKTOP-T2AI2SU MINGW64 /j/git-repository/git_learning (master) $ git cat-file -p 3ceba95d3c tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579 author sun_wk &lt;sun_wk@126.com&gt; 1618190880 +0800 committer sun_wk &lt;sun_wk@126.com&gt; 1618190880 +0800  first commit</code></pre> <p>说明：</p> <ul> <li><code>tree</code>：表示该<code>commit</code>对象所指向的<code>tree</code>对象的索引</li> <li><code>author</code>：表示该文件的作者。</li> <li><code>committer</code>：表示该文件的提交者。</li> <li><code>first commit</code>：这段文本是提交备注。（备注与前面留空一行）</li> <li>因为是第一次进行<code>commit</code>提交操作，所以没有父提交信息。</li> <li><code>1618190880 +0800</code>：表示时间，一个时间戳。</li> </ul> <blockquote> <p>即：<code>commit</code>对象的格式很简单：指明了该时间点项目快照的顶层树对象、作者/提交者信息（从 Git 设置的<code>user.name</code>和<code>user.email</code>中获得)，以及当前时间戳、留空一行，最后是提交注释。</p> </blockquote> <blockquote> <p>提示：<code>git commit-tree</code>命令不但生成了提交对象，而且会将对应的快照（树对象）提交到本地库中。</p> </blockquote> <p><strong>（2）创建第二个<code>commit</code>对象</strong></p> <p>根据第二个<code>tree</code>对象和第一个<code>commit</code>对象，来创建第二个<code>commit</code>对象。</p> <p>通过<code>-p</code>选项指定父提交对象。</p> <pre><code class="language-bash"># 1.创建第二个commit对象 L@DESKTOP-T2AI2SU MINGW64 /j/git-repository/git_learning (master) $ echo 'second commit' | git commit-tree 163b45f0a09 -p 3ceba95d3cd9cc 60e1c209e9de87314ec47cf28e61de8df5362fe6  # 2.查看该对象内容 L@DESKTOP-T2AI2SU MINGW64 /j/git-repository/git_learning (master) $ git cat-file -p 60e1c209e9de8 tree 163b45f0a0925b0655da232ea8a4188ccec615f5 parent 3ceba95d3cd9cce982d31e41e3b995ece72f755d author sun_wk &lt;sun_wk@126.com&gt; 1618193286 +0800 committer sun_wk &lt;sun_wk@126.com&gt; 1618193286 +0800  second commit</code></pre> <blockquote> <p><strong>提交对象的格式很简单：</strong></p> <p>它先指定一个顶层树对象，代表当前项目快照；</p> <p>然后是可能存在的父提交；</p> <p>之后是作者/提交者信息（依据你的<code>user.name</code> 和<code>user.email</code> 配置来设定，外加一个时间戳）；</p> <p>留空一行，最后是提交注释。</p> </blockquote> <p>第三个<code>commit</code>提交，同上，这里就不演示了。</p> <h2 id="3本地库中对象之间的关系">3、本地库中对象之间的关系</h2> <p>我们可以查看一下此时Git本地库中的对象</p> <pre><code class="language-bash">.git/objects/01/ab2a43b1eb150bcf00f375800727df240cf653 # 第三个tree树对象 .git/objects/0c/1e7391ca4e59584f8b773ecdbbb9467eba1547 # test.txt第二个版本（blob对象） .git/objects/16/3b45f0a0925b0655da232ea8a4188ccec615f5 # 第二个tree树对象 .git/objects/3c/eba95d3cd9cce982d31e41e3b995ece72f755d # 第一个commit提交对象 .git/objects/46/ab608799a0e65e970b67b9b52f6c1407c39036 # 第三个commit提交对象 .git/objects/60/e1c209e9de87314ec47cf28e61de8df5362fe6 # 第二个commit提交对象 .git/objects/83/baae61804e65cc73a7201a7252750c76066a30 # test.txt第一个版本（blob对象） .git/objects/d8/329fc1cc938780ffdd9f94e0d364e0ea74f579 # 第一个tree树对象 .git/objects/fa/49b077972391ad58037050f2a75f74e3671e92 # new.txt第一个版本（blob对象）</code></pre> <p>可以从上面看到，此时的本地版本库中共有9个对象，三个<code>blob</code>对象，三个<code>tree</code>对象，三个<code>commit</code>对象。</p> <p>他们之间的关系如下图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6e7381388ce04479de07f84404df9fe6.jpg" alt="Git基础Commit对象"></p> <h2 id="4总结">4、总结</h2> <ol> <li>提交是我们经常使用的Git动作，每次提交操作都指向一个树对象，同时会产生一个<code>commit</code>对象。<br /> 即：一个<code>commit</code>对象包含了一个<code>tree</code>对象，这个<code>tree</code>对象记录了在那个时间点，项目包含了什么文件夹和什么文件。</li> <li>一个提交对象可以有一个或者多个父提交。</li> <li>每次<code>commit</code>操作都会基于当前索引文件index新建<code>tree</code>对象。那么当前索引文件，是在上次提交的基础上更新来的，所以每次提交产生的<code>commit</code>对象，与其他的<code>commit</code>对象，都有前后关系或者称为父子关系。</li> <li>对于我们来说，不需要直接访问<code>blob</code>对象和<code>tree</code>对象，我们直接访问<code>commit</code>对象就可以了。<br /> 即：<code>commit</code>对象对应的<code>tree</code>对象下面，又包含了小的<code>tree</code>对象和<code>blob</code>对象，子的<code>tree</code>对象一层层展开，最后叶子节点就是一个个<code>blob</code>对象，也就是一个个文件。</li> </ol> <blockquote> <p>到这里，我们就能够清楚的了解，什么叫一个Git版本。<code>tree</code>对象才是一次项目版本的快照，提交对象是对<code>tree</code>对象的一次封装。</p> <p>即：</p> <ul> <li>项目的快照就是一个树对象。</li> <li>项目的版本就是一个提交对象。</li> </ul> <p>而且Git的每一个版本，存储的不是增量，而存储的是当前项目的快照。同时<code>objects</code>目录中相当于存放了项目的所有历史记录，回滚就相当的方便了，找到对应的<code>commit</code>对象的hash就可以了。</p> </blockquote> <h2 id="5练习">5、练习</h2> <p>请问下图中包含多少个<code>tree</code>对象和<code>blob</code>对象？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/04824b7f00f79e7ae6f9a6a1ea8f2525.jpg" alt="Git基础Commit对象"></p> <p>一共包含两个<code>tree</code>对象，一个<code>blob</code>对象，一个<code>commit</code>对象。</p> <p>说明：</p> <ul> <li>一个<code>commit</code>对象一定对应一个<code>tree</code>对象（这个<code>tree</code>对象应该是一个完整项目仓库的快照）</li> <li><code>doc</code>目录下有一个<code>blob</code>对象，也就是<code>readme</code>文件。</li> </ul> <h2 id="6本文用到的命令总结">6、本文用到的命令总结</h2> <p>Git底层命令：</p> <ul> <li><code>git commit-tree</code>：生成一个<code>commit</code>对象。</li> <li><code>git cat-file -t 键</code>：查看Git对象的类型。</li> <li><code>git cat-file -p 键</code>：查看Git对象的内容。</li> </ul> <blockquote> <p>参考：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/songyuequan/article/details/85862415"  target="_blank" rel="nofollow">https://blog.csdn.net/songyuequan/article/details/85862415</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/jasongrass/p/10582465.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/jasongrass/p/10582465.html</a></li> </ul> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58499.htm">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></p>
+                                        <p>下一个：<a href="/news/article-59375.htm">promise与async/await的使用及区别</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45599.htm" title="宠物领养协议免费下载（宠物领养协议 百度网盘）">宠物领养协议免费下载（宠物领养协议 百度网盘）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-ssr-node.htm" title="「2月4日」最高速度22.6M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「2月4日」最高速度22.6M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-27220.htm" title="JVM程序计数器与虚拟机栈">JVM程序计数器与虚拟机栈</a></li>
+                        <li class="py-2"><a href="/news/article-20293.htm" title="水产兽医资格证报考条件（水产执业兽医考试条件）">水产兽医资格证报考条件（水产执业兽医考试条件）</a></li>
+                        <li class="py-2"><a href="/news/article-21650.htm" title="动物打了疫苗有什么用 动物打的疫苗">动物打了疫苗有什么用 动物打的疫苗</a></li>
+                        <li class="py-2"><a href="/news/article-53251.htm" title="五八同城狗狗领养（58同城宠物狗领养）">五八同城狗狗领养（58同城宠物狗领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-node-daily-updates.htm" title="「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「2月3日」最高速度21.7M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43117.htm" title="react实战系列 —— 我的仪表盘（bizcharts、antd、moment）_在线工具">react实战系列 —— 我的仪表盘（bizcharts、antd、moment）_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe.htm" title="「1月15日」最高速度22.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「1月15日」最高速度22.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43118.htm" title="广州猫狗领养中心地址电话（广州猫狗领养中心地址电话号码）">广州猫狗领养中心地址电话（广州猫狗领养中心地址电话号码）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
