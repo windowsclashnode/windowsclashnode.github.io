@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-73772.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>JAVA程序进阶——LocalDate、LocalTime、LocalDateTime</title>
+        <meta name="description" content="LocalDate LocalTIme LocalDateTime是java8 对日期、时间提供的接口。 这几个类相对于Date更像是一个工具类，里面包含了操作时间的很多方法 由于是final修饰的类" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-73772.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/b1fbba63249f346b6dc3986d543a2fcf.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:45" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:45" />
+        <meta property="og:description" content="LocalDate LocalTIme LocalDateTime是java8 对日期、时间提供的接口。 这几个类相对于Date更像是一个工具类，里面包含了操作时间的很多方法 由于是final修饰的类" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">JAVA程序进阶——LocalDate、LocalTime、LocalDateTime </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <blockquote> <p><strong>LocalDate LocalTIme LocalDateTime是java8 对日期、时间提供的接口。</strong></p> <p>这几个类相对于Date更像是一个工具类，里面包含了操作时间的很多方法</p> <p>由于是<strong>final</strong>修饰的类，所以不能继承，没有子类 并且<strong>构造方法是私有的</strong>，不可以通过<strong>new</strong>来生成对象</p> <p>LocalDateTime相对于Date类<strong>线程更安全</strong></p> </blockquote> <h2><a id="LocalDate_10" rel="nofollow"></a>LocalDate</h2> <blockquote> <p>获取当前日期的对象</p> </blockquote> <pre><code class="prism language-java"><span class="token class-name">LocalDate</span> localDate<span class="token operator">=</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>localDate<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//返回值是 LocalDate  由于 改类重写了toString方法 所以可以直接输出</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/5d72641552bb710a9e28b1d7b9461bd5.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> <blockquote> <p>设置某个日期</p> </blockquote> <pre><code class="prism language-java"><span class="token class-name">LocalDate</span> localDate1<span class="token operator">=</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1999</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>localDate1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获得 LocalDate实例从一年、月、日。 返回值是LocalDate</span><span class="token comment">//由于 of是静态类只能通过类名调用，不可以通过对象调用</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/e370c4ac2953d36968fe5c9aa3d3b518.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> <blockquote> <p>添加日期</p> </blockquote> <pre><code class="prism language-java"> localDate1<span class="token operator">=</span> localDate1<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//添加天数，返回LocalDate类</span>  localDate1<span class="token operator">=</span>  localDate1<span class="token punctuation">.</span><span class="token function">plusMonths</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//添加月份，返回LocalDate类</span>  localDate1<span class="token operator">=</span>  localDate1<span class="token punctuation">.</span><span class="token function">plusYears</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//添加年份，返回LocalDate类</span>  localDate1<span class="token operator">=</span>  localDate1<span class="token punctuation">.</span><span class="token function">plusWeeks</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//添加天数，每次添加1星期，返回LocalDate类</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>localDate1<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/17c5f62d8d397f270e5ee69bc8cccae6.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> <blockquote> <p>检测是否闰年</p> </blockquote> <pre><code class="prism language-java">       localDate1<span class="token punctuation">.</span><span class="token function">isLeapYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//检测改年是否是闰年</span></code></pre> <blockquote> <p>获取日期长度</p> </blockquote> <pre><code class="prism language-java">   localDate1<span class="token punctuation">.</span><span class="token function">lengthOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取该月的长度（天）</span>     localDate1<span class="token punctuation">.</span><span class="token function">lengthOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//获取改年的长度（天）</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"本月共:"</span><span class="token operator">+</span>localDate1<span class="token punctuation">.</span><span class="token function">lengthOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"天，本年共："</span><span class="token operator">+</span>localDate1<span class="token punctuation">.</span><span class="token function">lengthOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"天"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/b133aa93541d4e4b8a420c4eb2908aa4.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> <blockquote> <p>结合这个日期与时间创建一个<code>LocalDateTime</code>。</p> </blockquote> <pre><code class="prism language-java"><span class="token class-name">LocalDateTime</span> localDateTime<span class="token operator">=</span> localDate1<span class="token punctuation">.</span><span class="token function">atTime</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">59</span><span class="token punctuation">,</span><span class="token number">59</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//返回值是LocalDateTime</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//LocalDateTime类重写了toString方法</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/d32ddc7fc4761ee3f714a5f681778771.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> <blockquote> <p>通过字符串转化为日期</p> </blockquote> <pre><code class="prism language-java"><span class="token class-name">String</span> str<span class="token operator">=</span><span class="token string">"2022-02-02"</span><span class="token punctuation">;</span><span class="token class-name">DateTimeFormatter</span> dt<span class="token operator">=</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token class-name">LocalDate</span>  localDate<span class="token operator">=</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>dt<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>localDate<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/838db8113a5b84022c780dac483fed17.jpg" alt="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73105.htm">动物疫苗市场分析报告（动物疫苗市场占有率）</a></p>
+                                        <p>下一个：<a href="/news/article-73773.htm">青岛想念动物医院电话地址查询号码（青岛想念动物医院电话地址查询号码是多少）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-57684.htm" title="益宠宠物医院官方店 益宠宠物医院官方店铺">益宠宠物医院官方店 益宠宠物医院官方店铺</a></li>
+                        <li class="py-2"><a href="/news/article-43611.htm" title="动物疫病防控工作总结（动物疫病防疫工作）">动物疫病防控工作总结（动物疫病防疫工作）</a></li>
+                        <li class="py-2"><a href="/news/article-61137.htm" title="动物医院属于什么行业类别的企业（动物医院属于什么行业类别的企业有哪些）">动物医院属于什么行业类别的企业（动物医院属于什么行业类别的企业有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-48428.htm" title="MySQL数据库中的Date,DateTime,TimeStamp和Time类型">MySQL数据库中的Date,DateTime,TimeStamp和Time类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-ssr-node.htm" title="「1月9日」最高速度19.8M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「1月9日」最高速度19.8M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-45600.htm" title="征服里的刘华强是现实里的谁（硬核推荐）征服刘华强下场，白色梦幻，征服 电视剧，">征服里的刘华强是现实里的谁（硬核推荐）征服刘华强下场，白色梦幻，征服 电视剧，</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-ssr-subscribe.htm" title="「3月4日」最高速度19.4M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接">「3月4日」最高速度19.4M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39649.htm" title="北京芭比堂宠物医院在哪里（芭比堂宠物医院朝阳北路）">北京芭比堂宠物医院在哪里（芭比堂宠物医院朝阳北路）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-v2ray.htm" title="「3月10日」最高速度22.5M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「3月10日」最高速度22.5M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-61723.htm" title="奶猫身上的跳蚤会传染到人身上吗（小奶猫身上有跳蚤会传染人吗）">奶猫身上的跳蚤会传染到人身上吗（小奶猫身上有跳蚤会传染人吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">41</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

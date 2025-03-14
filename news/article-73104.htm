@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-73104.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>C ++程序使用Sundaram筛子在给定范围之间生成素数</title>
+        <meta name="description" content="这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。 算法 Begin &nbsp;&nbsp;&nbsp;printPrimes(n) " />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-73104.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="C ++程序使用Sundaram筛子在给定范围之间生成素数" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/032e2a09e82c439101c43086ebfb369b.webp" />
+        <meta property="og:release_date" content="2025-03-13T09:22:41" />
+    <meta property="og:updated_time" content="2025-03-13T09:22:41" />
+        <meta property="og:description" content="这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。 算法 Begin &nbsp;&nbsp;&nbsp;printPrimes(n) " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C ++程序使用Sundaram筛子在给定范围之间生成素数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">C ++程序使用Sundaram筛子在给定范围之间生成素数 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。</p> <h2>算法</h2> <pre>Begin &nbsp;&nbsp;&nbsp;printPrimes(n) &nbsp;&nbsp;&nbsp;Here&nbsp;we&nbsp;find&nbsp;out&nbsp;primes &nbsp;&nbsp;&nbsp;smaller&nbsp;than&nbsp;n,&nbsp;we&nbsp;reduce&nbsp;n-2&nbsp;to&nbsp;half.&nbsp;We&nbsp;call&nbsp;it&nbsp;New. &nbsp;&nbsp;&nbsp;New&nbsp;=&nbsp;(n-2)/2; &nbsp;&nbsp;&nbsp;Create&nbsp;an&nbsp;array&nbsp;marked[n]&nbsp;that&nbsp;is&nbsp;going &nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;separate&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i+j+2ij&nbsp;from &nbsp;&nbsp;&nbsp;others&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;Initialize&nbsp;all&nbsp;entries&nbsp;of&nbsp;marked[]&nbsp;as&nbsp;false. &nbsp;&nbsp;&nbsp;Mark&nbsp;all&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;2ij&nbsp;as&nbsp;true &nbsp;&nbsp;&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;for&nbsp;i=1&nbsp;to&nbsp;New &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)&nbsp;j&nbsp;=&nbsp;i; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)&nbsp;Loop&nbsp;While&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;2,&nbsp;then&nbsp;print&nbsp;2&nbsp;as&nbsp;first&nbsp;prime. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remaining&nbsp;primes&nbsp;are&nbsp;of&nbsp;the&nbsp;form&nbsp;2i&nbsp;+&nbsp;1&nbsp;where&nbsp;i&nbsp;is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;NOT&nbsp;marked&nbsp;numbers.&nbsp;So&nbsp;print&nbsp;2i&nbsp;+&nbsp;1&nbsp;for&nbsp;all&nbsp;i &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;such&nbsp;that&nbsp;marked[i]&nbsp;is&nbsp;false. End</pre> <h2>范例程式码</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; int&nbsp;SieveOfSundaram(int&nbsp;m)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;N=&nbsp;(m-2)/2; &nbsp;&nbsp;&nbsp;bool&nbsp;marked[N&nbsp;+&nbsp;1]; &nbsp;&nbsp;&nbsp;memset(marked,&nbsp;false,&nbsp;sizeof(marked)); &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j=i;&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;&lt;=&nbsp;N;&nbsp;j++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marked[i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j]&nbsp;=&nbsp;true; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(m&nbsp;&gt;&nbsp;2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2&nbsp;&lt;&lt;&nbsp;"&nbsp;"; &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(marked[i]&nbsp;==&nbsp;false) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2*i&nbsp;+&nbsp;1&nbsp;&lt;&lt;&nbsp;"&nbsp;"; } int&nbsp;main(void)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;m&nbsp;=&nbsp;10; &nbsp;&nbsp;&nbsp;SieveOfSundaram(m); &nbsp;&nbsp;&nbsp;return&nbsp;0; }</pre> <p>输出结果</p> <pre>2&nbsp;3&nbsp;5&nbsp;7</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72454.htm">宠物猫疫苗（宠物猫疫苗多久打一次）</a></p>
+                                        <p>下一个：<a href="/news/article-73105.htm">动物疫苗市场分析报告（动物疫苗市场占有率）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-63520.htm" title="动物疫苗价格查询表图片高清大全（动物疫苗价格查询表图片高清大全及价格）">动物疫苗价格查询表图片高清大全（动物疫苗价格查询表图片高清大全及价格）</a></li>
+                        <li class="py-2"><a href="/news/article-73104.htm" title="C ++程序使用Sundaram筛子在给定范围之间生成素数">C ++程序使用Sundaram筛子在给定范围之间生成素数</a></li>
+                        <li class="py-2"><a href="/news/article-47086.htm" title="宠物领养协议电子版下载 宠物领养协议电子版下载">宠物领养协议电子版下载 宠物领养协议电子版下载</a></li>
+                        <li class="py-2"><a href="/news/article-60540.htm" title="开宠物食品厂需要什么手续呢 开宠物食品厂需要什么手续呢多少钱">开宠物食品厂需要什么手续呢 开宠物食品厂需要什么手续呢多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-53799.htm" title="聊城宠物市场在什么地方（在聊城有最大的宠物店吗）">聊城宠物市场在什么地方（在聊城有最大的宠物店吗）</a></li>
+                        <li class="py-2"><a href="/news/article-71115.htm" title="动物打过狂犬疫苗人还需要打吗（动物打了狂犬疫苗还会得狂犬病吗）">动物打过狂犬疫苗人还需要打吗（动物打了狂犬疫苗还会得狂犬病吗）</a></li>
+                        <li class="py-2"><a href="/news/article-72453.htm" title="java多线程[5]：信号量(Semaphore)">java多线程[5]：信号量(Semaphore)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-shadowrocket-node.htm" title="「2月16日」最高速度22.3M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「2月16日」最高速度22.3M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-56560.htm" title="Typora + EasyBlogImageForTypora直接上传图片到博客园_在线工具">Typora + EasyBlogImageForTypora直接上传图片到博客园_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-38663.htm" title="动物疫苗过量注射有什么后果 动物疫苗过量注射有什么后果吗">动物疫苗过量注射有什么后果 动物疫苗过量注射有什么后果吗</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">41</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
