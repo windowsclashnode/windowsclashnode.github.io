@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-77160.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Shell基础变量定义的规则和分类详解</title>
+        <meta name="description" content="目录  1、定义变量的规则 2、变量的分类   1、定义变量的规则 在定义变量时，有一些规则需要遵守  变量名称可以由字母、数字和下划线组成，但是不能以数字开头。如果变量名是2name则是错误的。 在" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-77160.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="Shell基础变量定义的规则和分类详解" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/6e658404d5deefe572f0c5e3a59aa77f.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:11:11" />
+    <meta property="og:updated_time" content="2025-03-19T09:11:11" />
+        <meta property="og:description" content="目录  1、定义变量的规则 2、变量的分类   1、定义变量的规则 在定义变量时，有一些规则需要遵守  变量名称可以由字母、数字和下划线组成，但是不能以数字开头。如果变量名是2name则是错误的。 在" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Shell基础变量定义的规则和分类详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Shell基础变量定义的规则和分类详解 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%84%E5%88%99" rel="nofollow">1、定义变量的规则</a></li> <li><a href="#2%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%86%E7%B1%BB" rel="nofollow">2、变量的分类</a></li> </ul> </div> <h2 id="1定义变量的规则">1、定义变量的规则</h2> <p>在定义变量时，有一些规则需要遵守</p> <ul> <li>变量名称可以由字母、数字和下划线组成，但是不能以数字开头。如果变量名是<code>2name</code>则是错误的。</li> <li>在Bash中，变量的默认类型都是字符串型，如果要进行数值运算，则必修指定变量类型为数值型。</li> <li>变量用等号连接值，等号左右两侧不能有空格。 <pre><code class="language-shell">[root@localhost ~]# name = cangls -bash: name: command not found</code></pre> </li> <li>变量的值如果有空格，需要使用单引号或双引号包括。如：<code>test="hello world!"</code>。其中双引号括起来的内容<code>$</code>、<code>\</code>和反引号都拥有特殊含义，而单引号括起来的内容都是普通字符。</li> <li>在变量的值中，可以使用“\”转义符。</li> <li>如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含<code>"$变量名"</code>或用<code>${变量名}</code>包含变量名（就相当于Java中字符串连接）。例如： <pre><code class="language-shell">#叠加变量 test，变量值变成了123456 [root@localhost ~ ] # test=123 [root@localhost ~ ] # test="$test"456 [root@localhost ~ ] # echo $test 123456  #再叠加变量 test，变量值变成了123456789 [root@localhost ~ ] # test=${test}789 [root@localhost ~ ] # echo $test 123456789</code></pre> <blockquote> <p>总结：变量值的叠加可以使用两种格式：<code>"$变量名"</code>或<code>${变量名}</code></p> </blockquote> </li> <li>如果是把命令的结果作为变量值赋予变量，则需要使用反引号或<code>$( )</code>包含命令。之前说过，例如： <pre><code class="language-shell">[root@localhost ~ ] # test=$(date) [root@localhost ~ ] # echo $test 2018年 10月 21日 星期一 20：27：50 CST</code></pre> </li> <li>环境变量名建议大写，便于和命令区分。</li> </ul> <h2 id="2变量的分类">2、变量的分类</h2> <p>Shell中变量的分类并不是安装变量的类型进行分类的。</p> <ul> <li><strong>用户自定义变量</strong>：这种变量是最常见的变量，由用户自由定义变量名和变量的值。（只在当前Shell中生效，子Shell中不生效）</li> <li><strong>环境变量</strong>：这种变量中主要保存的是和系统操作环境相关的数据，比如当前登录用户，用户的家目录，命令的提示符等。环境变量的变量名可以自由定义，但是一般对系统起作用的环境变量的变量名是系统预先设定好的。<br /> <blockquote> <p>说明：环境变量分为两种，一种是允许用户自定义的，还有一种是系统定义好的。用户定义的这种环境变量，对整个操作系统的环境来说作用不是很大，唯一的作用就是，在父子Shell中都生效（这个以后再说）。而系统定义的环境变量，会对我们的操作环境产生一定影响。对系统定义的环境变量，我们不能修改变量的名称和作用，只能修改变量的属性值。系统定义的环境变量主要就是在几个重要的环境变量配置文件中的变量，如<code>/etc/profile</code>文件中的变量。<br /> ...<br /> 提示：环境变量的作用域是整个系统都生效，包括父Shell子Shell。在这种情况下，为了避免和系统命令产生冲突，建议环境变量的名称都是大写（主要是自定义的环境变量，系统定义的环境变量一般都是大写的，也不能改），因为Linux系统中所有的系统命令都是小写（只有大写的命令选项），这样就可以避免混淆了。</p> </blockquote> </li> <li><strong>预定义变量</strong>：是Bash中已经定义好的变量，变量名不能自定义，变量作用也是固定的。</li> <li><strong>位置参数变量</strong>：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。（位置参数变量其实就是预定义变量中的一个类型）</li> </ul> <blockquote> <p>说明：预定义变量和位置参数变量一共就几种，需要记住（以后详细讲）。</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76483.htm">宠物店一个月多少钱 宠物店一个月多少钱工资</a></p>
+                                        <p>下一个：<a href="/news/article-77161.htm">兰州哪里卖宠物鸭的多（兰州哪里有卖鸭子活体的地方）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48052.htm" title="concat()，replace()和trim()Java中的字符串。">concat()，replace()和trim()Java中的字符串。</a></li>
+                        <li class="py-2"><a href="/news/article-58499.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/news/article-73105.htm" title="动物疫苗市场分析报告（动物疫苗市场占有率）">动物疫苗市场分析报告（动物疫苗市场占有率）</a></li>
+                        <li class="py-2"><a href="/news/article-62318.htm" title="动物疫苗法律法规最新文件是什么（动物疫苗法案）">动物疫苗法律法规最新文件是什么（动物疫苗法案）</a></li>
+                        <li class="py-2"><a href="/news/article-52715.htm" title="成都领养宠物贴吧（成都宠物领养吧领养代替购买）">成都领养宠物贴吧（成都宠物领养吧领养代替购买）</a></li>
+                        <li class="py-2"><a href="/news/article-73773.htm" title="青岛想念动物医院电话地址查询号码（青岛想念动物医院电话地址查询号码是多少）">青岛想念动物医院电话地址查询号码（青岛想念动物医院电话地址查询号码是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-47084.htm" title="适合穷人养的猫咪（适合穷人养的猫咪品种）">适合穷人养的猫咪（适合穷人养的猫咪品种）</a></li>
+                        <li class="py-2"><a href="/news/article-46106.htm" title="在MySQL中，如何将FROM_UNIXTIME()函数与格式字符串一起使用？">在MySQL中，如何将FROM_UNIXTIME()函数与格式字符串一起使用？</a></li>
+                        <li class="py-2"><a href="/news/article-37187.htm" title="想开宠物店怎么找货源（开宠物店的进货渠道）">想开宠物店怎么找货源（开宠物店的进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-high-speed-nodes.htm" title="「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

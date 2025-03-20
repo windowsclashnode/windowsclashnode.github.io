@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-76482.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>简单易懂的进程与线程详解</title>
+        <meta name="description" content="本博客分以下几个部分来阐述进程与线程 1、进程的概念很抽象?那么什么是进程呢？ 2、开启一个进程，操作系统会做哪些工作？ 3、既然进程也可以使多个程序能并发执行，为什么还需要线程？ 4、进程与线程有哪" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-76482.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="简单易懂的进程与线程详解" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/02f533eeec0534632df2a7ee9c3ef2cc.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:13:42" />
+    <meta property="og:updated_time" content="2025-03-18T06:13:42" />
+        <meta property="og:description" content="本博客分以下几个部分来阐述进程与线程 1、进程的概念很抽象?那么什么是进程呢？ 2、开启一个进程，操作系统会做哪些工作？ 3、既然进程也可以使多个程序能并发执行，为什么还需要线程？ 4、进程与线程有哪" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="简单易懂的进程与线程详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">简单易懂的进程与线程详解 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>本博客分以下几个部分来阐述进程与线程</p> <p>1、进程的概念很抽象?那么什么是进程呢？</p> <p>2、开启一个进程，操作系统会做哪些工作？</p> <p>3、既然进程也可以使多个程序能并发执行，为什么还需要线程？</p> <p>4、进程与线程有哪些联系呢？</p> <h2 id="什么是进程">什么是进程？</h2> <ul> <li>进程是计算机程序从启动到结束的过程。</li> <li>那么什么是计算机程序呢？ 我们常见的QQ、微信、英雄联盟这些软件都是一个计算机程序，（可以说我们从打开QQ到关闭QQ就是一段进程）。<br /> 不难理解，这些计算机程序是由代码，以及图片、音频、jar包等必要的资源文件组成的。</li> </ul> <h2 id="开启一个进程操作系统会做哪些工作呢">开启一个进程，操作系统会做哪些工作呢？</h2> <ul> <li>①进程的ID号。当操作系统收到我们要打开QQ进程的时候，操作系统会给QQ进程一个ID号，我们可以通过任务管理器窗口看到该进程ID</li> <li>②申请内存空间。每个进程拥有独立的地址空间。</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/59b83d2b3f1b69c91188c944367dc439.jpg" alt="简单易懂的进程与线程详解"></p> <h2 id="既然进程也可以使多个程序能并发执行为什么还需要线程">既然进程也可以使多个程序能并发执行，为什么还需要线程？</h2> <h4 id="从用户使用的角度来看">从用户使用的角度来看</h4> <ul> <li>进程的并发解决了哪些问题呢？ <ul> <li>多应用同时进行，在QQ音乐听歌的同时 还可以刷QQ空间。</li> <li>应用分身，这允许我们同时登录好多人的QQ号。</li> </ul> </li> <li>如果我们QQ进程中只有一个线程，会发生什么呢？ <ul> <li>单线程的进程是完全顺序结构，只能在同一时间做一件事情。比如我们在使用QQ进行文件传输的时候，就无法和好友发消息 闲聊了。</li> </ul> </li> </ul> <h4 id="从上下文状态切换的角度来看">从上下文状态切换的角度来看</h4> <ul> <li>进程的单位比较大，创建/销毁、进行上下文切换比较浪费资源</li> <li>线程的单位比较小，创建/销毁、上下文切换不太浪费资源</li> <li>所以，需要频繁创建销毁时，要考虑线程 。在需要大量计算、切换频繁时 使用线程可以提高程序的响应速度 。</li> </ul> <h4 id="线程的引入优点很多又有哪些问题呢">线程的引入优点很多，又有哪些问题呢？</h4> <ul> <li>开发更加麻烦。</li> <li>线程可以共享一个进程的资源，所以共享的数据要保证安全。</li> <li>线程的执行顺序，也需要保证，比如我们要给QQ好友发送一张图片，这篇文章传输过程中可能被分成了很多份小的<br /> 数据包来发送，这个时候QQ好友接收数据包的顺序不能乱。</li> </ul> <h2 id="进程与线程有哪些联系呢">进程与线程有哪些联系呢？</h2> <ul> <li>一个进程之中可以包含多个线程</li> <li>线程可以共享一个进程的资源</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75808.htm">幼猫养多久能知道主人叫它（幼猫多久可以认可你）</a></p>
+                                        <p>下一个：<a href="/news/article-76483.htm">宠物店一个月多少钱 宠物店一个月多少钱工资</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-28-free-subscribe-node.htm" title="「2月28日」最高速度19.4M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「2月28日」最高速度19.4M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-57122.htm" title="nginx.conf配置文件结构小结_nginx">nginx.conf配置文件结构小结_nginx</a></li>
+                        <li class="py-2"><a href="/news/article-37189.htm" title="动物疫苗在哪里购买 动物疫苗在哪里购买便宜">动物疫苗在哪里购买 动物疫苗在哪里购买便宜</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-subscribe-node.htm" title="「3月18日」最高速度21.5M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「3月18日」最高速度21.5M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-64112.htm" title="宠物领养网免费平台有哪些公司可以注册的（宠物领养网站的设计与实现）">宠物领养网免费平台有哪些公司可以注册的（宠物领养网站的设计与实现）</a></li>
+                        <li class="py-2"><a href="/news/article-70461.htm" title="动物医院的英文怎么说怎么写呀（动物医院的英文怎么说怎么写呀）">动物医院的英文怎么说怎么写呀（动物医院的英文怎么说怎么写呀）</a></li>
+                        <li class="py-2"><a href="/news/article-60541.htm" title="一只猫多少钱一只（一只猫大概多贵）">一只猫多少钱一只（一只猫大概多贵）</a></li>
+                        <li class="py-2"><a href="/news/article-77161.htm" title="兰州哪里卖宠物鸭的多（兰州哪里有卖鸭子活体的地方）">兰州哪里卖宠物鸭的多（兰州哪里有卖鸭子活体的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-38150.htm" title="猫体外驱虫用什么药比较好（猫用驱虫药排行榜前10名）">猫体外驱虫用什么药比较好（猫用驱虫药排行榜前10名）</a></li>
+                        <li class="py-2"><a href="/news/article-74461.htm" title="动物疫苗的保存温度是多少度合适（动物疫苗能放冰箱吗）">动物疫苗的保存温度是多少度合适（动物疫苗能放冰箱吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
