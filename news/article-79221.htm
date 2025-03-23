@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-79221.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>Python 3.10 的一些新特性</title>
+        <meta name="description" content="延迟类型注释的执行  新增类型注释联合操作符  TypeAlias 注释  函数 zip() 增加 strict 参数  新增整数的位计数器 int.bit_count()  字典的视图增加一个属性 " />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-79221.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="Python 3.10 的一些新特性" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/032e2a09e82c439101c43086ebfb369b.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:49:59" />
+    <meta property="og:updated_time" content="2025-03-22T08:49:59" />
+        <meta property="og:description" content="延迟类型注释的执行  新增类型注释联合操作符  TypeAlias 注释  函数 zip() 增加 strict 参数  新增整数的位计数器 int.bit_count()  字典的视图增加一个属性 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python 3.10 的一些新特性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">Python 3.10 的一些新特性 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="延迟类型注释的执行">延迟类型注释的执行</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="新增类型注释联合操作符">新增类型注释联合操作符</a></li> <li><i class="be be-arrowright"></i> <a href="#title-2" title="TypeAlias 注释">TypeAlias 注释</a></li> <li><i class="be be-arrowright"></i> <a href="#title-3" title="函数 zip() 增加 strict 参数">函数 zip() 增加 strict 参数</a></li> <li><i class="be be-arrowright"></i> <a href="#title-4" title="新增整数的位计数器 int.bit_count()">新增整数的位计数器 int.bit_count()</a></li> <li><i class="be be-arrowright"></i> <a href="#title-5" title="字典的视图增加一个属性">字典的视图增加一个属性</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div id="js_content"> <p style="text-align: justify">Python 3.10.0a2 版本已经于 2020-11-04 发布，因此我们可以窥见 Python 3.10 的一些新特性。这些新特性很可能会改变未来的 Python 生态系统，使其朝着更明确，更易读的方向发展，同时保持我们熟知和喜欢的易用性。</p> <p style="text-align: justify">由于采用了新的发行计划：PEP 602 -- Annual Release Cycle for Python，我们可以看到更短的开发窗口，我们有望在 2021 年 10 月使用今天分享的这些新特性。</p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/32f99a890e0e2533f248a64aa52f5750.jpg" alt="Python 3.10 的一些新特性"/></p><figcaption>   PEP 602<br />   <br /></figcaption><h3>1、类型注释的进一步扩展</h3> <p style="text-align: justify">3.9 版对 Python 中的类型提示和注释进行了大幅度修改和清理，类型提示这似乎是一种持续的趋势，在 3.10 中得到进一步扩展，目的很明显，是为了更好的可读性，无需看代码即可得知变量和函数返回值的类型。</p> <span class="directory"></span><h4 id="title-0">延迟类型注释的执行</h4> <p style="text-align: justify">类型注释的运行通常被认为是在函数定义时执行，这意味着类型注释以自上而下的方式逐行进行检查。</p> <p style="text-align: justify">尽管看起来合乎逻辑，但是这样做有两个问题：</p> <p style="text-align: justify">1、引用尚未定义的类型的类型提示（前向引用）将不起作用，必须以字符串形式表示。也就是说：假如 int 是自定义类型，我们需要编写 "int" 而不是编写 int 。</p> <p style="text-align: justify">2、这会减慢模块导入的速度，因为此时会执行类型提示。</p> <p style="text-align: justify">因此，取而代之的是延迟类型注释，将类型注释将以字符串形式存储在<code>__annotations__</code>中，如果需要这些类型注释可以在运行时通过 <code>typing.get_type_hints()</code> 来解析，也可以通过<code>inspect.signature()</code> 来立即进行解析，这样的好处是可以先执行模块导入，允许前向引用，从而减少初始化时间。</p> <span class="directory"></span><h4 id="title-1">新增类型注释联合操作符</h4> <p style="text-align: justify">3.10 通过 "|" 作为逻辑或操作符。在注释数据类型时，我们可以使用 | 作为或。例如，我们有一个预期为 int 或 float 的变量，可以写为 int | float ，如下所示：</p> <pre class="has"><code class="language-go">def&nbsp;f(x:&nbsp;int&nbsp;|&nbsp;float)&nbsp;-&gt;&nbsp;float: &nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;x&nbsp;*&nbsp;3.142 f(1)&nbsp;&nbsp;#&nbsp;pass f(1.5)&nbsp;&nbsp;#&nbsp;pass f('str')&nbsp;&nbsp;#&nbsp;linter&nbsp;will&nbsp;show&nbsp;annotation&nbsp;error </code></pre> <p style="text-align: justify">也可以使用 typing 模块提供的关键字 Union，比如 Union[int, float]</p> <span class="directory"></span><h4 id="title-2">TypeAlias 注释</h4> <p style="text-align: justify">回到前向引用问题，避免前向引用的常见解决方案是将它们编写为字符串。</p> <p style="text-align: justify">但是，将类型写为字符串会在将这些类型分配给变量时引起问题，因为 Python 会假定我们的字符串文字类型注释只是一个字符串。</p> <p style="text-align: justify">在通常使用类型注释的地方使用该类型注释变量将返回错误。例如：</p> <pre class="has"><code class="language-go">MyType&nbsp;=&nbsp;"ClassName"&nbsp;&nbsp;#&nbsp;ClassName&nbsp;is&nbsp;our&nbsp;type&nbsp;annotation def&nbsp;foo()&nbsp;-&gt;&nbsp;MyType: &nbsp;&nbsp;&nbsp;&nbsp;... </code></pre> <p style="text-align: justify">在这里，我们试图将其 MyType 用作类型的别名 ，但是， MyType 它将被读取为字符串值，而不是类型别名。只要 ClassName 在代码的后面定义，这就是有效的。当前情况下，这将引发注释错误。</p> <p style="text-align: justify">为了解决这个问题，添加了一种显式标识 MyType 为类型别名的方法 ：</p> <pre class="has"><code class="language-go">from&nbsp;typing_extensions&nbsp;import&nbsp;TypeAlias MyType:&nbsp;TypeAlias&nbsp;=&nbsp;"ClassName" def&nbsp;foo()&nbsp;-&gt;&nbsp;MyType: &nbsp;&nbsp;&nbsp;&nbsp;... OR MyType:&nbsp;TypeAlias&nbsp;=&nbsp;ClassName&nbsp;#&nbsp;if&nbsp;we&nbsp;have&nbsp;defined&nbsp;ClassName&nbsp;already def&nbsp;foo()&nbsp;-&gt;&nbsp;MyType: &nbsp;&nbsp;&nbsp;&nbsp;... </code></pre> <p style="text-align: justify">这里说下，为什么类型很重要，尽管这当然不是一个巨大的变动，但是看到 Python 开发人员加倍努力以增强类型功能，这真是太酷了。Python 的优势在于其易用性和缺乏陡峭的学习曲线。原因之一是不需要在我们的代码中显式定义类型。</p> <p style="text-align: justify">增强类型注释看起来似乎违反直觉，但是为开发人员 提供定义类型的选项 可以极大地提高代码库的可读性和可维护性。例如，从 Python transformers 库的源代码中可以看到以下说明：</p> <blockquote> <p style="text-align: justify">Even without context, we can read this code and immediately grasp what data we should expect to be fed into these functions, classes, and methods — and exactly which datatypes we should be expecting to return.</p> <p style="text-align: justify">In complex code bases (and even simple ones), type annotation can massively improve readability. Simultaneously, not everyone will want (or need) to use them — so an optional, exception-free functionality strikes a perfect balance.</p> </blockquote> <p style="text-align: justify">意思是即使没有上下文，我们也可以阅读此代码，并立即掌握应将哪些数据期望输入到这些函数，类和方法中，以及确切地期望返回哪些数据类型。</p> <p style="text-align: justify">但在复杂的代码库（甚至简单的代码库）中，类型注释可以大大提高可读性。同时，并不是每个人都希望（或需要）使用它们，因此，这是可选的。这种无异常的功能可以达到完美的平衡。</p> <p style="text-align: justify">这些改进表明 Python 对类型注释功能的承诺，基于此，我们最喜欢的库和我们自己写的代码可以大大提示可阅读性，这会对 Python 生态系统产生长期的正面影响。</p> <h3>2、新增的函数及函数参数的变化</h3> <p style="text-align: justify">除了类型提示功能的扩展外，核心 Python 功能进行了一些更新，如下。</p> <span class="directory"></span><h4 id="title-3">函数 zip() 增加 strict 参数</h4> <p style="text-align: justify">函数 zip() 增加 strict 参数，如果设置 strict = True，而传输的参数的长度不相等将会抛出异常，如下图所示：</p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/9a25f4760a7b59945f7fb11f5ccb8422.jpg" alt="Python 3.10 的一些新特性"/></p> <p style="text-align: justify">新的 strict 参数不是盲目地截断不匹配的数据，而是使我们能够控制它的行为，这将使很多开发人员免于遭受麻烦。</p> <span class="directory"></span><h4 id="title-4">新增整数的位计数器 int.bit_count()</h4> <p style="text-align: justify">此新方法使我们能够计算整数的二进制表示形式中 1 的个数，在某些场景下这个函数非常实用且高效。</p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/efb5156bee8e277ede5d0a7bb9946d96.jpg" alt="Python 3.10 的一些新特性"/></p> <p style="text-align: justify">上图中的结果即为整数以二进制位为 1 的个数：</p> <pre class="has"><code class="language-go">0&nbsp;&nbsp;&nbsp;=&nbsp;00000000 1&nbsp;&nbsp;&nbsp;=&nbsp;00000001 2&nbsp;&nbsp;&nbsp;=&nbsp;00000010 3&nbsp;&nbsp;&nbsp;=&nbsp;00000011 10&nbsp;&nbsp;=&nbsp;00001010 11&nbsp;&nbsp;=&nbsp;00001011 12&nbsp;&nbsp;=&nbsp;00001100 100&nbsp;=&nbsp;01100100 101&nbsp;=&nbsp;01100101 102&nbsp;=&nbsp;01100110 </code></pre> <span class="directory"></span><h4 id="title-5">字典的视图增加一个属性</h4> <p style="text-align: justify">字典类型的 3 个方法：dict.items()、dict.keys()、dict.values() 分别返回字典的 3 个视图，现在每个视图都增加来一个属性，叫 mapping，具体用法如下：</p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/4d349e49ae735030893296bdd68a18fd.jpg" alt="Python 3.10 的一些新特性"/></p> <p style="text-align: justify">新的属性 mapping 的类型属于 types.MappingProxyType，是围绕原字典的一个属性，在任何视图上访问 mapping 属性，都将返回原字典。</p> <p style="text-align: justify">现在就这些了，尽管我们距离 3.10 的开发时间表只有几个月的时间，但已经有很多有趣的更改，Python 的发展仍在继续，似乎还会为语言添加更多有趣的功能。</p> <p style="text-align: justify">希望您喜欢这篇文章，请点赞、转发、关注，谢谢支持。</p> <p style="text-align: center"></p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78532.htm">狗粮制作机器设备多少钱 狗粮制作机器设备多少钱一台</a></p>
+                                        <p>下一个：<a href="/news/article-79222.htm">动物疫苗贵吗现在还能打吗多少钱啊（动物疫苗贵吗现在还能打吗多少钱啊）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-clash-windows.htm" title="「2月19日」最高速度21.9M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「2月19日」最高速度21.9M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-42123.htm" title="宠物领养责任协议保证金（宠物领养协议具有法律效应吗）">宠物领养责任协议保证金（宠物领养协议具有法律效应吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40138.htm" title="初中学历能考什么证来提升自己（初中学历可以考个什么证）">初中学历能考什么证来提升自己（初中学历可以考个什么证）</a></li>
+                        <li class="py-2"><a href="/news/article-61723.htm" title="奶猫身上的跳蚤会传染到人身上吗（小奶猫身上有跳蚤会传染人吗）">奶猫身上的跳蚤会传染到人身上吗（小奶猫身上有跳蚤会传染人吗）</a></li>
+                        <li class="py-2"><a href="/news/article-61138.htm" title="家养两个月小猫咬出血（家养的两个月小猫咬伤）">家养两个月小猫咬出血（家养的两个月小猫咬伤）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-node-subscribe-links.htm" title="「1月14日」最高速度19.9M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「1月14日」最高速度19.9M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-clash-v2ray-ss-ssr.htm" title="「3月9日」最高速度19.4M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「3月9日」最高速度19.4M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38151.htm" title="一片片枫叶送来了什么（一片片的枫叶）">一片片枫叶送来了什么（一片片的枫叶）</a></li>
+                        <li class="py-2"><a href="/news/article-38150.htm" title="猫体外驱虫用什么药比较好（猫用驱虫药排行榜前10名）">猫体外驱虫用什么药比较好（猫用驱虫药排行榜前10名）</a></li>
+                        <li class="py-2"><a href="/news/article-54896.htm" title="宠物医院24小时（宠物医院24小时在线咨询）">宠物医院24小时（宠物医院24小时在线咨询）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">68</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
