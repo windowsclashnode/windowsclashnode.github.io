@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-83414.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>ruby 版本管理RVM （ruby version manager）</title>
+        <meta name="description" content="macOS. 自带的ruby 版本目录权限比较高， 经常有很多 操作需要权限而不能执行   虽然 macOS 自带了一个 ruby 环境，但是是系统自己使用的，所以权限很小，只有 system。   " />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-83414.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="ruby 版本管理RVM （ruby version manager）" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/174f65e7a46144db9930fea0079b3df6.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:56:17" />
+    <meta property="og:updated_time" content="2025-03-28T09:56:17" />
+        <meta property="og:description" content="macOS. 自带的ruby 版本目录权限比较高， 经常有很多 操作需要权限而不能执行   虽然 macOS 自带了一个 ruby 环境，但是是系统自己使用的，所以权限很小，只有 system。   " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ruby 版本管理RVM （ruby version manager）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">ruby 版本管理RVM （ruby version manager） </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<blockquote> <p>macOS. 自带的ruby 版本目录权限比较高， 经常有很多 操作需要权限而不能执行</p> </blockquote> <blockquote> <p>虽然 macOS 自带了一个 ruby 环境，但是是系统自己使用的，所以权限很小，只有 system。</p> </blockquote> <blockquote> <p>而/Library 目录是 root 权限,所以很多会提示无权限。<br /> 使用自带ruby更新,管理不方便<br /> 一系列无原因的报错<br /> permission deny<br /> 所以需要自己 安装其他版本的 ruby<br /> 删除系统ruby方法[⚠️删除容易出现问题，尽量不要删除，不要删除，不要删除]</p> </blockquote> <h2><a id="%E8%B5%B7%E6%BA%90" class="anchor" aria-hidden="true" href="#%E8%B5%B7%E6%BA%90" rel="nofollow"><span class="octicon octicon-link"></span></a>起源</h2> <blockquote> <p>我是因为需要用gem 安装软件<br /> gem install xxx<br /> 但是总是提示去权限不足 ，好气呀，才选择 用哪个版本管理 ，用自己的ruby 去安装软件</p> </blockquote> <h2><a id="%E6%A3%80%E6%9F%A5" class="anchor" aria-hidden="true" href="#%E6%A3%80%E6%9F%A5" rel="nofollow"><span class="octicon octicon-link"></span></a>检查</h2> <p>要检查您当前正在使用系统Ruby，请打开终端并输入以下内容：</p> <p><code>which ruby</code></p> <p>如果您使用的是Ruby系统，OS X将回应：</p> <p><code>/usr/bin/ruby</code></p> <p>您可以检查使用哪个版本的Ruby OS X：</p> <p><code>ruby -v</code></p> <h2><a id="rvm%E5%AE%89%E8%A3%85%E9%A1%B5%E9%9D%A2" class="anchor" aria-hidden="true" href="#rvm%E5%AE%89%E8%A3%85%E9%A1%B5%E9%9D%A2" rel="nofollow"><span class="octicon octicon-link"></span></a>RVM安装页面</h2> <h3><a id="1%E5%AE%89%E8%A3%85-mpapis%E5%85%AC%E9%92%A5%E3%80%82" class="anchor" aria-hidden="true" href="#1%E5%AE%89%E8%A3%85-mpapis%E5%85%AC%E9%92%A5%E3%80%82" rel="nofollow"><span class="octicon octicon-link"></span></a>1.安装mpapis公钥。</h3> <blockquote> <p>但是，正如安装页面所记录的，您可能需要gpg。Mac OS X不附带gpg，因此在安装公钥之前，您需要安装gpg。我用Homebrew安装了gpg ：</p> </blockquote> <p><code>brew install gnupg</code></p> <h3><a id="2%E5%AE%89%E8%A3%85%E5%AE%8C-gpg%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%AE%89%E8%A3%85mpapis%E5%85%AC%E9%92%A5%EF%BC%9A" class="anchor" aria-hidden="true" href="#2%E5%AE%89%E8%A3%85%E5%AE%8C-gpg%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%AE%89%E8%A3%85mpapis%E5%85%AC%E9%92%A5%EF%BC%9A" rel="nofollow"><span class="octicon octicon-link"></span></a>2.安装完gpg之后，你可以安装mpapis公钥：</h3> <p><code>gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</code></p> <h3><a id="3%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-ruby%E7%9A%84rvm" class="anchor" aria-hidden="true" href="#3%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-ruby%E7%9A%84rvm" rel="nofollow"><span class="octicon octicon-link"></span></a>3.安装最新版本的Ruby的RVM</h3> <p><code>\curl -sSL https://get.rvm.io | bash -s stable --ruby</code></p> <blockquote> <p>注意如果出现 443 请求被拒绝 则 在本地 host 添加 添加指定ip</p> </blockquote> <p><code>sudo vim /etc/hosts</code></p> <blockquote> <p>然后添加 上 （不知打如何操作vim 这个就自己百度吧），就可以继续步骤三的操作了</p> </blockquote> <p><code>199.232.28.133 raw.githubusercontent.com</code></p> <h3><a id="4%E5%90%AF%E7%94%A8-rvm%E5%9C%B0%E5%9D%80-username%E6%9B%BF%E6%8D%A2%E6%88%90%E4%BD%A0%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF" class="anchor" aria-hidden="true" href="#4%E5%90%AF%E7%94%A8-rvm%E5%9C%B0%E5%9D%80-username%E6%9B%BF%E6%8D%A2%E6%88%90%E4%BD%A0%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF" rel="nofollow"><span class="octicon octicon-link"></span></a>4.启用RVM(地址,userName 替换成你本机信息)</h3> <p><code>source /Users/userName/.rvm/scripts/rvm</code></p> <h3><a id="%E5%88%B0%E6%AD%A4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%9A%82%E6%97%B6%E5%AE%89%E8%A3%85%E5%AE%8C%E6%AF%95%EF%BC%8C%E6%8E%A5%E4%B8%8B%E5%8E%BB%E6%98%AF%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true" href="#%E5%88%B0%E6%AD%A4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%9A%82%E6%97%B6%E5%AE%89%E8%A3%85%E5%AE%8C%E6%AF%95%EF%BC%8C%E6%8E%A5%E4%B8%8B%E5%8E%BB%E6%98%AF%E4%BD%BF%E7%94%A8" rel="nofollow"><span class="octicon octicon-link"></span></a>到此管理工具暂时安装完毕，接下去是使用</h3> <h2><a id="%E4%BD%BF%E7%94%A8rvm%E5%AE%89%E8%A3%85ruby" class="anchor" aria-hidden="true" href="#%E4%BD%BF%E7%94%A8rvm%E5%AE%89%E8%A3%85ruby" rel="nofollow"><span class="octicon octicon-link"></span></a>使用RVM安装ruby</h2> <h3><a id="1%E6%A3%80%E6%9F%A5" class="anchor" aria-hidden="true" href="#1%E6%A3%80%E6%9F%A5" rel="nofollow"><span class="octicon octicon-link"></span></a>1.检查</h3> <blockquote> <p>您可以列出可供RVM使用的Ruby版本rvm list</p> </blockquote> <p><code>rvm list</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5b01083848f650ba1a2c201331b645c8.jpg" alt="ruby 版本管理RVM （ruby version manager）"></p> <blockquote> <p>查看可用的ruby 版本</p> </blockquote> <p><code>rvm list known</code></p> <blockquote> <p>可以看到我这里没有可用版本 ，接下去是安装</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7d9943584a8d654adf8a298642085cf6.jpg" alt="ruby 版本管理RVM （ruby version manager）"></p> <h3><a id="2%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC" class="anchor" aria-hidden="true" href="#2%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC" rel="nofollow"><span class="octicon octicon-link"></span></a>2.安装指定版本</h3> <p><code>rvm install 3.0.0</code></p> <blockquote> <p>我第一次安装爆了个错，但是重新执行<strong>安装又好了</strong><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0b257932ec4c97e0a4adf263bf24c146.jpg" alt="ruby 版本管理RVM （ruby version manager）"></p> </blockquote> <blockquote> <p>查询，终于有了</p> </blockquote> <p><code>rvm list</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1f559e8b1ad8978959401c07232b44f5.jpg" alt="ruby 版本管理RVM （ruby version manager）"></p> <blockquote> <p>指定版本 完成</p> </blockquote> <p><code>rvm use 3.0.0</code></p> <h2><a id="%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4" rel="nofollow"><span class="octicon octicon-link"></span></a>常用指令</h2> <h3><a id="ruby-rvm" class="anchor" aria-hidden="true" href="#ruby-rvm" rel="nofollow"><span class="octicon octicon-link"></span></a>ruby rvm</h3> <pre><code>$ ruby -v # 查看ruby 版本 $ rvm list known # 列出已知的 ruby 版本 $ rvm install 2.3.0 # 选择指定 ruby 版本进行更新 $ rvm get stable # 更新 rvm $ rvm use 2.2.2 # 切换到指定 ruby 版本 $ rvm use 2.2.2 --default # 设置指定 ruby 版本为默认版本 $ rvm list # 查询已安装的 ruby 版本 $ rvm remove 1.9.2 # 卸载移除 指定 ruby 版本  $ curl -L https://get.rvm.io | bash -s stable # 安装 rvm 环境 $ curl -sSL https://get.rvm.io | bash -s stable --ruby # 默认安装 rvm 最新版本 $ curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.0 # 安装 rvm 指定版本 $ source ~/.rvm/scripts/rvm # 载入 rvm</code></pre> <h3><a id="gem" class="anchor" aria-hidden="true" href="#gem" rel="nofollow"><span class="octicon octicon-link"></span></a>Gem</h3> <pre><code>$ gem -v # 查看 gem 版本 $ gem source # 查看 gem 配置源 $ gem source -l # 查看 gem 配置源目录 $ gem sources -a url # 添加 gem 配置源（url 需换成网址） $ gem sources --add url # 添加 gem 配置源（url 需换成网址） $ gem sources -r url # 删除 gem 配置源（url 需换成网址） $ gem sources --remove url # 删除 gem 配置源（url 需换成网址） $ gem update # 更新 所有包 $ gem update --system # 更新 Ruby Gems 软件 $ $ gem install rake # 安装 rake，从本地或远程服务器 $ gem install rake --remote # 安装 rake，从远程服务器 $ gem install watir -v 1.6.2 # 安装 指定版本的 watir $ gem install watir --version 1.6.2 # 安装 指定版本的 watir $ gem uninstall rake # 卸载 rake 包 $ gem list d # 列出 本地以 d 打头的包 $ gem query -n ''[0-9]'' --local # 查找 本地含有数字的包 $ gem search log --both # 查找 从本地和远程服务器上查找含有 log 字符串的包 $ gem search log --remoter # 查找 只从远程服务器上查找含有 log 字符串的包 $ gem search -r log # 查找 只从远程服务器上查找含有log字符串的包 $ $ gem help # 提醒式的帮助 $ gem help install # 列出 install 命令 帮助 $ gem help examples # 列出 gem 命令使用一些例子 $ gem build rake.gemspec # 把 rake.gemspec 编译成 rake.gem $ gem check -v pkg/rake-0.4.0.gem # 检测 rake 是否有效 $ gem cleanup # 清除 所有包旧版本，保留最新版本 $ gem contents rake # 显示 rake 包中所包含的文件 $ gem dependency rails -v 0.10.1 # 列出 与 rails 相互依赖的包 $ gem environment # 查看 gem 的环境 $ $ sudo gem -v # 查看 gem 版本（以管理员权限） $ sudo gem install cocoa pods # 安装 CocoaPods（以管理员权限） $ sudo gem install cocoapods # 安装 CocoaPods（以管理员权限） $ sudo gem install cocoapods --pre # 安装 CocoaPods 至预览版（以管理员权限） $ sudo gem install cocoapods -v 0.39.0 # 安装 CocoaPods 指定版本（以管理员权限） $ sudo gem update cocoapods # 更新 CocoaPods 至最新版（以管理员权限） $ sudo gem update cocoapods --pre # 更新 CocoaPods 至预览版（以管理员权限） $ sudo gem uninstall cocoapods -v 0.39.0 # 移除 CocoaPods 指定版本（以管理员权限）</code></pre> <h2><a id="%E7%AC%AC%E4%BA%8C%E5%BC%B9cocoapods" class="anchor" aria-hidden="true" href="#%E7%AC%AC%E4%BA%8C%E5%BC%B9cocoapods" rel="nofollow"><span class="octicon octicon-link"></span></a>第二弹cocoapods</h2> <blockquote> <p>coapods 搜索一直提示没有 信息<img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2e770b482e0b29786f88d043a85a02a0.jpg" alt="ruby 版本管理RVM （ruby version manager）"><code>[!] Unable to find a pod with name, author, summary, or description matching</code>Masonry<code></code></p> </blockquote> <blockquote> <p>我查看 search_index.json 都是空的数据<br /> master 也都是没有，</p> </blockquote> <p>终极方案：</p> <ol> <li>pod repo remove master</li> <li>cd ~/.cocoapods/repos</li> <li>git clone --depth 1<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/CocoaPods/Specs.git"  rel="nofollow">https://github.com/CocoaPods/Specs.git</a> master</li> <li>rm ~/Library/Caches/CocoaPods/search_index.json</li> <li>pod search AFNetworking</li> </ol> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82701.htm">Git基础配置Git用户签名说明详解</a></p>
+                                        <p>下一个：<a href="/news/article-83415.htm">新手开店卖什么产品好（新手开店卖什么产品好一点）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-62920.htm" title="动物接种疫苗多少次有效呢（动物接种疫苗多少次有效呢）">动物接种疫苗多少次有效呢（动物接种疫苗多少次有效呢）</a></li>
+                        <li class="py-2"><a href="/news/article-53800.htm" title="1970年农历4月28日是什么星座（1970年阴历四月二十七是什么星座）">1970年农历4月28日是什么星座（1970年阴历四月二十七是什么星座）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-node-share-links.htm" title="「2月5日」最高速度22.3M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「2月5日」最高速度22.3M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40641.htm" title="八、C++ 类型强转">八、C++ 类型强转</a></li>
+                        <li class="py-2"><a href="/news/article-81966.htm" title="免费宠物领养监管难度大吗（免费宠物领养监管难度大吗现在）">免费宠物领养监管难度大吗（免费宠物领养监管难度大吗现在）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-v2ray.htm" title="「3月14日」最高速度22.8M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「3月14日」最高速度22.8M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-high-speed-nodes.htm" title="「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「2月12日」最高速度21.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-37189.htm" title="动物疫苗在哪里购买 动物疫苗在哪里购买便宜">动物疫苗在哪里购买 动物疫苗在哪里购买便宜</a></li>
+                        <li class="py-2"><a href="/news/article-38666.htm" title="动物疫苗合格证怎么办理手续 动物疫苗合格证怎么办理手续流程">动物疫苗合格证怎么办理手续 动物疫苗合格证怎么办理手续流程</a></li>
+                        <li class="py-2"><a href="/news/article-73773.htm" title="青岛想念动物医院电话地址查询号码（青岛想念动物医院电话地址查询号码是多少）">青岛想念动物医院电话地址查询号码（青岛想念动物医院电话地址查询号码是多少）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

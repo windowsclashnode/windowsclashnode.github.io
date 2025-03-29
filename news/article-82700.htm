@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-82700.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>关于Java 信号量 Semaphore</title>
+        <meta name="description" content="今天看面试题碰到这么一题：有三个线程ID分别是A、B、C,请有多线编程实现，在屏幕上循环打印10次ABCABC... 具体答案先贴出来： package com.joey.threadLocal; i" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-82700.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="关于Java 信号量 Semaphore" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/3b3e7ca9e945ccf09bbdae2620d7a4ad.webp" />
+        <meta property="og:release_date" content="2025-03-27T08:15:56" />
+    <meta property="og:updated_time" content="2025-03-27T08:15:56" />
+        <meta property="og:description" content="今天看面试题碰到这么一题：有三个线程ID分别是A、B、C,请有多线编程实现，在屏幕上循环打印10次ABCABC... 具体答案先贴出来： package com.joey.threadLocal; i" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于Java 信号量 Semaphore">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">关于Java 信号量 Semaphore </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p> 今天看面试题碰到这么一题：<span style="">有三个线程ID分别是A、B、C,请有多线编程实现，在屏幕上循环打印10次ABCABC<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">...</span></span></p> <p><span style=""><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">具体<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">答案先<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">贴出来：</span></span></span></span></p> <pre><code class="language-java">package com.joey.threadLocal; import java.util.concurrent.Semaphore;  public class PrintABC { 	  	    private static Semaphore semaphore1 = new Semaphore(0); 	    private static Semaphore semaphore2 = new Semaphore(0); 	    private static Semaphore semaphore3 = new Semaphore(0); 	    public Thread t1; 	    public Thread t2; 	    public Thread t3; 	  	    int count = 10; 	      	    public PrintABC() { 	        t1 = new Thread() { 	            public void run() { 	                try { 	                    semaphore3.release(); 	                    int i = 0; 	                    while(i++ &lt; count) { 	                        semaphore3.acquire(); 	                        System.out.print("A"); 	                        semaphore1.release(); 	                    } 	                } catch (Exception e) { 	                    e.printStackTrace(); 	                } 	            } 	        }; 	        t2 = new Thread() { 	            public void run() { 	                try { 	                    int i = 0; 	                    while(i++ &lt; count) { 	                        semaphore1.acquire(); 	                        System.out.print("B"); 	                        semaphore2.release(); 	                    } 	                } catch (InterruptedException e) { 	                    e.printStackTrace(); 	                } 	            } 	        }; 	        t3 = new Thread() { 	            public void run() { 	                try { 	                    int i = 0; 	                    while(i++ &lt; count) { 	                        semaphore2.acquire(); 	                        System.out.print("C"); 	                        semaphore3.release(); 	                    } 	                } catch (InterruptedException e) { 	                    e.printStackTrace(); 	                } 	            } 	        }; 	  	    } 	  	    public void run() { 	        t1.start(); 	        t2.start(); 	        t3.start(); 	    } 	  	    public static void main(String args[]) throws Exception { 	    	PrintABC t = new PrintABC(); 	        t.run(); 	    } 	} </code></pre> <p><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"></span><br /> <br /> 这里面用到了java信号量Semaphore，首先讲一下<br /> <span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">概念<strong><span style="color:#aa00ff"> ：Semaphore</span></strong>当前在多线程环境下被扩放使用，操作系统的信号量是个很重要的概念，在进程控制方面都有应用。Java 并发库 的Semaphore 可以很轻松完成信号量控制，Semaphore可以控制某个资源可被同时访问的个数，通过&nbsp;<span style="color:#ff0000">acquire()</span>&nbsp;获取一个许可，如果没有就等待，而 <span style="color:#ff0000">release()</span>&nbsp;释放一个许可。比如在Windows下可以设置共享文件的最大客户端访问个数。</span> </p> <p><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif">那么我们看到，在上面的例子中创建了三个<span style=""><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">new Semaphore(0)</span></span></span></span>示例，且创建时的传递到<font face="微软雅黑, 'MS Sans Serif', sans-serif">传递的参数为0，表示<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">此时</span>如果<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">对象调用</span><span style=""><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="color:#ff0000">acquire()</span></span></span></span></span>方法<font face="微软雅黑, 'MS Sans Serif', sans-serif">则获取不到许可,<font face="微软雅黑, 'MS Sans Serif', sans-serif">测试调用所在的线程将处于等待状态，<font face="微软雅黑, 'MS Sans Serif', sans-serif">只到有新的许可被释放。根绝这个逻辑就很容易理解上面的<font face="微软雅黑, 'MS Sans Serif', sans-serif">代码了，首先刚开始的时候<font face="微软雅黑, 'MS Sans Serif', sans-serif">t1,t2,t3三个线程只有<font face="微软雅黑, 'MS Sans Serif', sans-serif">t1<font face="微软雅黑, 'MS Sans Serif', sans-serif">不用等待，因为<font face="微软雅黑, 'MS Sans Serif', sans-serif">t2,t3两个<font face="微软雅黑, 'MS Sans Serif', sans-serif">线程的<font face="微软雅黑, 'MS Sans Serif', sans-serif">run()方法中首先对semaphore1和semaphore2<font face="微软雅黑, 'MS Sans Serif', sans-serif">申请一个许可，<font face="微软雅黑, 'MS Sans Serif', sans-serif">但此时这两个信号量<font face="微软雅黑, 'MS Sans Serif', sans-serif">示例的许可群为0，<font face="微软雅黑, 'MS Sans Serif', sans-serif">但是对于t1线程,<font face="微软雅黑, 'MS Sans Serif', sans-serif">它提前调用了semaphore3的release()方法，使<font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">semaphore3</span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></font></font></font></font></font>在<font face="微软雅黑, 'MS Sans Serif', sans-serif">之后调用<font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style=""><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="color:#ff0000">acquire()</span></span></span></span></span></span></span></span></span></font></font>方法去获取并消费一个许可时可以得到许可，<font face="微软雅黑, 'MS Sans Serif', sans-serif">之后<font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">semaphore<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">1<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">调用release()释放一个许可时下面的t2线程可以终止等待<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">继续往下执行，以此类推.....</span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></p> <p><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"></span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif">而且通过实验可以发现，每次调用一次<font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">release()</span></span></span></span></span></span></span></span></span></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">则<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">会增加一个许可，比如<span style="font-family:微软雅黑,'MS Sans Serif',sans-serif">：</span></span></span></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></p> <p><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif" color="#000000" style=""><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><font face="微软雅黑, 'MS Sans Serif', sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"><span style="font-family:微软雅黑,'MS Sans Serif',sans-serif"></span></span></span></font><br /></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></p> <pre><code class="language-java">final Semaphore semp = new Semaphore(5); 的效果与 final Semaphore semp1 = new Semaphore(&lt;span style="font-family:微软雅黑, 'MS Sans Serif', sans-serif;"&gt;0&lt;/span&gt;); semp1.release(); semp1.release(); semp1.release(); semp1.release(); semp1.release(); 的许可数应该是一样的</code></pre> <p> 初次接触，就这点了解，以后遇到了再深究                 </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-81966.htm">免费宠物领养监管难度大吗（免费宠物领养监管难度大吗现在）</a></p>
+                                        <p>下一个：<a href="/news/article-82701.htm">Git基础配置Git用户签名说明详解</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-subscribe-node.htm" title="「1月18日」最高速度18.1M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接">「1月18日」最高速度18.1M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-linux-clash-github.htm" title="「1月4日」最高速度21.6M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「1月4日」最高速度21.6M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-high-speed-nodes.htm" title="「3月5日」最高速度21M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接">「3月5日」最高速度21M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-48053.htm" title="动物疫苗可以快递吗安全吗知乎（动物疫苗可以去畜牧局批发吗）">动物疫苗可以快递吗安全吗知乎（动物疫苗可以去畜牧局批发吗）</a></li>
+                        <li class="py-2"><a href="/news/article-54348.htm" title="Python  turtle  模块可以编写游戏，是真的吗？">Python  turtle  模块可以编写游戏，是真的吗？</a></li>
+                        <li class="py-2"><a href="/news/article-63520.htm" title="动物疫苗价格查询表图片高清大全（动物疫苗价格查询表图片高清大全及价格）">动物疫苗价格查询表图片高清大全（动物疫苗价格查询表图片高清大全及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-shadowrocket-node.htm" title="「3月26日」最高速度22.6M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接">「3月26日」最高速度22.6M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-75110.htm" title="妙三多疫苗说明书（妙三多疫苗使用说明）">妙三多疫苗说明书（妙三多疫苗使用说明）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-clash-windows.htm" title="「2月19日」最高速度21.9M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「2月19日」最高速度21.9M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-54897.htm" title="宠物领养的网站叫什么（宠物领养网站的设计与实现）">宠物领养的网站叫什么（宠物领养网站的设计与实现）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
