@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-86281.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>使用maven构建SpringBoot打包成war包，步骤，超级详细</title>
+        <meta name="description" content="SpringBoot打包成war包，步骤超级详细    问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错 第一步： 第二步： 第三步： 第四步：     问题：使用" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-86281.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="使用maven构建SpringBoot打包成war包，步骤，超级详细" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/174f65e7a46144db9930fea0079b3df6.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:49:52" />
+    <meta property="og:updated_time" content="2025-04-01T09:49:52" />
+        <meta property="og:description" content="SpringBoot打包成war包，步骤超级详细    问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错 第一步： 第二步： 第三步： 第四步：     问题：使用" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用maven构建SpringBoot打包成war包，步骤，超级详细">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">使用maven构建SpringBoot打包成war包，步骤，超级详细 </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>SpringBoot打包成war包，步骤超级详细</h3> <ul> <li> <ul> <li><a href="#mavenSpringBootwar_1" rel="nofollow">问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</a></li> <li><a href="#_4" rel="nofollow">第一步：</a></li> <li><a href="#_22" rel="nofollow">第二步：</a></li> <li><a href="#_29" rel="nofollow">第三步：</a></li> <li><a href="#_55" rel="nofollow">第四步：</a></li> </ul> </li> </ul> </div> <h2><a id="mavenSpringBootwar_1" rel="nofollow"></a>问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</h2> <p>由于maven构建的SpringBoot项目，发布了n多次，也在网上查了很多，方法试完了，也没有找到错误原因，最后查看tomcat错误日志，总结了一下步骤</p> <h2><a id="_4" rel="nofollow"></a>第一步：</h2> <p>SpringBoot项目集成了tomcat的内置插件，我们需要在pom文件中将tomcat的内置插件排除在外<br /> 代码如下</p> <pre><code>&lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;             &lt;!-- 移除嵌入式tomcat插件 --&gt;             &lt;exclusions&gt;                 &lt;exclusion&gt;                     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;                     &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;                 &lt;/exclusion&gt;             &lt;/exclusions&gt;         &lt;/dependency&gt;</code></pre> <h2><a id="_22" rel="nofollow"></a>第二步：</h2> <p>排除了Tomcat的内置插件之后，我们还需要注意的是，pom文件中打包方式一定要设置为war包形式</p> <pre><code>&lt;packaging&gt;war&lt;/packaging&gt;</code></pre> <h2><a id="_29" rel="nofollow"></a>第三步：</h2> <p>重写我们的SpringBoot启动类</p> <pre><code>import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; import org.springframework.boot.builder.SpringApplicationBuilder; import org.springframework.boot.web.support.SpringBootServletInitializer; import org.springframework.scheduling.annotation.EnableScheduling;  @SpringBootApplication @EnableScheduling public class JiChengSpringBoot extends SpringBootServletInitializer {      @Override     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {         return application.sources(JiChengSpringBoot.class);     }      public static void main(String[] args) {         SpringApplication.run(JiChengSpringBoot.class, args);     }  }</code></pre> <h2><a id="_55" rel="nofollow"></a>第四步：</h2> <p>这一步就是我遇到的问题关键了！！！！<br /> 去除pom文件中的</p> <pre><code>&lt;name&gt;jicheng&lt;/name&gt;</code></pre> <p>一定要去除name标签，据我查看日志，导致错误的原因是web.xml的mapping与servlet-name不匹配导致的，所以这里大胆的猜测，这个name会影响web.xml中的某个name</p> <p><strong>这里我去掉这个标签之后，问题得到了结局，<strong>希望可以帮到你们</strong></strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85545.htm">南京领养狗狗多少钱（南京市宠物领养）</a></p>
+                                        <p>下一个：<a href="/news/article-86282.htm">猫抓了一下出了点血用酒精消毒可以吗（被猫抓出血用酒精消毒过没事吧）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-high-speed-nodes.htm" title="「3月25日」最高速度22.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「3月25日」最高速度22.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-v2ray.htm" title="「3月14日」最高速度22.8M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「3月14日」最高速度22.8M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-75808.htm" title="幼猫养多久能知道主人叫它（幼猫多久可以认可你）">幼猫养多久能知道主人叫它（幼猫多久可以认可你）</a></li>
+                        <li class="py-2"><a href="/news/article-71777.htm" title="动物打防疫针有用吗（动物防疫***收费吗）">动物打防疫针有用吗（动物防疫***收费吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-clash-subscribe.htm" title="「3月31日」最高速度22.8M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接">「3月31日」最高速度22.8M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-node-subscribe-links.htm" title="「3月15日」最高速度18.3M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「3月15日」最高速度18.3M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-clash-node.htm" title="「3月7日」最高速度19.1M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「3月7日」最高速度19.1M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-v2ray-subscribe.htm" title="「3月16日」最高速度18.9M/S，2025年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「3月16日」最高速度18.9M/S，2025年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-75112.htm" title="动物疫苗有哪几种类型图片及价格（动物疫苗有哪几种类型图片及价格大全）">动物疫苗有哪几种类型图片及价格（动物疫苗有哪几种类型图片及价格大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-v2ray.htm" title="「3月10日」最高速度22.5M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「3月10日」最高速度22.5M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
