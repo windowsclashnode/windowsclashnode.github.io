@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-91263.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration</title>
+        <meta name="description" content="情况一： 该测试类在测试包test下的包名和类路径java下的包名不一致导致的，修改包名一致即可 由于包名自动生成的缘故导致这两个包名不一致，引发以下报错 java.lang.IllegalState" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-91263.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/1251fe245a2ce75e0198933db3a13c3f.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:55:29" />
+    <meta property="og:updated_time" content="2025-04-08T09:55:29" />
+        <meta property="og:description" content="情况一： 该测试类在测试包test下的包名和类路径java下的包名不一致导致的，修改包名一致即可 由于包名自动生成的缘故导致这两个包名不一致，引发以下报错 java.lang.IllegalState" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>情况一：</h2> <p><mark>该测试类在测试包test下的包名和类路径java下的包名不一致导致的，修改包名一致即可</mark><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/4d75f0f809001f1775e0a35954232ccc.jpg" alt="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration"><br /> 由于包名自动生成的缘故导致这两个包名不一致，引发以下报错</p> <p><font color="red">java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=…) with your test </font></p> <p>解决：修改包名一致，如图<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/b4292e011797199a9868b8687663cdcb.jpg" alt="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration"><br /> 问题解决，这是最好的解决方案</p> <h2> <a id="_11" rel="nofollow"></a>情况二</h2> <p>如果不想修改包名，那么需要在注解上加上@SpringBootTest(classes = xxx.class)，来告诉springboot这是一个独立的测试类,注意xxx代表测试方法的类名，如图所示<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/e26b62a1bcc371483b551b78202ea352.jpg" alt="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration"><br /> 但这里会产生额外的问题，因为此时springboot已经把该类当成一个独立的测试类了，这意味着这个测试类对应独立的IOC容器，所以此时我们无法注入到main包中的组件，案例如下,main包下的路径是com.sobot.demo7,而同理，test包下com.sobot.demo7路径下测试类，可以正常装配userMapper组件</p> <p>com.sobot.demo8路径下测试类，则根本无法找到userMapper这个组件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/a270f47863db1218806e14c375fffd64.jpg" alt="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration"><br /> 这种情况下测试类DemoApplicationTests中无法注入com.sobot.demo7路径下的组件userMapper</p> <h2> <a id="_22" rel="nofollow"></a>情况三</h2> <p>使用以下注解</p> <pre><code class="prism language-xml">@RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration(classes = {JPAConfig.class}) </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90621.htm">动物医院有哪些动物 动物医院有哪些动物名字</a></p>
+                                        <p>下一个：<a href="/news/article-91264.htm">宠物店卖什么狗粮好（宠物店卖什么狗粮好呢）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74461.htm" title="动物疫苗的保存温度是多少度合适（动物疫苗能放冰箱吗）">动物疫苗的保存温度是多少度合适（动物疫苗能放冰箱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-69805.htm" title="IDEA使用Tomcat部署项目">IDEA使用Tomcat部署项目</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-clash-subscribe.htm" title="「3月31日」最高速度22.8M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接">「3月31日」最高速度22.8M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-72454.htm" title="宠物猫疫苗（宠物猫疫苗多久打一次）">宠物猫疫苗（宠物猫疫苗多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-89884.htm" title="狗粮加工厂赚钱吗知乎文章（小型狗粮加工厂现在赚钱吗）">狗粮加工厂赚钱吗知乎文章（小型狗粮加工厂现在赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-85545.htm" title="南京领养狗狗多少钱（南京市宠物领养）">南京领养狗狗多少钱（南京市宠物领养）</a></li>
+                        <li class="py-2"><a href="/news/article-89136.htm" title="有人可以帮助我将Hybris与SAP ERP集成吗？">有人可以帮助我将Hybris与SAP ERP集成吗？</a></li>
+                        <li class="py-2"><a href="/news/article-84096.htm" title="动物疫苗使用时的注意事项（动物疫苗使用时的注意事项不包括）">动物疫苗使用时的注意事项（动物疫苗使用时的注意事项不包括）</a></li>
+                        <li class="py-2"><a href="/news/article-73772.htm" title="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime">JAVA程序进阶——LocalDate、LocalTime、LocalDateTime</a></li>
+                        <li class="py-2"><a href="/news/article-79222.htm" title="动物疫苗贵吗现在还能打吗多少钱啊（动物疫苗贵吗现在还能打吗多少钱啊）">动物疫苗贵吗现在还能打吗多少钱啊（动物疫苗贵吗现在还能打吗多少钱啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
