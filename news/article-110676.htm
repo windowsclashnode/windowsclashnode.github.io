@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <link rel="canonical" href="https://windowsclashnode.github.io/news/article-110676.htm" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Document Title, Description, and Author -->
+    <title>手写RPC-整合Spring、SpringBoot</title>
+        <meta name="description" content="光有core也可以进行rpc调用，但目前的话还是需要整合到主流的框架中，目前我只会spring相关的，所以接下来就是整合spring和springboot的操作；其实就是注解和非注解的形式；   其实" />
+        <link rel="icon" href="/assets/website/img/windowsclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WindowsClashNode节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://windowsclashnode.github.io/news/article-110676.htm" />
+    <meta property="og:site_name" content="WindowsClashNode节点订阅站" />
+    <meta property="og:title" content="手写RPC-整合Spring、SpringBoot" />
+    <meta property="og:image" content="https://windowsclashnode.github.io/uploads/20240618/fb8faa77268ca62ebdae8068b0e94d3e.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:29:19" />
+    <meta property="og:updated_time" content="2025-05-03T10:29:19" />
+        <meta property="og:description" content="光有core也可以进行rpc调用，但目前的话还是需要整合到主流的框架中，目前我只会spring相关的，所以接下来就是整合spring和springboot的操作；其实就是注解和非注解的形式；   其实" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="手写RPC-整合Spring、SpringBoot">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/website/css/windowsclashnode/hello-bsb.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQY7STE0Q8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FQY7STE0Q8');
+</script>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0" data-page="detail">
+        <!-- Header -->
+    <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
+        <!-- Navbar 1 - Bootstrap Brain Component -->
+        <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-alabaster bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                                <span>Windows ClashNode</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero 3 - Bootstrap Brain Component -->
+    <section id="scrollspyHero" class="bsb-tpl-bg-alabaster pt-3 pt-xl-2 list">
+        <div class="container overflow-hidden">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-12 col-lg-6 slogan">
+                    <h1 class="display-3 fw-bold mb-3">手写RPC-整合Spring、SpringBoot </h1>
+                    <p class="fs-4 mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-5 text-center">
+                    <div class="position-relative">
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-50 start-10 translate-middle z-1"></div>
+                        <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
+                        <div class="bsb-circle border border-4 border-accent position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
+                        <img class="img-fluid position-relative z-2" loading="lazy" href="/assets/website/img/windowsclashnode/hero/hero-img-1.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main -->
+    <main id="main">
+        <!-- Process 1 - Bootstrap Brain Component -->
+        <section id="scrollspyAbout" class="py-5 py-xl-8 py-xxl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>光有core也可以进行rpc调用，但目前的话还是需要整合到主流的框架中，目前我只会spring相关的，所以接下来就是整合spring和springboot的操作；其实就是注解和非注解的形式；</p> </h1> <blockquote> <p>其实这里主要偏重于spring一些功能讲解，因为用了xml处理器，我觉得挺有用的，所以这里也放上来讲下；但是spring后面我没有更新了，很多代码应该是没有很完善的，有很多优化的地方；项目名称是：<code>spring-simple-rpc</code>；</p> </blockquote> <h2> 项目目录</h2> <p>其实不是很复杂：</p> <pre><code class="prism language-Bash">. └── spring     ├── RpcNamespaceXmlHandler.java     ├── RpcXmlBeanDefinitionParser.java     ├── annotation     │   └── Enable          SimpleRpc.java     ├── beans     │   ├── ConsumerBean.java     │   ├── ProviderBean.java     │   ├── ServerBean.java     │   └── parser     │       └── ParseServerBean.java     ├── exception     │   └── BeanNotFoundException.java     └── transfer         ├── BaseData.java         └── DataMap.java   resources         └── META-INF     ├── rpc.xsd     ├── spring.handlers     └── spring.schemas   </code></pre> <p>下面就稍微看看；</p> <h2> 接口详解</h2> <blockquote> <p>这里的话主要就是几个bean重要：<code>ServerBean</code>、<code>ProviderBean</code>、<code>ConsumerBean</code>；分别对应服务端启动，生产者提供服务，消费者消费服务；</p> </blockquote> <p><code>ServerBean</code>：</p> <pre><code class="prism language-Java">public class ServerBean extends ServerConfig implements ApplicationContextAware {      ExecutorService executorService = Executors.newFixedThreadPool(10);      @Override     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {         SimpleRpcUrl simpleRpcUrl = ParseServerBean.parse(this);         DataMap.DATA_TRANSFER_MAP.put(DataMap.DATA_TRANSFER, simpleRpcUrl);         //启动注册中心         RegisterCenterFactory.create(simpleRpcUrl.getType()).init(simpleRpcUrl);         SimpleRpcLog.info("注册中心初始化：{}", address);         //初始化服务端         RpcServerSocket serverSocket = new RpcServerSocket(new Request());         executorService.submit(serverSocket);         while (!serverSocket.isActiveSocketServer()) {             try {                 Thread.sleep(500);             } catch (InterruptedException ignore) {             }         }         SimpleRpcLog.info("初始化生产端服务完成 {} {}", LocalAddressInfo.LOCAL_HOST, LocalAddressInfo.PORT);     } } </code></pre> <p>这里就是实现<code>ApplicationContextAware</code>，然后在<code>setApplicationContext</code>做处理，然后<code>ServerConfig</code>这里类似于springboot的propreties的操作，这里使用xml进行处理，这里就可以先理解为我们可以拿到<code>ServerConfig</code>里面的值了；</p> <p><code>setApplicationContext</code>里面就是解析配置参数<code>address</code>，然后初始化注册中心，然后就是启动服务端，这里的<code>new Request()</code>理论上是需要构建的，但是这里spring已经很久没改了，就不构建了；</p> <p><code>ProviderBean</code></p> <pre><code class="prism language-Java">public class ProviderBean extends ProviderConfig implements ApplicationContextAware {      @Resource     private ServerBean serverBean;      @Override     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {         SimpleRpcUrl simpleRpcUrl = ParseServerBean.parse(serverBean);         RegisterCenter registerCenter = RegisterCenterFactory.create(simpleRpcUrl.getType());         if (Objects.isNull(registerCenter)) {             throw new BeanNotFoundException("注册中心未初始化");         }         Request providerRequest = new Request();         providerRequest.setInterfaceName(interfaceName);         providerRequest.setBeanName(beanName);         providerRequest.setAlias(alias);         providerRequest.setHost(LocalAddressInfo.LOCAL_HOST);         providerRequest.setPort(LocalAddressInfo.PORT);         //注册生产者         boolean flag = registerCenter.register(Request.request2Register(providerRequest));         SimpleRpcServiceCache.addService(alias, applicationContext.getBean(beanName));         SimpleRpcLog.info("注册生产者：{}, 是否成功：{} ", JSON.toJSONString(providerRequest), flag);     } } </code></pre> <p>这里跟上面切入点是一样的，但是这里有点就是<code>private ServerBean serverBean;</code>先把这个bean注入，这里是为了保证bean的注入先后顺序；</p> <p>然后再合理就是把接口信息注册到注册中心，然后将服务存到缓存里面，服务提供者做这些就够了；</p> <p><code>ConsumerBean</code></p> <pre><code class="prism language-Java">public class ConsumerBean&lt;T&gt; extends ConsumerConfig implements FactoryBean&lt;T&gt; {      @Resource     private ServerBean serverBean;      @Override     public T getObject() throws BeanNotFoundException, NettyInitException, ClassNotFoundException {         RegistryConfig registryConfig = ParseServerBean.serverToRegister(serverBean);         BaseConfig baseConfig = new BaseConfig();         baseConfig.setLoadBalanceRule("round");         CommonConfig config = new CommonConfig();         config.setConsumerConfig(this);         config.setRegistryConfig(registryConfig);         config.setBaseConfig(baseConfig);         return (T) RpcProxy.invoke(ClassLoaderUtils.forName(interfaceName), config);     }      @Override     public Class&lt;?&gt; getObjectType() {         try {             if (!Objects.isNull(interfaceName)) {                 return ClassLoaderUtils.forName(interfaceName);             }             return null;         } catch (ClassNotFoundException e) {             return null;         }     }      @Override     public boolean isSingleton() {         return true;     } } </code></pre> <p>这里的<code>ConsumerBean</code>是一个<code>FactoryBean</code>；在创建bean实例的时候，会从这里来加载；这是spring相关的东西，不深究，然后这里同样是不完善的，很多配置都没有，这里的话就是取调用之前分析的代理方法<code>RpcProxy.invoke</code>；所以消费者在通过<code>@Autowired</code>去注入对象的时候，会放在三级缓存里面，然后往上传递，这里就生成了动态代理类，下次调用就会就走之前分析的逻辑，走handler里面处理；这里也比较简单；</p> <h2> 配置扫描</h2> <p>这里涉及到了xsd的东西，也就是xml命名空间定义的问题，比较有意思，因为之前我没接触过；首先我们前面说了，<code>ServerConfig</code>这些类，其实就是一些配置定义，然后各个业务bean继承，然后注入到spring中，这里是以xml形式注册的，所以需要有对应的xsd文件；</p> <p>先看看spring里面的注入形式：</p> <pre><code class="prism language-Java">public class RpcNamespaceXmlHandler extends NamespaceHandlerSupport {      /**      * 命名空间初始化      */     @Override     public void init() {         registerBeanDefinitionParser("server", new RpcXmlBeanDefinitionParser(ServerBean.class));         registerBeanDefinitionParser("provider", new RpcXmlBeanDefinitionParser(ProviderBean.class));         registerBeanDefinitionParser("consumer", new RpcXmlBeanDefinitionParser(ConsumerBean.class));     } } </code></pre> <p>这里就是继承<code>NamespaceHandlerSupport</code>类，但是这里有个问题，好想不能保证这几个bean的加载顺序，目前也不知道怎么处理，所以前面就是会在ProviderBean、ConsumerBean里面注入ServerBean，通过这样来保证顺序；</p> <p>这里写好了处理器，然后就是讲处理器加载到spring中，我们需要在<code>resources</code>资源文件下面新建文件<code>srping.handlers</code>:</p> <pre><code class="prism language-Bash">http\://rpc.simple.com/schema/rpc=com.simple.rpc.spring.RpcNamespaceXmlHandler </code></pre> <p>然后就是加载定义的xsd文件内容，也就是配置<code>schema</code></p> <p><code>spring.schemas</code></p> <pre><code class="prism language-Bash">http\://rpc.simple.com/schema/rpc/rpc.xsd=META-INF/rpc.xsd </code></pre> <p>然后这里就会去加载rpc.xsd这个文件里面的内容（粘贴部分代码）：</p> <pre><code class="prism language-Bash">&lt;xsd:element name="server"&gt; &lt;xsd:element name="provider"&gt; &lt;xsd:element name="consumer"&gt;  </code></pre> <p>现在就是配置都加载到了，就是解析配置；我们只需要定义一个paser，<code>RpcXmlBeanDefinitionParser</code>：</p> <pre><code class="prism language-Java">public class RpcXmlBeanDefinitionParser implements BeanDefinitionParser {     private final Class&lt;?&gt; beanClass;     RpcXmlBeanDefinitionParser(Class&lt;?&gt; beanClass) {         this.beanClass = beanClass;     }     @Override     public BeanDefinition parse(Element element, ParserContext parserContext) {         RootBeanDefinition beanDefinition = new RootBeanDefinition();         beanDefinition.setBeanClass(beanClass);         beanDefinition.setLazyInit(false);         String beanName = element.getAttribute("id");         parserContext.getRegistry().registerBeanDefinition(beanName, beanDefinition);         for (Method method : beanClass.getMethods()) {             if (!isProperty(method, beanClass)) {continue;}             String name = method.getName();             String methodName = name.substring(3, 4).toLowerCase() + name.substring(4);             String value = element.getAttribute(methodName);             beanDefinition.getPropertyValues().addPropertyValue(methodName, value);         }         return beanDefinition;     }      private boolean isProperty(Method method, Class beanClass) {       // 判断是否是getter、setter方法     } } </code></pre> <p>这里就是获取对应配置类的getter、setter方法，然后对其属性赋值；然后配置信息就被加载到了；</p> <p>整合spring大概就是这个原理，然后使用这里就不说了；有专门介绍大大小小功能的文章；</p> </h1> <blockquote> <p>相较于spring的整合，Springboot整合相对来说也比较简单，只是加了很多注解信息，使用注解的方法来注入服务和引用；先看看注解信息；</p> </blockquote> <ul> <li> <code>SimpleRpcService：</code>这个表明一个类是RPC提供的类，然后有个<code>alias</code>方法用来和接口的权限定名+别名来做RPC服务中的唯一值的，一般就是和beanName是同一个值；</li> <li> <code>SimpleRpcReference</code>：这个注解就相当于我们用的<code>@Autowired</code>，标记这是一个RPC的调用，里面是设计了当前这个rpc接口的负载均衡策略、版本号等，但是后面没去实现；</li> <li> <code>SimpleRpcScan</code>：这个是用来扫描对应包下面的所有的RPC提供的接口，会配合<code>Scanner</code>类来进行包扫描和类加载；</li> </ul> <h2> 项目目录</h2> <pre><code class="prism language-Bash">. └── springboot     ├── ApplicationClosedEventListener.java     ├── ServerInitBeanPostProcessor.java     ├── ServiceBeanPostProcessor.java     ├── annotaton     │   └── SimpleRpcScan.java     ├── config     │   ├── BootBaseConfig.java     │   └── BootRegisterConfig.java     └── scanner         ├── SimpleRpcScanner.java         └── SimpleRpcScannerRegistrar.java  </code></pre> <h2> 类扫描原理</h2> <p><code>SimpleRpcScanner</code>：</p> <pre><code class="prism language-Java">public class SimpleRpcScanner extends ClassPathBeanDefinitionScanner {      @SafeVarargs     public SimpleRpcScanner(BeanDefinitionRegistry registry, Class&lt;? extends Annotation&gt;... annotationTypes) {         // 注册bean信息         super(registry);         // 获取包含对应注解的类         for (Class&lt;? extends Annotation&gt; annotationType : annotationTypes) {             super.addIncludeFilter(new AnnotationTypeFilter(annotationType));         }     } } </code></pre> <p>这里就是将使用了指定注解的类加载到过滤器中；</p> <p>然后配合注册处理器使用，将扫描到的bean信息注入到spring容器中：</p> <pre><code class="prism language-Java">public class SimpleRpcScannerRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware {      /**      * 服务扫描的基础包，是 @RpcScan 的哪个属性      */     private static final String SERVER_SCANNER_BASE_PACKAGE_FIELD = "basePackages";      /**      * 默认基础包      */     private static final String[] DEFAULT_SCANNER_BASE_PACKAGES = {"com.simple.rpc"};      private ResourceLoader resourceLoader;      @Override     public void setResourceLoader(ResourceLoader resourceLoader) {         this.resourceLoader = resourceLoader;     }      /**      * 注册bean信息，丢到spring容器中      *      * @param importingClassMetadata      * @param registry      */     @Override     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {         //扫描注解         Map&lt;String, Object&gt; annotationAttributes = importingClassMetadata.getAnnotationAttributes(SimpleRpcScan.class.getName());         SimpleRpcScanner serviceScanner = new SimpleRpcScanner(registry, SimpleRpcService.class);         if (resourceLoader != null) {             serviceScanner.setResourceLoader(resourceLoader);         }         String[] serviceBasePackages = (String[]) annotationAttributes.get(SERVER_SCANNER_BASE_PACKAGE_FIELD);         if (serviceBasePackages.length &lt; 1) {             serviceBasePackages = DEFAULT_SCANNER_BASE_PACKAGES;         }         int serviceCount = serviceScanner.scan(serviceBasePackages);         SimpleRpcLog.info(StrUtil.format("serviceScanner. packages={}, count={}", serviceBasePackages, serviceCount));     } } </code></pre> <p>这里的逻辑就是，先是拿到所有的<code>@SimpleRpcScan</code>注解信息，然后在构建注解扫描器：</p> <p><code>new SimpleRpcScanner(registry, SimpleRpcService.class);</code>然后获取所有的<code>basePackages</code>路径，配合<code>serviceScanner.scan(serviceBasePackages)</code>将所有符合的类都注入到spring中；当然这里只是元数据信息注册，并没有实例化对象；</p> <h2> 服务初始化和注册</h2> <p>先看看初始化，没想到放在那个节点合适；所以就继承了<code>BeanPostProcessor</code>，之前的想法是想放在SpringBoot的启动时机，但是需要使用到配置类的；我这里没去验证启动时间和配置类加载的顺序，所以就使用现在这套方案；看看代码：</p> <pre><code class="prism language-Java">@Override public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {     if (initFlag) {         init(bootRegisterConfig);         initFlag = false;     }     return bean; }  public void init(BootRegisterConfig bootRegisterConfig) throws BeansException {     SimpleRpcUrl simpleRpcUrl = SimpleRpcUrl.toSimpleRpcUrl(bootRegisterConfig);     // 保存注册中心信息     RegisterInfoCache.save(bootRegisterConfig);     //启动注册中心     RegisterCenterFactory.create(simpleRpcUrl.getType()).init(simpleRpcUrl);     SimpleRpcLog.info("注册中心初始化：{}", bootRegisterConfig.getAddress());     //初始化服务端     RpcServerSocket serverSocket = new RpcServerSocket(buildRequest(bootBaseConfig));     executorService.submit(serverSocket);     while (!serverSocket.isActiveSocketServer()) {         try {             Thread.sleep(500);         } catch (InterruptedException ignore) {         }     }     SimpleRpcLog.info("初始化生产端服务完成 {} {}", LocalAddressInfo.LOCAL_HOST, LocalAddressInfo.PORT); }  </code></pre> <p>这里的话会去判断是否已经记初始化过了；</p> <p>初始化跟spring的差不多，也是初始化注册中心和初始化netty服务端；</p> <p>服务启动就这些东西，然后就是服务注册操作了，同样是<code>ServiceBeanPostProcessor</code>切入，这里跟上面初始化操作是根据<code>Ordered</code>来实现加载顺序的；先看服务注册：</p> <pre><code class="prism language-Java">public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {         // 判断是否是被@SimpleRpcService注解的类         SimpleRpcService rpcService = bean.getClass().getAnnotation(SimpleRpcService.class);         SimpleRpcUrl simpleRpcUrl = SimpleRpcUrl.toSimpleRpcUrl(bootRegisterConfig);         // rpc 服务需要发布到注册中心         if (rpcService != null) {             RegisterCenter registerCenter = RegisterCenterFactory.create(simpleRpcUrl.getType());             Request request = new Request();             String applicationName = ApplicationCache.APPLICATION_NAME;             request.setApplicationName(applicationName);             request.setLoadBalanceRule(bootBaseConfig.getLoadBalanceRule());             request.setSerializer(bootBaseConfig.getSerializer());             request.setCompressor(bootBaseConfig.getCompressor());             request.setRegister(bootBaseConfig.getRegister());             request.setWeights(bootBaseConfig.getWeights());             request.setHost(LocalAddressInfo.LOCAL_HOST);             request.setPort(LocalAddressInfo.PORT);             request.setHealth(HealthStatus.IS_HEALTH.getCode());             Class&lt;?&gt;[] interfaces = bean.getClass().getInterfaces();             if (!CollectionUtils.isEmpty(Arrays.asList(interfaces))) {                 for (Class&lt;?&gt; anInterface : interfaces) {                     String alias = getBeanName(anInterface.getCanonicalName());                     request.setAlias(StrUtil.isBlank(rpcService.alias()) ? alias : rpcService.alias());                     request.setBeanName(alias);                     request.setInterfaceName(anInterface.getCanonicalName());                     String registerKey = registerCenter.register(Request.request2Register(request));                     // 将对应的bean存入到缓存之中                     SimpleRpcServiceCache.addService(registerKey, bean);                 }             }         }         return bean;     } </code></pre> <p>拿到注解信息，然后拿到这个bean 可能的所有实现的接口，然后拿到对应的接口的权限定名+ alias作为key存入到注册中心，然后将该baan存到缓存之中，在netty-server的handler中会使用到；这里已经把服务元信息注册到注册中心了，然后bean也注入到缓存中了；spring中也有了；这里就是注册；</p> <p>然后就是服务的使用了，同样在这个类里面，放在了另外一个方法里面：</p> <pre><code class="prism language-Java">public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {         Field[] fields = bean.getClass().getDeclaredFields();         for (Field field : fields) {             SimpleRpcReference rpcReference = field.getAnnotation(SimpleRpcReference.class);             if (rpcReference != null) {                 // 生成代理对象                 Object proxy = null;                 try {                     ConsumerConfig consumerConfig = buildConsumerConfig(field, rpcReference);                     proxy = RpcProxy.invoke(ClassLoaderUtils.forName(consumerConfig.getInterfaceName()), buildCommonConfig(consumerConfig));                 } catch (ClassNotFoundException e) {                     e.printStackTrace();                 }                 field.setAccessible(true);                 try {                     // 设置字段                     field.set(bean, proxy);                 } catch (IllegalAccessException e) {                     SimpleRpcLog.error("field.set error. bean={}, field={}", bean.getClass(), field.getName(), e);                 }             }         }         return bean;     } </code></pre> <p>这里就是去获取对象里面的字段，一般我们引入类的方式就是通过<code>AService aService</code>这种方式注入，然后这里的话就是先为该类生成对应的代理类<code>field.set(bean, proxy);</code>然后实际调用延迟到handler中去处理，这里就是服务发现，也比较简单；</p> <p>整合就是这些了！！</p> <hr/> <p>谢谢大家阅读！！！</p> <p>公众号： 搜索关注，爱搞技术的吴同学 ，公众号上会经常写实用性的文章，谢谢关注！！回复：“加好友”，可获取我的微信二维码，欢迎加好友，一起学习！！！</p> <p>大量源码： 欢迎star，可能会分享微服务实战，分页插件等；gitee</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109932.htm">动物疫苗价格表图片大全集高清 动物疫苗价格表图片大全集高清版</a></p>
+                                        <p>下一个：<a href="/news/article-110677.htm">动物医院取什么名字形容敬业（动物医院有什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-21-free-ssr-subscribe.htm" title="「4月21日」最高速度18.2M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接">「4月21日」最高速度18.2M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-97298.htm" title="动物疫苗品牌排名前十名 动物疫苗品牌排名前十名有哪些">动物疫苗品牌排名前十名 动物疫苗品牌排名前十名有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-96609.htm" title="做梦梦见抱着小女孩是什么意思呀（梦见抱着个小女孩什么意思）">做梦梦见抱着小女孩是什么意思呀（梦见抱着个小女孩什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-94029.htm" title="动物医院专业就业前景分析（动物医院专业排名）">动物医院专业就业前景分析（动物医院专业排名）</a></li>
+                        <li class="py-2"><a href="/news/article-105596.htm" title="动物疫苗的种类有哪些图片及价格大全集（动物疫苗的种类和制备原理）">动物疫苗的种类有哪些图片及价格大全集（动物疫苗的种类和制备原理）</a></li>
+                        <li class="py-2"><a href="/news/article-100964.htm" title="宠物粮品牌名称有哪些好听的（宠物粮生产厂家排名）">宠物粮品牌名称有哪些好听的（宠物粮生产厂家排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-1-free-clash.htm" title="「5月1日」最高速度22.3M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接">「5月1日」最高速度22.3M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-30-free-shadowrocket-node.htm" title="「4月30日」最高速度18M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「4月30日」最高速度18M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-clash-node.htm" title="「4月13日」最高速度21M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「4月13日」最高速度21M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-node-share-links.htm" title="「4月25日」最高速度19.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「4月25日」最高速度19.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer 3 - Bootstrap Brain Component -->
+    <footer class="footer">
+        <div class="border-top py-4 py-md-5 py-xl-8">
+            <div class="container overflow-hidden">
+                <div class="row gy-4 gy-md-0">
+                    <div class="col-xs-12 col-md-12 order-2 order-md-1">
+                        <div class="footer-copyright-wrapper text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            WindowsClashNode节点订阅站 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/windowsclashnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/windowsclashnode/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- Javascript Files: Controllers -->
+    <script src="/assets/website/js/frontend/windowsclashnode/global.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
