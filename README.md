@@ -1,4 +1,4 @@
-# 「5月5日」最高速度22.9M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接  更新时间 2025-05-05 09:11:31
+# 「5月10日」最高速度18.6M/S，2025年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接  更新时间 2025-05-10 08:58:05
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://windowsclashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://windowsclashnode.github.io/uploads/2025/05/0-20250505.yaml
-- https://windowsclashnode.github.io/uploads/2025/05/1-20250505.yaml
-- https://windowsclashnode.github.io/uploads/2025/05/2-20250505.yaml
-- https://windowsclashnode.github.io/uploads/2025/05/3-20250505.yaml
-- https://windowsclashnode.github.io/uploads/2025/05/4-20250505.yaml
+- https://windowsclashnode.github.io/uploads/2025/05/0-20250510.yaml
+- https://windowsclashnode.github.io/uploads/2025/05/1-20250510.yaml
+- https://windowsclashnode.github.io/uploads/2025/05/2-20250510.yaml
+- https://windowsclashnode.github.io/uploads/2025/05/3-20250510.yaml
+- https://windowsclashnode.github.io/uploads/2025/05/4-20250510.yaml
 
 ### V2ray订阅链接
 
-- https://windowsclashnode.github.io/uploads/2025/05/0-20250505.txt
-- https://windowsclashnode.github.io/uploads/2025/05/1-20250505.txt
-- https://windowsclashnode.github.io/uploads/2025/05/2-20250505.txt
-- https://windowsclashnode.github.io/uploads/2025/05/3-20250505.txt
-- https://windowsclashnode.github.io/uploads/2025/05/4-20250505.txt
+- https://windowsclashnode.github.io/uploads/2025/05/0-20250510.txt
+- https://windowsclashnode.github.io/uploads/2025/05/1-20250510.txt
+- https://windowsclashnode.github.io/uploads/2025/05/2-20250510.txt
+- https://windowsclashnode.github.io/uploads/2025/05/3-20250510.txt
+- https://windowsclashnode.github.io/uploads/2025/05/4-20250510.txt
 
 ### Sing-box订阅链接
 
-- https://windowsclashnode.github.io/uploads/2025/05/20250505.json
+- https://windowsclashnode.github.io/uploads/2025/05/20250510.json
 
 ## 更多clash节点订阅 ：
 
