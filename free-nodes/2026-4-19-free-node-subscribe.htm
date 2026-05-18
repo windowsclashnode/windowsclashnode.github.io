@@ -158,9 +158,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
+    <div class="panel-body">
+        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持自定义 DNS 解析？</h5></div>
+    <div class="panel-body">
+        支持。用户可以在配置中指定 DNS 服务器或启用 DoH/DoT 功能，确保域名解析安全和快速，避免本地 DNS 污染或被劫持。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 客户端延迟测试值不稳定怎么办？</h5></div>
+    <div class="panel-body">
+        可通过调整 Hysteria2 的 `recv_window` 与 `send_window` 参数改善传输性能，同时确保服务器带宽充足。若使用移动网络，建议启用 BBR 拥塞控制并降低测速频率以减少波动。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 用户带宽限制如何配置？</h5></div>
     <div class="panel-body">
         管理员可为每个用户设置上传、下载和总流量上限，超出限制可自动降速或阻止访问。保证服务器资源合理分配，避免单用户占用过多带宽，提高整体公平性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
+    <div class="panel-body">
+        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的加密方式如何选择？</h5></div>
@@ -173,19 +193,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         支持订阅 URL 自动更新节点，程序定期下载并替换旧节点。保证节点列表最新，减少手动维护，提高使用效率和便利性，同时保证网络访问稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 节点订阅如何实现自动更新？</h5></div>
     <div class="panel-body">
-        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 客户端延迟测试值不稳定怎么办？</h5></div>
-    <div class="panel-body">
-        可通过调整 Hysteria2 的 `recv_window` 与 `send_window` 参数改善传输性能，同时确保服务器带宽充足。若使用移动网络，建议启用 BBR 拥塞控制并降低测速频率以减少波动。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何安装？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持多平台，包括 Windows、Linux、macOS 和 Android。可从官方 GitHub 页面下载预编译版本或通过命令行安装。配置文件采用 JSON 格式，兼容多种协议配置。<hr />    </div>
+        用户可添加订阅 URL，Nekoray 会定期自动下载并更新节点列表。保持节点最新可减少手动维护，提高节点可用性和网络连接稳定性，确保科学上网体验顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 使用 TAP 驱动时 Windows 弹出网络变更提示，该如何处理？</h5></div>
@@ -193,19 +203,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         这是正常现象，TAP 虚拟网卡会改变系统网络状态。建议在首次启用时允许驱动安装并授予网络权限，若频繁弹窗可在网络设置中调整网络识别类型或将 TAP 设为非计量连接。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持自定义 DNS 解析？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何安装？</h5></div>
     <div class="panel-body">
-        支持。用户可以在配置中指定 DNS 服务器或启用 DoH/DoT 功能，确保域名解析安全和快速，避免本地 DNS 污染或被劫持。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅如何实现自动更新？</h5></div>
-    <div class="panel-body">
-        用户可添加订阅 URL，Nekoray 会定期自动下载并更新节点列表。保持节点最新可减少手动维护，提高节点可用性和网络连接稳定性，确保科学上网体验顺畅。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
-    <div class="panel-body">
-        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。    </div>
+        Sing-box 支持多平台，包括 Windows、Linux、macOS 和 Android。可从官方 GitHub 页面下载预编译版本或通过命令行安装。配置文件采用 JSON 格式，兼容多种协议配置。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -234,16 +234,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-14-clash-verge-rev-github.htm" title="Windows Clash - 4月14日18.6M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月14日18.6M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-19-free-node-subscribe.htm" title="Windows Clash - 4月19日18.8M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月19日18.8M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-18-clash-verge-rev-node-share.htm" title="Windows Clash - 4月18日20.5M/S|免费Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月18日20.5M/S|免费Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-13-clash-verge-rev-node.htm" title="Windows Clash - 4月13日18.2M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月13日18.2M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-4-free-node-subscribe.htm" title="Windows Clash - 5月4日22.2M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月4日22.2M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-9-clash-node.htm" title="Windows Clash - 5月9日20.7M/S|免费Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月9日20.7M/S|免费Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-3-clash-verge-rev-nodes.htm" title="Windows Clash - 5月3日22.7M/S|免费Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月3日22.7M/S|免费Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-15-clash-verge-rev-windows.htm" title="Windows Clash - 4月15日19.8M/S|免费Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月15日19.8M/S|免费Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-12-clash-verge-rev-windows.htm" title="Windows Clash - 4月12日20M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月12日20M/S|免费Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-22-clash-v2ray-ss-ssr.htm" title="Windows Clash - 4月22日19.2M/S|免费Clash节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Singbox节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月22日19.2M/S|免费Clash节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Singbox节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-16-clash-verge-rev-windows.htm" title="Windows Clash - 4月16日22M/S|免费Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月16日22M/S|免费Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-20-clash-stash.htm" title="Windows Clash - 4月20日23M/S|免费Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月20日23M/S|免费Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-10-clash-stash.htm" title="Windows Clash - 4月10日20.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月10日20.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-26-free-node-subscribe.htm" title="Windows Clash - 4月26日21.2M/S|免费Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月26日21.2M/S|免费Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-node-subscribe.htm" title="Windows Clash - 4月9日20.7M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月9日20.7M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-27-clash-node.htm" title="Windows Clash - 4月27日21.6M/S|免费Singbox节点/V2ray节点/Clash节点/Trojan节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月27日21.6M/S|免费Singbox节点/V2ray节点/Clash节点/Trojan节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-25-clash-verge-rev-github.htm" title="Windows Clash - 4月25日18M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 4月25日18M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-8-node-share.htm" title="Windows Clash - 5月8日19.3M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月8日19.3M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-6-clash-node-github.htm" title="Windows Clash - 5月6日20.5M/S|免费Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月6日20.5M/S|免费Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点节点推荐，V2ray梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -255,10 +255,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
