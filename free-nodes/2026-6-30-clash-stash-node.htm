@@ -370,24 +370,14 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
-    <div class="panel-body">
-        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 如何防止流量被 DPI 检测？</h5></div>
     <div class="panel-body">
         通过协议插件和混淆方式可以模拟正常 HTTPS 或 HTTP 流量，隐藏真实流量特征。合理配置混淆插件和加密方式，可以有效绕过 DPI 检测，保证连接稳定性和长期可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的路由规则可设置哪些匹配条件？</h5></div>
     <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 的 GUI 界面如何导出节点？</h5></div>
-    <div class="panel-body">
-        V2RayN 提供节点导出功能，可生成分享链接或二维码。用户右键节点选择“分享”即可导出，以便在其他设备导入同样的代理配置，保持同步使用体验。<hr />    </div>
+        路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的延迟测试如何影响策略组选择？</h5></div>
@@ -395,14 +385,9 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
         PassWall2 会根据节点延迟结果更新策略组的优先节点，自动选择延迟最低的节点处理流量。这样可以优化访问速度，提高网页浏览、视频和游戏体验的稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
+    <div class="panel-heading"><h5>V2RayN 的 GUI 界面如何导出节点？</h5></div>
     <div class="panel-body">
-        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何结合规则实现智能节点切换？</h5></div>
-    <div class="panel-body">
-        Surfboard 可根据规则文件和策略组自动选择延迟低、稳定性高的节点处理流量。不同应用流量可分配不同节点，优化访问速度和稳定性，减少手动切换节点的操作。<hr />    </div>
+        V2RayN 提供节点导出功能，可生成分享链接或二维码。用户右键节点选择“分享”即可导出，以便在其他设备导入同样的代理配置，保持同步使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 混淆方式如何提升抗封锁能力？</h5></div>
@@ -415,9 +400,24 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
         支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的路由规则可设置哪些匹配条件？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
     <div class="panel-body">
-        路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。    </div>
+        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 如何结合规则实现智能节点切换？</h5></div>
+    <div class="panel-body">
+        Surfboard 可根据规则文件和策略组自动选择延迟低、稳定性高的节点处理流量。不同应用流量可分配不同节点，优化访问速度和稳定性，减少手动切换节点的操作。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
+    <div class="panel-body">
+        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -447,15 +447,13 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
-                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
+                    <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
-                        <p>高速稳定的网络加速</p>
-                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
-全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                        <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
             </div>
         </div>
@@ -467,16 +465,16 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-3-clash-verge-rev-nodes.htm" title="Windows Clash - 5月3日22.7M/S|免费Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月3日22.7M/S|免费Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-19-clash-verge-rev-windows.htm" title="Windows Clash - 6月19日20.1M/S|免费SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月19日20.1M/S|免费SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-20-clash-verge-rev-nodes.htm" title="Windows Clash - 6月20日21.8M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月20日21.8M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-8-free-node-subscribe.htm" title="Windows Clash - 7月8日22.6M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点节点推荐，V2ray梯子购买推荐">Windows Clash - 7月8日22.6M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-21-clash-node-github.htm" title="Windows Clash - 6月21日19.8M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月21日19.8M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-5-clash-verge-rev-github.htm" title="Windows Clash - 7月5日22.9M/S|免费Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 7月5日22.9M/S|免费Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-3-clash-verge-rev-windows.htm" title="Windows Clash - 7月3日20.1M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 7月3日20.1M/S|免费Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-6-clash-node.htm" title="Windows Clash - 7月6日20.9M/S|免费Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 7月6日20.9M/S|免费Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-7-1-clash-verge-rev-node.htm" title="Windows Clash - 7月1日22.3M/S|免费Trojan节点/Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 7月1日22.3M/S|免费Trojan节点/Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-26-clash-meta-github.htm" title="Windows Clash - 6月26日20.4M/S|免费Singbox节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月26日20.4M/S|免费Singbox节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点/SSR节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-29-clash-v2ray-ss-ssr.htm" title="Windows Clash - 5月29日20.4M/S|免费V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月29日20.4M/S|免费V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-18-clash-stash.htm" title="Windows Clash - 5月18日21M/S|免费Trojan节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月18日21M/S|免费Trojan节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-11-clash-verge-rev-node.htm" title="Windows Clash - 5月11日19.2M/S|免费V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点/Trojan节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月11日19.2M/S|免费V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点/Trojan节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-25-clash-node-github.htm" title="Windows Clash - 5月25日23M/S|免费Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月25日23M/S|免费Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-7-clash-meta-github.htm" title="Windows Clash - 5月7日21.9M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月7日21.9M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-28-free-node-subscribe.htm" title="Windows Clash - 6月28日22.3M/S|免费Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月28日22.3M/S|免费Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-10-clash-stash-node.htm" title="Windows Clash - 5月10日22M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 5月10日22M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-29-clash-node-github.htm" title="Windows Clash - 6月29日20.9M/S|免费V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月29日20.9M/S|免费V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-12-clash-verge-rev-node-share.htm" title="Windows Clash - 6月12日19.6M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点节点推荐，V2ray梯子购买推荐">Windows Clash - 6月12日19.6M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点节点推荐，V2ray梯子购买推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -488,13 +486,10 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                     </ul>
     </div>
@@ -524,9 +519,7 @@ Shadowrocket，不仅是工具，更是一种技术觉醒的开始。</p>
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
-                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
-全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                                 WindowsClashNode节点订阅站 版权所有 Powered by WordPress
                         </div>
                     </div>
