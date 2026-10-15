@@ -1,4 +1,4 @@
-# Windows Clash - 10月7日21.4M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点节点推荐，V2ray梯子购买推荐  更新时间 2026-10-07 09:56:26
+# Windows Clash - 10月15日21.7M/S|免费Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点节点推荐，V2ray梯子购买推荐  更新时间 2026-10-15 00:28:41
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://windowsclashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://windowsclashnode.github.io/uploads/2026/10/0-20261007.yaml
-- https://windowsclashnode.github.io/uploads/2026/10/1-20261007.yaml
-- https://windowsclashnode.github.io/uploads/2026/10/2-20261007.yaml
-- https://windowsclashnode.github.io/uploads/2026/10/3-20261007.yaml
-- https://windowsclashnode.github.io/uploads/2026/10/4-20261007.yaml
+- https://windowsclashnode.github.io/uploads/2026/10/0-20261015.yaml
+- https://windowsclashnode.github.io/uploads/2026/10/1-20261015.yaml
+- https://windowsclashnode.github.io/uploads/2026/10/2-20261015.yaml
+- https://windowsclashnode.github.io/uploads/2026/10/3-20261015.yaml
+- https://windowsclashnode.github.io/uploads/2026/10/4-20261015.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://windowsclashnode.github.io/uploads/2026/10/0-20261007.txt
-- https://windowsclashnode.github.io/uploads/2026/10/1-20261007.txt
-- https://windowsclashnode.github.io/uploads/2026/10/2-20261007.txt
-- https://windowsclashnode.github.io/uploads/2026/10/3-20261007.txt
-- https://windowsclashnode.github.io/uploads/2026/10/4-20261007.txt
+- https://windowsclashnode.github.io/uploads/2026/10/0-20261015.txt
+- https://windowsclashnode.github.io/uploads/2026/10/1-20261015.txt
+- https://windowsclashnode.github.io/uploads/2026/10/2-20261015.txt
+- https://windowsclashnode.github.io/uploads/2026/10/3-20261015.txt
+- https://windowsclashnode.github.io/uploads/2026/10/4-20261015.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://windowsclashnode.github.io/uploads/2026/10/20261007.json
+- https://windowsclashnode.github.io/uploads/2026/10/20261015.json
 
 ## 更多Clash节点订阅 ：
 
